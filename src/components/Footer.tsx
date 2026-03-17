@@ -23,8 +23,8 @@ export default function Footer() {
           ].map(link => (
             <Link key={link.label} href={link.href}
               style={{ fontSize: 12, color: '#333', textDecoration: 'none' }}
-              onMouseEnter={e => (e.currentTarget.style.color = '#777')}
-              onMouseLeave={e => (e.currentTarget.style.color = '#333')}>
+              className="footer-link"
+              >
               {link.label}
             </Link>
           ))}
