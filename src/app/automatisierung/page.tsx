@@ -21,17 +21,17 @@ const PAKETE = [
     href: '/automatisierung/immobilien',
     label: 'Immobilienmakler',
     tagline: 'Kein Lead geht mehr verloren',
-    desc: 'Von der Portalanfrage bis zum gebuchten Besichtigungstermin vollst\u00e4ndig automatisiert. Antwortzeit: unter 2 Minuten.',
-    features: ['Lead-Erfassung aus ImmoScout24 & Website', 'KI-basiertes Lead-Scoring', 'Automatische CRM-Bef\u00fcllung (onOffice u.a.)', 'Besichtigung online buchen mit Erinnerungen', 'Follow-up & Google-Bewertungsanfragen'],
+    desc: 'Von der Portalanfrage bis zum gebuchten Besichtigungstermin vollständig automatisiert. Antwortzeit: unter 2 Minuten.',
+    features: ['Lead-Erfassung aus ImmoScout24 & Website', 'KI-basiertes Lead-Scoring', 'Automatische CRM-Befüllung (onOffice u.a.)', 'Besichtigung online buchen mit Erinnerungen', 'Follow-up & Google-Bewertungsanfragen'],
     price: 'ab \u20ac2.500',
     retainer: '+ ab \u20ac600 / Monat',
-    roi: 'Spart 5\u201310 Stunden Admin / Monat',
+    roi: 'Spart 5–10 Stunden Admin / Monat',
   },
   {
     href: '/automatisierung/handwerk',
     label: 'Handwerksbetriebe',
     tagline: 'Anfragen, Angebote, Rechnungen automatisiert',
-    desc: 'Vom eingehenden Kundenauftrag bis zur bezahlten Rechnung l\u00e4uft alles automatisch. Inklusive ZUGFeRD E-Rechnung.',
+    desc: 'Vom eingehenden Kundenauftrag bis zur bezahlten Rechnung läuft alles automatisch. Inklusive ZUGFeRD E-Rechnung.',
     features: ['Automatische Anfragebestätigung in 2 Minuten', 'KI-Angebotsgenerierung vom Handy aus', 'Online-Terminbuchung ohne Telefon', 'Automatische Rechnungen (ZUGFeRD-konform)', 'Mahnwesen & Bewertungsanfragen'],
     price: 'ab \u20ac1.800',
     retainer: '+ ab \u20ac500 / Monat',
@@ -41,12 +41,12 @@ const PAKETE = [
   {
     href: '/automatisierung/bau',
     label: 'Bauunternehmen',
-    tagline: 'Kommunikation, Reporting, M\u00e4ngelmanagement',
-    desc: 'Automatischer Wochenbericht f\u00fcr den Bauherrn, M\u00e4ngeltracking mit Eskalation und digitale \u00dcbergabedokumentation.',
-    features: ['Projektstart-Automatisierung', 'Automatischer Wochenbericht f\u00fcr Bauherrn', 'M\u00e4ngelmanagement mit Eskalation', 'Subunternehmer-Koordination', '\u00dcbergabedokumentation automatisch'],
+    tagline: 'Kommunikation, Reporting, Mängelmanagement',
+    desc: 'Automatischer Wochenbericht für den Bauherrn, Mängeltracking mit Eskalation und digitale Übergabedokumentation.',
+    features: ['Projektstart-Automatisierung', 'Automatischer Wochenbericht für Bauherrn', 'Mängelmanagement mit Eskalation', 'Subunternehmer-Koordination', 'Übergabedokumentation automatisch'],
     price: 'ab \u20ac3.500',
     retainer: '+ ab \u20ac800 / Monat',
-    roi: 'Spart 10\u201315 Stunden Koordination / Woche',
+    roi: 'Spart 10–15 Stunden Koordination / Woche',
   },
 ];
 
@@ -64,7 +64,7 @@ export default function AutomatisierungPage() {
           </h1>
           <p style={{ fontSize: 15, color: '#555', lineHeight: 1.65, margin: '0 0 32px' }}>
             Jedes Paket ist produktisiert, sofort einsetzbar und DSGVO-konform auf EU-Servern.
-            Der genaue Preis h\u00e4ngt von euren bestehenden Tools ab und wird im kostenlosen Audit festgelegt.
+            Der genaue Preis hängt von euren bestehenden Tools ab und wird im kostenlosen Audit festgelegt.
           </p>
           <a href="https://calendly.com/meyer-samantha-praxisnovaai/30min" target="_blank" rel="noreferrer"
             style={{ display: 'inline-block', background: CORAL, color: '#fff', padding: '12px 28px', borderRadius: 8, fontSize: 14, fontWeight: 700, textDecoration: 'none' }}>

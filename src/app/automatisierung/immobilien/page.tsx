@@ -9,9 +9,9 @@ const CORAL = '#E8472A';
 
 const STEPS = [
   { num: '1', title: 'Lead kommt an', detail: 'Anfrage aus ImmoScout24, Immowelt oder eurer Website landet automatisch in n8n' },
-  { num: '2', title: 'KI bewertet den Lead', detail: 'Score 1\u201310 anhand von Kaufbereitschaft, Budget-Hinweisen und Anfragentext' },
-  { num: '3', title: 'CRM wird aktualisiert', detail: 'Hei\u00dfer Lead wird automatisch als Kontakt in eurem CRM angelegt (onOffice u.a.)' },
-  { num: '4', title: 'Antwort in 2 Minuten', detail: 'Personalisierte Best\u00e4tigung mit Objektnamen wird sofort versendet' },
+  { num: '2', title: 'KI bewertet den Lead', detail: 'Score 1–10 anhand von Kaufbereitschaft, Budget-Hinweisen und Anfragentext' },
+  { num: '3', title: 'CRM wird aktualisiert', detail: 'Heißer Lead wird automatisch als Kontakt in eurem CRM angelegt (onOffice u.a.)' },
+  { num: '4', title: 'Antwort in 2 Minuten', detail: 'Personalisierte Bestätigung mit Objektnamen wird sofort versendet' },
   { num: '5', title: 'Besichtigung gebucht', detail: 'Interessent bucht Termin online. Erinnerungen 24h und 1h vorher automatisch.' },
   { num: '6', title: 'Follow-up nach Besichtigung', detail: '2 Stunden nach dem Termin: automatische Nachfass-E-Mail' },
   { num: '7', title: 'Bewertungsanfrage', detail: 'Nach erfolgreichem Abschluss: automatische Google-Bewertungsanfrage' },
@@ -47,7 +47,7 @@ export default function ImmobilienPage() {
             </div>
             <div style={{ textAlign: 'center' }}>
               <div style={{ fontSize: 22, fontWeight: 700, color: CORAL }}>21x</div>
-              <div style={{ fontSize: 11, color: '#444' }}>h\u00f6here Abschlusswahrscheinlichkeit</div>
+              <div style={{ fontSize: 11, color: '#444' }}>höhere Abschlusswahrscheinlichkeit</div>
             </div>
           </div>
         </div>
@@ -56,7 +56,7 @@ export default function ImmobilienPage() {
       {/* WORKFLOW */}
       <section style={{ padding: '16px 32px 64px' }}>
         <div style={{ maxWidth: 800, margin: '0 auto' }}>
-          <h2 style={{ fontSize: 20, fontWeight: 600, marginBottom: 28 }}>So l\u00e4uft der automatisierte Prozess ab</h2>
+          <h2 style={{ fontSize: 20, fontWeight: 600, marginBottom: 28 }}>So läuft der automatisierte Prozess ab</h2>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 0 }}>
             {STEPS.map((step, i) => (
               <div key={i} style={{ display: 'flex', gap: 0 }}>
@@ -85,12 +85,12 @@ export default function ImmobilienPage() {
               {[
                 'Lead-Erfassung aus ImmoScout24, Immowelt und Website-Formular',
                 'KI-basiertes Lead-Scoring mit automatischer Weiterleitung',
-                'Automatische CRM-Bef\u00fcllung (onOffice, FlowFact, Propstack u.a.)',
+                'Automatische CRM-Befüllung (onOffice, FlowFact, Propstack u.a.)',
                 'Personalisierte Erstantwort innerhalb von 2 Minuten',
                 'Online-Terminbuchung mit automatischen Erinnerungen (24h + 1h)',
                 'Nachfass-Sequenz nach der Besichtigung',
                 'Automatische Google-Bewertungsanfrage nach Abschluss',
-                'DSGVO-konforme Einwilligungspr\u00fcfung und Audit-Log',
+                'DSGVO-konforme Einwilligungsprüfung und Audit-Log',
               ].map((item, i) => (
                 <div key={i} style={{ display: 'flex', gap: 10, alignItems: 'flex-start', marginBottom: 12 }}>
                   <span style={{ color: CORAL, flexShrink: 0, marginTop: 2 }}>&#10003;</span>
@@ -109,7 +109,7 @@ export default function ImmobilienPage() {
                 {[
                   ['Aufbauzeit', 'ca. 10 Werktage'],
                   ['Datenhaltung', 'EU-Server (DSGVO)'],
-                  ['Vertragslaufzeit', 'Monatlich k\u00fcndbar'],
+                  ['Vertragslaufzeit', 'Monatlich kündbar'],
                   ['Technologie', 'n8n + Make (EU)'],
                   ['Einweisung', '1h Telefontermin inklusive'],
                 ].map(([k, v]) => (
@@ -124,11 +124,11 @@ export default function ImmobilienPage() {
               <div style={{ background: '#111', border: `1px solid ${CORAL}33`, borderRadius: 12, padding: 20 }}>
                 <div style={{ fontSize: 13, fontWeight: 600, color: '#fff', marginBottom: 8 }}>Euer ROI</div>
                 <p style={{ fontSize: 12, color: '#444', lineHeight: 1.6, margin: '0 0 8px' }}>
-                  Ein typischer Makler verbringt 5\u201310 Stunden pro Monat mit manuellem Lead-Management.
+                  Ein typischer Makler verbringt 5–10 Stunden pro Monat mit manuellem Lead-Management.
                   Bei einem Stundensatz von 80\u20ac sind das bis zu <span style={{ color: '#fff' }}>800\u20ac verschwendet pro Monat</span>.
                 </p>
                 <p style={{ fontSize: 12, color: '#444', lineHeight: 1.6, margin: 0 }}>
-                  Reaktion in unter 2 Minuten erh\u00f6ht die Abschlusswahrscheinlichkeit um das <span style={{ color: CORAL }}>21-fache</span>.
+                  Reaktion in unter 2 Minuten erhöht die Abschlusswahrscheinlichkeit um das <span style={{ color: CORAL }}>21-fache</span>.
                 </p>
               </div>
             </div>
@@ -138,7 +138,7 @@ export default function ImmobilienPage() {
 
       {/* CTA */}
       <section style={{ padding: '64px 32px', textAlign: 'center' }}>
-        <h2 style={{ fontSize: 22, fontWeight: 600, margin: '0 0 12px' }}>Bereit f\u00fcr euren kostenlosen Erstcheck?</h2>
+        <h2 style={{ fontSize: 22, fontWeight: 600, margin: '0 0 12px' }}>Bereit für euren kostenlosen Erstcheck?</h2>
         <p style={{ fontSize: 14, color: '#555', margin: '0 0 24px', lineHeight: 1.6 }}>
           Wir analysieren euren aktuellen Lead-Prozess in 30 Minuten und zeigen euch genau, wo Automatisierung sofort wirkt.
         </p>

@@ -10,10 +10,10 @@ const CORAL = '#E8472A';
 const STEPS = [
   { num: '1', title: 'Anfrage kommt an', detail: 'E-Mail, Website-Formular oder WhatsApp. n8n liest die Nachricht automatisch aus.' },
   { num: '2', title: 'KI erfasst Jobdetails', detail: 'Art des Auftrags, Adresse, Dringlichkeit und Kontaktdaten werden automatisch extrahiert.' },
-  { num: '3', title: 'Best\u00e4tigung in 2 Minuten', detail: 'Kunde erh\u00e4lt sofort eine professionelle Eingangsbestätigung, 24/7.' },
-  { num: '4', title: 'Termin online gebucht', detail: 'Kunde bucht Vor-Ort-Termin selbst \u00fcber Cal.com. Keine Telefonate.' },
-  { num: '5', title: 'KI-Angebot vom Handy', detail: 'Meister f\u00fcllt kurzes Formular nach dem Termin. KI erstellt Angebot als PDF.' },
-  { num: '6', title: 'Meister pr\u00fcft und sendet', detail: 'Angebot wird mit einem Klick freigegeben und automatisch an den Kunden gesendet.' },
+  { num: '3', title: 'Bestätigung in 2 Minuten', detail: 'Kunde erhält sofort eine professionelle Eingangsbestätigung, 24/7.' },
+  { num: '4', title: 'Termin online gebucht', detail: 'Kunde bucht Vor-Ort-Termin selbst über Cal.com. Keine Telefonate.' },
+  { num: '5', title: 'KI-Angebot vom Handy', detail: 'Meister füllt kurzes Formular nach dem Termin. KI erstellt Angebot als PDF.' },
+  { num: '6', title: 'Meister prüft und sendet', detail: 'Angebot wird mit einem Klick freigegeben und automatisch an den Kunden gesendet.' },
   { num: '7', title: 'Rechnung nach Auftragsabschluss', detail: 'Auftrag abgeschlossen: Rechnung wird automatisch als ZUGFeRD E-Rechnung erstellt und versendet.' },
   { num: '8', title: 'Mahnwesen automatisch', detail: 'Unbezahlt nach 14 Tagen: Erinnerung. Nach 28 Tagen: Mahnung. Alles automatisch.' },
   { num: '9', title: 'Google-Bewertung anfordern', detail: '3 Tage nach Abschluss: automatische Bewertungsanfrage per WhatsApp oder E-Mail.' },
@@ -35,7 +35,7 @@ export default function HandwerkPage() {
             Anfragen, Angebote, Rechnungen automatisiert
           </h1>
           <p style={{ fontSize: 15, color: '#555', lineHeight: 1.65, margin: '0 0 28px', maxWidth: 560 }}>
-            Ihr verliert jeden Monat Auftr\u00e4ge, weil ihr zu sp\u00e4t antwortet und Angebote zu lange brauchen. Wir automatisieren alles zwischen Anfrage und Rechnung.
+            Ihr verliert jeden Monat Aufträge, weil ihr zu spät antwortet und Angebote zu lange brauchen. Wir automatisieren alles zwischen Anfrage und Rechnung.
           </p>
           <div style={{ display: 'flex', gap: 20, flexWrap: 'wrap' }}>
             <div style={{ textAlign: 'center' }}>
@@ -56,7 +56,7 @@ export default function HandwerkPage() {
 
       <section style={{ padding: '16px 32px 64px' }}>
         <div style={{ maxWidth: 800, margin: '0 auto' }}>
-          <h2 style={{ fontSize: 20, fontWeight: 600, marginBottom: 28 }}>So l\u00e4uft der automatisierte Prozess ab</h2>
+          <h2 style={{ fontSize: 20, fontWeight: 600, marginBottom: 28 }}>So läuft der automatisierte Prozess ab</h2>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 0 }}>
             {STEPS.map((step, i) => (
               <div key={i} style={{ display: 'flex', gap: 0 }}>
@@ -100,7 +100,7 @@ export default function HandwerkPage() {
               <div style={{ background: '#111', border: `1px solid ${CORAL}33`, borderRadius: 10, padding: 18, marginTop: 20 }}>
                 <div style={{ fontSize: 12, fontWeight: 600, color: CORAL, marginBottom: 8 }}>Rechtlicher Vorteil</div>
                 <p style={{ fontSize: 12, color: '#444', lineHeight: 1.6, margin: 0 }}>
-                  Seit Januar 2025 m\u00fcssen alle deutschen Unternehmen E-Rechnungen im ZUGFeRD/XRechnung-Format empfangen k\u00f6nnen. Dieses Paket beinhaltet GoBD-konforme, ZUGFeRD-Rechnungen. Euer Steuerberater wird es euch danken.
+                  Seit Januar 2025 müssen alle deutschen Unternehmen E-Rechnungen im ZUGFeRD/XRechnung-Format empfangen können. Dieses Paket beinhaltet GoBD-konforme, ZUGFeRD-Rechnungen. Euer Steuerberater wird es euch danken.
                 </p>
               </div>
             </div>
@@ -116,7 +116,7 @@ export default function HandwerkPage() {
                 {[
                   ['Aufbauzeit', 'ca. 10 Werktage'],
                   ['Datenhaltung', 'EU-Server (DSGVO)'],
-                  ['Vertragslaufzeit', 'Monatlich k\u00fcndbar'],
+                  ['Vertragslaufzeit', 'Monatlich kündbar'],
                   ['Format', 'ZUGFeRD / XRechnung'],
                   ['Einweisung', '1h Telefontermin inklusive'],
                 ].map(([k, v]) => (
@@ -131,7 +131,7 @@ export default function HandwerkPage() {
               <div style={{ background: '#111', border: `1px solid ${CORAL}33`, borderRadius: 12, padding: 20 }}>
                 <div style={{ fontSize: 13, fontWeight: 600, color: '#fff', marginBottom: 8 }}>Euer ROI</div>
                 <p style={{ fontSize: 12, color: '#444', lineHeight: 1.6, margin: '0 0 8px' }}>
-                  Ein 3-Personen-Betrieb verbringt 6\u20138 Stunden pro Woche mit Admin. Bei 60\u20ac/Std. Opportunit\u00e4tskosten sind das bis zu <span style={{ color: '#fff' }}>20.000\u20ac verschwendet pro Jahr</span>.
+                  Ein 3-Personen-Betrieb verbringt 6–8 Stunden pro Woche mit Admin. Bei 60\u20ac/Std. Opportunitätskosten sind das bis zu <span style={{ color: '#fff' }}>20.000\u20ac verschwendet pro Jahr</span>.
                 </p>
                 <p style={{ fontSize: 12, color: '#444', lineHeight: 1.6, margin: 0 }}>
                   Ab <span style={{ color: CORAL }}>500\u20ac/Monat</span> ist das schon nach wenigen Wochen amortisiert.
@@ -143,7 +143,7 @@ export default function HandwerkPage() {
       </section>
 
       <section style={{ padding: '64px 32px', textAlign: 'center' }}>
-        <h2 style={{ fontSize: 22, fontWeight: 600, margin: '0 0 12px' }}>Bereit f\u00fcr euren kostenlosen Erstcheck?</h2>
+        <h2 style={{ fontSize: 22, fontWeight: 600, margin: '0 0 12px' }}>Bereit für euren kostenlosen Erstcheck?</h2>
         <p style={{ fontSize: 14, color: '#555', margin: '0 0 24px', lineHeight: 1.6 }}>
           Wir analysieren eure aktuellen Prozesse in 30 Minuten und zeigen euch genau, wo Automatisierung sofort wirkt.
         </p>
