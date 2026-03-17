@@ -81,8 +81,8 @@ export default function UeberUnsPage() {
                 ))}
                 <a href={person.linkedin} target="_blank" rel="noreferrer"
                   style={{ display: 'inline-flex', alignItems: 'center', gap: 8, fontSize: 13, color: '#777', textDecoration: 'none', marginTop: 8, padding: '8px 14px', border: '1px solid #222', borderRadius: 6 }}
-                  onMouseEnter={e => { e.currentTarget.style.color = '#fff'; e.currentTarget.style.borderColor = '#444'; }}
-                  onMouseLeave={e => { e.currentTarget.style.color = '#777'; e.currentTarget.style.borderColor = '#222'; }}>
+                  }
+                  }>
                   <LinkedInIcon /> LinkedIn Profil
                 </a>
               </div>

@@ -384,8 +384,8 @@ export default function Page() {
                 <p style={{ fontSize: 13, color: '#555', lineHeight: 1.65, margin: '0 0 16px' }} dangerouslySetInnerHTML={{ __html: person.text }} />
                 <a href={person.linkedin} target="_blank" rel="noreferrer"
                   style={{ display: 'inline-flex', alignItems: 'center', gap: 6, fontSize: 12, color: '#777', textDecoration: 'none' }}
-                  onMouseEnter={e => (e.currentTarget.style.color = '#fff')}
-                  onMouseLeave={e => (e.currentTarget.style.color = '#777')}>
+                  
+                  >
                   <LinkedInIcon /> LinkedIn Profil
                 </a>
               </motion.div>
@@ -404,8 +404,8 @@ export default function Page() {
           </p>
           <a href="https://calendly.com/meyer-samantha-praxisnovaai/30min" target="_blank" rel="noreferrer"
             style={{ display: 'inline-block', background: CORAL, color: '#fff', padding: '15px 36px', borderRadius: 9, fontSize: 15, fontWeight: 700, textDecoration: 'none' }}
-            onMouseEnter={e => (e.currentTarget.style.transform = 'translateY(-2px)')}
-            onMouseLeave={e => (e.currentTarget.style.transform = 'translateY(0)')}>
+            
+            >
             Kostenlosen Audit buchen
           </a>
           <div style={{ fontSize: 12, color: '#2a2a2a', marginTop: 14 }}>
