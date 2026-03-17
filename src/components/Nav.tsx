@@ -14,6 +14,18 @@ export default function Nav() {
       background: '#0A0A0A', borderBottom: '1px solid #181818',
       padding: '14px 32px',
     }}>
+      <style>{`
+        @media (max-width: 768px) {
+          .hidden-mobile { display: none !important; }
+          .show-mobile { display: block !important; }
+        }
+        @media (min-width: 769px) {
+          .show-mobile { display: none !important; }
+        }
+        .nav-link { font-size: 13px; color: #555; text-decoration: none; transition: color 0.2s; }
+        .nav-link:hover { color: #999 !important; }
+      `}</style>
+
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', maxWidth: 1100, margin: '0 auto' }}>
         <Link href="/" style={{ display: 'flex', alignItems: 'center', gap: 10, textDecoration: 'none' }}>
           <div style={{ width: 10, height: 10, borderRadius: 3, background: CORAL }} />
@@ -25,13 +37,10 @@ export default function Nav() {
           {[
             { label: 'Workshops', href: '/#angebote' },
             { label: 'KI-Automatisierung', href: '/automatisierung' },
-            { label: 'Ueber uns', href: '/ueber-uns' },
+            { label: '\u00dcber uns', href: '/ueber-uns' },
           ].map(link => (
-            <Link key={link.label} href={link.href}
-              style={{ fontSize: 13, color: '#555', textDecoration: 'none' }}
-              onMouseEnter={e => (e.currentTarget.style.color = '#999')}
-              onMouseLeave={e => (e.currentTarget.style.color = '#555')}>
-              {link.label === 'Ueber uns' ? '\u00dcber uns' : link.label}
+            <Link key={link.label} href={link.href} className="nav-link">
+              {link.label}
             </Link>
           ))}
           <a href="https://calendly.com/meyer-samantha-praxisnovaai/30min" target="_blank" rel="noreferrer"
@@ -73,16 +82,6 @@ export default function Nav() {
           </a>
         </div>
       )}
-
-      <style>{`
-        @media (max-width: 768px) {
-          .hidden-mobile { display: none !important; }
-          .show-mobile { display: block !important; }
-        }
-        @media (min-width: 769px) {
-          .show-mobile { display: none !important; }
-        }
-      `}</style>
     </nav>
   );
 }
