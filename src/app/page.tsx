@@ -360,14 +360,14 @@ export default function Page() {
                 title: 'KI-Trainerin & Gr&#252;nderin',
                 text: 'Vertriebsexpertin mit Fokus auf die Baubranche. Anjuli zeigt eurem Team wie KI Angebote, Kommunikation und Akquise konkret beschleunigt.',
                 linkedin: 'https://www.linkedin.com/in/anjuli-hertle-a12335179',
-                photo: '/images/anjuli.jpg',
+                photo: '',
               },
               {
                 name: 'Samantha Meyer',
                 title: 'KI-Trainerin & Co-Gr&#252;nderin',
                 text: 'Spezialistin f&#252;r digitale Prozesse und Automatisierung. Samantha bringt strukturiertes Denken und technisches Know-how zusammen und sorgt daf&#252;r, dass KI-L&#246;sungen bei euch wirklich funktionieren.',
                 linkedin: 'https://www.linkedin.com/in/samantha-meyer-005b41277',
-                photo: '/images/samantha.jpg',
+                photo: '',
               },
             ].map((person, i) => (
               <motion.div key={i} whileHover={{ y: -2 }}
