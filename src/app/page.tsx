@@ -373,9 +373,6 @@ export default function Page() {
               <motion.div key={i} whileHover={{ y: -2 }}
                 style={{ background: '#0A0A0A', border: '1px solid #1a1a1a', borderRadius: 10, padding: 24 }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: 14, marginBottom: 14 }}>
-                  <div style={{ width: 64, height: 64, borderRadius: '50%', overflow: 'hidden', flexShrink: 0, border: `2px solid ${CORAL}33` }}>
-                    <Image src={person.photo} alt={person.name} width={64} height={64} style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top' }} />
-                  </div>
                   <div>
                     <div style={{ fontSize: 16, fontWeight: 600, color: '#fff' }}>{person.name}</div>
                     <div style={{ fontSize: 12, color: CORAL }} dangerouslySetInnerHTML={{ __html: person.title }} />
