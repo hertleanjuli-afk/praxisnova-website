@@ -8,13 +8,13 @@ const CORAL = '#E8472A';
 
 const STEPS = [
   { num: '1', title: 'Neues Projekt startet', detail: 'Projekt wird angelegt. Google Drive-Ordner wird automatisch strukturiert erstellt.' },
-  { num: '2', title: 'Alle Beteiligten informiert', detail: 'Bauherr erh\u00e4lt Willkommens-E-Mail. Alle Subunternehmer bekommen ihr Briefing-Paket automatisch.' },
+  { num: '2', title: 'Alle Beteiligten informiert', detail: 'Bauherr erhält Willkommens-E-Mail. Alle Subunternehmer bekommen ihr Briefing-Paket automatisch.' },
   { num: '3', title: 'Wochenbericht jeden Montag', detail: 'n8n fragt jeden Subunternehmer per Formular nach Status. KI kompiliert daraus einen professionellen PDF-Bericht.' },
-  { num: '4', title: 'Bericht automatisch versendet', detail: 'Bauherr erh\u00e4lt jeden Montag fr\u00fch seinen Projektbericht. Kein manuelles Schreiben.' },
-  { num: '5', title: 'M\u00e4ngel per Handy erfassen', detail: 'Bauleiter fotografiert M\u00e4ngel direkt vom Handy. Automatisch protokolliert mit Foto, Standort und Verantwortlichem.' },
-  { num: '6', title: 'Subunternehmer wird informiert', detail: 'Zust\u00e4ndiger Subunternehmer erh\u00e4lt sofort Benachrichtigung mit Deadline.' },
-  { num: '7', title: 'Eskalation bei \u00dcberschreitung', detail: 'Deadline \u00fcberschritten? Automatische Eskalation an den Projektleiter.' },
-  { num: '8', title: '\u00dcbergabedokumentation', detail: 'Projektabschluss: KI kompiliert alle Protokolle, Fotos und Freigaben in ein vollst\u00e4ndiges \u00dcbergabedokument.' },
+  { num: '4', title: 'Bericht automatisch versendet', detail: 'Bauherr erhält jeden Montag früh seinen Projektbericht. Kein manuelles Schreiben.' },
+  { num: '5', title: 'Mängel per Handy erfassen', detail: 'Bauleiter fotografiert Mängel direkt vom Handy. Automatisch protokolliert mit Foto, Standort und Verantwortlichem.' },
+  { num: '6', title: 'Subunternehmer wird informiert', detail: 'Zuständiger Subunternehmer erhält sofort Benachrichtigung mit Deadline.' },
+  { num: '7', title: 'Eskalation bei Überschreitung', detail: 'Deadline überschritten? Automatische Eskalation an den Projektleiter.' },
+  { num: '8', title: 'Übergabedokumentation', detail: 'Projektabschluss: KI kompiliert alle Protokolle, Fotos und Freigaben in ein vollständiges Übergabedokument.' },
 ];
 
 export default function BauPage() {
@@ -30,19 +30,19 @@ export default function BauPage() {
           </Link>
           <div style={{ fontSize: 10, color: CORAL, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: 14 }}>Bauunternehmen Paket</div>
           <h1 style={{ fontSize: 'clamp(26px, 4vw, 40px)', fontWeight: 700, letterSpacing: '-0.4px', margin: '0 0 16px' }}>
-            Kommunikation, Reporting, M\u00e4ngelmanagement
+            Kommunikation, Reporting, Mängelmanagement
           </h1>
           <p style={{ fontSize: 15, color: '#555', lineHeight: 1.65, margin: '0 0 28px', maxWidth: 560 }}>
-            Jeder Bauherr beschwert sich \u00fcber schlechte Kommunikation. Wir automatisieren den Wochenbericht, das M\u00e4ngelprotokoll und die \u00dcbergabedokumentation.
+            Jeder Bauherr beschwert sich über schlechte Kommunikation. Wir automatisieren den Wochenbericht, das Mängelprotokoll und die Übergabedokumentation.
           </p>
           <div style={{ display: 'flex', gap: 20, flexWrap: 'wrap' }}>
             <div style={{ textAlign: 'center' }}>
-              <div style={{ fontSize: 22, fontWeight: 700, color: CORAL }}>10\u201315 Std.</div>
+              <div style={{ fontSize: 22, fontWeight: 700, color: CORAL }}>10–15 Std.</div>
               <div style={{ fontSize: 11, color: '#444' }}>gespart pro Woche</div>
             </div>
             <div style={{ textAlign: 'center' }}>
               <div style={{ fontSize: 22, fontWeight: 700, color: CORAL }}>0</div>
-              <div style={{ fontSize: 11, color: '#444' }}>vergessene M\u00e4ngel</div>
+              <div style={{ fontSize: 11, color: '#444' }}>vergessene Mängel</div>
             </div>
             <div style={{ textAlign: 'center' }}>
               <div style={{ fontSize: 22, fontWeight: 700, color: CORAL }}>Automatisch</div>
@@ -54,7 +54,7 @@ export default function BauPage() {
 
       <section style={{ padding: '16px 32px 64px' }}>
         <div style={{ maxWidth: 800, margin: '0 auto' }}>
-          <h2 style={{ fontSize: 20, fontWeight: 600, marginBottom: 28 }}>So l\u00e4uft der automatisierte Prozess ab</h2>
+          <h2 style={{ fontSize: 20, fontWeight: 600, marginBottom: 28 }}>So läuft der automatisierte Prozess ab</h2>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 0 }}>
             {STEPS.map((step, i) => (
               <div key={i} style={{ display: 'flex', gap: 0 }}>
@@ -81,12 +81,12 @@ export default function BauPage() {
               <h2 style={{ fontSize: 20, fontWeight: 600, marginBottom: 20 }}>Im Paket enthalten</h2>
               {[
                 'Projektstart-Automatisierung mit Google Drive-Struktur',
-                'Automatischer Wochenbericht als PDF f\u00fcr den Bauherrn',
-                'M\u00e4ngelerfassung per Handy mit Foto und Standort',
+                'Automatischer Wochenbericht als PDF für den Bauherrn',
+                'Mängelerfassung per Handy mit Foto und Standort',
                 'Automatische Zuweisung an Subunternehmer mit Deadline',
-                'Eskalationsworkflow bei \u00dcberschreitung der Deadline',
-                'Subunternehmer-Koordination bei Plan\u00e4nderungen',
-                '\u00dcbergabedokumentation automatisch aus Projektprotokollen',
+                'Eskalationsworkflow bei Überschreitung der Deadline',
+                'Subunternehmer-Koordination bei Planänderungen',
+                'Übergabedokumentation automatisch aus Projektprotokollen',
                 'DSGVO-konforme Datenhaltung auf EU-Servern',
               ].map((item, i) => (
                 <div key={i} style={{ display: 'flex', gap: 10, alignItems: 'flex-start', marginBottom: 12 }}>
@@ -107,9 +107,9 @@ export default function BauPage() {
                 {[
                   ['Aufbauzeit', 'ca. 14 Werktage'],
                   ['Datenhaltung', 'EU-Server (DSGVO)'],
-                  ['Vertragslaufzeit', 'Monatlich k\u00fcndbar'],
+                  ['Vertragslaufzeit', 'Monatlich kündbar'],
                   ['Technologie', 'n8n + Google Drive'],
-                  ['Einweisung', 'Bauleiter + B\u00fcro separat'],
+                  ['Einweisung', 'Bauleiter + Büro separat'],
                 ].map(([k, v]) => (
                   <div key={k} style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 8 }}>
                     <span style={{ fontSize: 12, color: '#444' }}>{k}</span>
@@ -122,10 +122,10 @@ export default function BauPage() {
               <div style={{ background: '#111', border: `1px solid ${CORAL}33`, borderRadius: 12, padding: 20 }}>
                 <div style={{ fontSize: 13, fontWeight: 600, color: '#fff', marginBottom: 8 }}>Euer ROI</div>
                 <p style={{ fontSize: 12, color: '#444', lineHeight: 1.6, margin: '0 0 8px' }}>
-                  Ein mittelgro\u00dfes Bauunternehmen verschwendet 10\u201315 Stunden pro Woche mit manueller Koordination. Bei 60\u20ac/Std. sind das bis zu <span style={{ color: '#fff' }}>48.000\u20ac pro Jahr</span> an verlorenem Overhead.
+                  Ein mittelgroßes Bauunternehmen verschwendet 10–15 Stunden pro Woche mit manueller Koordination. Bei 60\u20ac/Std. sind das bis zu <span style={{ color: '#fff' }}>48.000\u20ac pro Jahr</span> an verlorenem Overhead.
                 </p>
                 <p style={{ fontSize: 12, color: '#444', lineHeight: 1.6, margin: 0 }}>
-                  Ab <span style={{ color: CORAL }}>800\u20ac/Monat</span> ist das in wenigen Wochen amortisiert. Dazu kommen verbesserte Bauherren-Beziehungen und mehr Folgeauftr\u00e4ge.
+                  Ab <span style={{ color: CORAL }}>800\u20ac/Monat</span> ist das in wenigen Wochen amortisiert. Dazu kommen verbesserte Bauherren-Beziehungen und mehr Folgeaufträge.
                 </p>
               </div>
             </div>
@@ -134,7 +134,7 @@ export default function BauPage() {
       </section>
 
       <section style={{ padding: '64px 32px', textAlign: 'center' }}>
-        <h2 style={{ fontSize: 22, fontWeight: 600, margin: '0 0 12px' }}>Bereit f\u00fcr euren kostenlosen Erstcheck?</h2>
+        <h2 style={{ fontSize: 22, fontWeight: 600, margin: '0 0 12px' }}>Bereit für euren kostenlosen Erstcheck?</h2>
         <p style={{ fontSize: 14, color: '#555', margin: '0 0 24px', lineHeight: 1.6 }}>
           Wir analysieren eure aktuellen Prozesse in 30 Minuten und zeigen euch genau, wo Automatisierung sofort wirkt.
         </p>
