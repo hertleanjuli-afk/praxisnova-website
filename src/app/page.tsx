@@ -107,9 +107,6 @@ export default function Page() {
         <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(ellipse 60% 50% at 50% 0%, rgba(232,71,42,0.08) 0%, transparent 70%)', pointerEvents: 'none' }} />
         <div style={{ maxWidth: 760, margin: '0 auto', position: 'relative' }}>
           <div style={{ display: 'inline-flex', alignItems: 'center', gap: 8, background: '#141414', border: '1px solid #2a2a2a', color: '#888', fontSize: 12, padding: '5px 14px', borderRadius: 20, marginBottom: 24 }}>
-            <div style={{ width: 6, height: 6, borderRadius: '50%', background: CORAL, animation: 'pulse 2s infinite' }} />
-            KI-Schulung & Prozessautomatisierung f&#252;r Bau & Immobilien
-          </div>
 
           <h1 style={{ fontSize: 'clamp(32px, 5vw, 52px)', fontWeight: 700, lineHeight: 1.08, letterSpacing: '-0.5px', margin: '0 0 20px' }}>
             <span style={{ color: '#fff' }}>8,3 Stunden pro Woche.</span>
