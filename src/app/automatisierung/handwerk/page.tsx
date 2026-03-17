@@ -1,9 +1,9 @@
 'use client';
 
-import { motion } from 'framer-motion';
 import Link from 'next/link';
 import Nav from '@/components/Nav';
 import Footer from '@/components/Footer';
+import { SITE_CONFIG } from '@/config/site';
 
 const CORAL = '#E8472A';
 
@@ -24,39 +24,39 @@ export default function HandwerkPage() {
     <main style={{ background: '#0A0A0A', color: '#fff', fontFamily: 'system-ui, -apple-system, sans-serif', minHeight: '100vh' }}>
       <Nav />
 
-      <section style={{ padding: '64px 32px 48px', position: 'relative', overflow: 'hidden' }}>
+      <section style={{ padding: '72px 32px 48px', position: 'relative', overflow: 'hidden' }}>
         <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(ellipse 60% 40% at 50% 0%, rgba(232,71,42,0.07) 0%, transparent 70%)', pointerEvents: 'none' }} />
         <div style={{ maxWidth: 800, margin: '0 auto', position: 'relative' }}>
-          <Link href="/automatisierung" style={{ display: 'inline-flex', alignItems: 'center', gap: 6, fontSize: 12, color: '#555', textDecoration: 'none', marginBottom: 24 }}>
-            &#8592; Alle Pakete
+          <Link href="/automatisierung" style={{ display: 'inline-flex', alignItems: 'center', gap: 6, fontSize: 14, color: '#888', textDecoration: 'none', marginBottom: 24 }}>
+            ← Alle Pakete
           </Link>
-          <div style={{ fontSize: 10, color: CORAL, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: 14 }}>Handwerk Paket</div>
-          <h1 style={{ fontSize: 'clamp(26px, 4vw, 40px)', fontWeight: 700, letterSpacing: '-0.4px', margin: '0 0 16px' }}>
+          <div style={{ fontSize: 11, color: CORAL, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: 14 }}>Handwerk Paket</div>
+          <h1 style={{ fontSize: 'clamp(28px, 4vw, 42px)', fontWeight: 700, letterSpacing: '-0.4px', margin: '0 0 18px', color: '#fff' }}>
             Anfragen, Angebote, Rechnungen automatisiert
           </h1>
-          <p style={{ fontSize: 15, color: '#555', lineHeight: 1.65, margin: '0 0 28px', maxWidth: 560 }}>
-            Ihr verliert jeden Monat Aufträge, weil ihr zu spät antwortet und Angebote zu lange brauchen. Wir automatisieren alles zwischen Anfrage und Rechnung.
+          <p style={{ fontSize: 17, color: '#888', lineHeight: 1.75, margin: '0 0 28px', maxWidth: 560 }}>
+            Sie verlieren jeden Monat Aufträge, weil Antworten zu spät kommen und Angebote zu lange brauchen. Wir automatisieren alles zwischen Anfrage und Rechnung.
           </p>
           <div style={{ display: 'flex', gap: 20, flexWrap: 'wrap' }}>
             <div style={{ textAlign: 'center' }}>
-              <div style={{ fontSize: 22, fontWeight: 700, color: CORAL }}>8 Std.</div>
-              <div style={{ fontSize: 11, color: '#444' }}>gespart pro Woche</div>
+              <div style={{ fontSize: 24, fontWeight: 700, color: CORAL }}>8 Std.</div>
+              <div style={{ fontSize: 13, color: '#666' }}>gespart pro Woche</div>
             </div>
             <div style={{ textAlign: 'center' }}>
-              <div style={{ fontSize: 22, fontWeight: 700, color: CORAL }}>45&#8594;8 Min.</div>
-              <div style={{ fontSize: 11, color: '#444' }}>Angebotserstellung</div>
+              <div style={{ fontSize: 24, fontWeight: 700, color: CORAL }}>45→8 Min.</div>
+              <div style={{ fontSize: 13, color: '#666' }}>Angebotserstellung</div>
             </div>
             <div style={{ textAlign: 'center' }}>
-              <div style={{ fontSize: 22, fontWeight: 700, color: CORAL }}>6 Wochen</div>
-              <div style={{ fontSize: 11, color: '#444' }}>Amortisationszeit</div>
+              <div style={{ fontSize: 24, fontWeight: 700, color: CORAL }}>6 Wochen</div>
+              <div style={{ fontSize: 13, color: '#666' }}>Amortisationszeit</div>
             </div>
           </div>
         </div>
       </section>
 
-      <section style={{ padding: '16px 32px 64px' }}>
+      <section style={{ padding: '16px 32px 72px' }}>
         <div style={{ maxWidth: 800, margin: '0 auto' }}>
-          <h2 style={{ fontSize: 20, fontWeight: 600, marginBottom: 28 }}>So läuft der automatisierte Prozess ab</h2>
+          <h2 style={{ fontSize: 22, fontWeight: 600, marginBottom: 32, color: '#fff' }}>So läuft der automatisierte Prozess ab</h2>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 0 }}>
             {STEPS.map((step, i) => (
               <div key={i} style={{ display: 'flex', gap: 0 }}>
@@ -67,8 +67,8 @@ export default function HandwerkPage() {
                   {i < STEPS.length - 1 && <div style={{ width: 1, flex: 1, background: '#1a1a1a', margin: '4px 0' }} />}
                 </div>
                 <div style={{ paddingBottom: i < STEPS.length - 1 ? 24 : 0, paddingTop: 4 }}>
-                  <div style={{ fontSize: 14, fontWeight: 600, color: '#fff', marginBottom: 4 }}>{step.title}</div>
-                  <div style={{ fontSize: 13, color: '#444', lineHeight: 1.5 }}>{step.detail}</div>
+                  <div style={{ fontSize: 16, fontWeight: 600, color: '#fff', marginBottom: 4 }}>{step.title}</div>
+                  <div style={{ fontSize: 15, color: '#777', lineHeight: 1.75 }}>{step.detail}</div>
                 </div>
               </div>
             ))}
@@ -76,11 +76,11 @@ export default function HandwerkPage() {
         </div>
       </section>
 
-      <section style={{ padding: '0 32px 64px', background: '#060606' }}>
+      <section style={{ padding: '0 32px 72px', background: '#060606' }}>
         <div style={{ maxWidth: 1000, margin: '0 auto', paddingTop: 48 }}>
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 24 }} className="two-col">
             <div>
-              <h2 style={{ fontSize: 20, fontWeight: 600, marginBottom: 20 }}>Im Paket enthalten</h2>
+              <h2 style={{ fontSize: 22, fontWeight: 600, marginBottom: 22, color: '#fff' }}>Im Paket enthalten</h2>
               {[
                 'Automatische Anfragebestätigung in 2 Minuten, 24/7',
                 'Online-Terminbuchung ohne Telefon (Cal.com)',
@@ -91,27 +91,27 @@ export default function HandwerkPage() {
                 'Google-Bewertungsanfrage 3 Tage nach Abschluss',
                 'DSGVO-konforme Datenhaltung auf EU-Servern',
               ].map((item, i) => (
-                <div key={i} style={{ display: 'flex', gap: 10, alignItems: 'flex-start', marginBottom: 12 }}>
-                  <span style={{ color: CORAL, flexShrink: 0, marginTop: 2 }}>&#10003;</span>
-                  <span style={{ fontSize: 13, color: '#555', lineHeight: 1.5 }}>{item}</span>
+                <div key={i} style={{ display: 'flex', gap: 10, alignItems: 'flex-start', marginBottom: 14 }}>
+                  <span style={{ color: CORAL, flexShrink: 0, marginTop: 2 }}>✓</span>
+                  <span style={{ fontSize: 15, color: '#888', lineHeight: 1.75 }}>{item}</span>
                 </div>
               ))}
 
-              <div style={{ background: '#111', border: `1px solid ${CORAL}33`, borderRadius: 10, padding: 18, marginTop: 20 }}>
-                <div style={{ fontSize: 12, fontWeight: 600, color: CORAL, marginBottom: 8 }}>Rechtlicher Vorteil</div>
-                <p style={{ fontSize: 12, color: '#444', lineHeight: 1.6, margin: 0 }}>
-                  Seit Januar 2025 müssen alle deutschen Unternehmen E-Rechnungen im ZUGFeRD/XRechnung-Format empfangen können. Dieses Paket beinhaltet GoBD-konforme, ZUGFeRD-Rechnungen. Euer Steuerberater wird es euch danken.
+              <div style={{ background: '#111', border: `1px solid ${CORAL}33`, borderRadius: 10, padding: 20, marginTop: 22 }}>
+                <div style={{ fontSize: 13, fontWeight: 600, color: CORAL, marginBottom: 8 }}>Rechtlicher Vorteil</div>
+                <p style={{ fontSize: 14, color: '#777', lineHeight: 1.75, margin: 0 }}>
+                  Seit Januar 2025 müssen alle deutschen Unternehmen E-Rechnungen im ZUGFeRD/XRechnung-Format empfangen können. Dieses Paket beinhaltet GoBD-konforme, ZUGFeRD-Rechnungen. Ihr Steuerberater wird es Ihnen danken.
                 </p>
               </div>
             </div>
 
             <div>
               <div style={{ background: '#0A0A0A', border: '1px solid #1a1a1a', borderRadius: 12, padding: 24, marginBottom: 16 }}>
-                <div style={{ fontSize: 13, color: '#444', marginBottom: 4 }}>Einrichtung</div>
-                <div style={{ fontSize: 24, fontWeight: 700, color: '#fff' }}>ab &#8364;1.800</div>
+                <div style={{ fontSize: 14, color: '#666', marginBottom: 4 }}>Einrichtung</div>
+                <div style={{ fontSize: 26, fontWeight: 700, color: '#fff' }}>ab €1.800</div>
                 <div style={{ height: 1, background: '#1a1a1a', margin: '14px 0' }} />
-                <div style={{ fontSize: 13, color: '#444', marginBottom: 4 }}>Monatliche Wartung</div>
-                <div style={{ fontSize: 20, fontWeight: 600, color: '#fff' }}>ab &#8364;500 / Monat</div>
+                <div style={{ fontSize: 14, color: '#666', marginBottom: 4 }}>Monatliche Wartung</div>
+                <div style={{ fontSize: 22, fontWeight: 600, color: '#fff' }}>ab €500 / Monat</div>
                 <div style={{ height: 1, background: '#1a1a1a', margin: '14px 0' }} />
                 {[
                   ['Aufbauzeit', 'ca. 10 Werktage'],
@@ -121,20 +121,20 @@ export default function HandwerkPage() {
                   ['Einweisung', '1h Telefontermin inklusive'],
                 ].map(([k, v]) => (
                   <div key={k} style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 8 }}>
-                    <span style={{ fontSize: 12, color: '#444' }}>{k}</span>
-                    <span style={{ fontSize: 12, color: '#777' }}>{v}</span>
+                    <span style={{ fontSize: 14, color: '#666' }}>{k}</span>
+                    <span style={{ fontSize: 14, color: '#999' }}>{v}</span>
                   </div>
                 ))}
-                <div style={{ fontSize: 11, color: '#2a2a2a', marginTop: 10 }}>Genauer Preis nach kostenlosem Audit</div>
+                <div style={{ fontSize: 12, color: '#333', marginTop: 10 }}>Genauer Preis nach kostenlosem Audit</div>
               </div>
 
-              <div style={{ background: '#111', border: `1px solid ${CORAL}33`, borderRadius: 12, padding: 20 }}>
-                <div style={{ fontSize: 13, fontWeight: 600, color: '#fff', marginBottom: 8 }}>Euer ROI</div>
-                <p style={{ fontSize: 12, color: '#444', lineHeight: 1.6, margin: '0 0 8px' }}>
-                  Ein 3-Personen-Betrieb verbringt 6–8 Stunden pro Woche mit Admin. Bei 60\u20ac/Std. Opportunitätskosten sind das bis zu <span style={{ color: '#fff' }}>20.000\u20ac verschwendet pro Jahr</span>.
+              <div style={{ background: '#111', border: `1px solid ${CORAL}33`, borderRadius: 12, padding: 22 }}>
+                <div style={{ fontSize: 14, fontWeight: 600, color: '#fff', marginBottom: 8 }}>Ihr ROI</div>
+                <p style={{ fontSize: 14, color: '#777', lineHeight: 1.75, margin: '0 0 8px' }}>
+                  Ein 3-Personen-Betrieb verbringt 6–8 Stunden pro Woche mit Admin. Bei 60€/Std. Opportunitätskosten sind das bis zu <span style={{ color: '#fff' }}>20.000€ verschwendet pro Jahr</span>.
                 </p>
-                <p style={{ fontSize: 12, color: '#444', lineHeight: 1.6, margin: 0 }}>
-                  Ab <span style={{ color: CORAL }}>500\u20ac/Monat</span> ist das schon nach wenigen Wochen amortisiert.
+                <p style={{ fontSize: 14, color: '#777', lineHeight: 1.75, margin: 0 }}>
+                  Ab <span style={{ color: CORAL }}>500€/Monat</span> ist das schon nach wenigen Wochen amortisiert.
                 </p>
               </div>
             </div>
@@ -142,17 +142,17 @@ export default function HandwerkPage() {
         </div>
       </section>
 
-      <section style={{ padding: '64px 32px', textAlign: 'center' }}>
-        <h2 style={{ fontSize: 22, fontWeight: 600, margin: '0 0 12px' }}>Bereit für euren kostenlosen Erstcheck?</h2>
-        <p style={{ fontSize: 14, color: '#555', margin: '0 0 24px', lineHeight: 1.6 }}>
-          Wir analysieren eure aktuellen Prozesse in 30 Minuten und zeigen euch genau, wo Automatisierung sofort wirkt.
+      <section style={{ padding: '72px 32px', textAlign: 'center' }}>
+        <h2 style={{ fontSize: 24, fontWeight: 600, margin: '0 0 14px', color: '#fff' }}>Bereit für Ihren kostenlosen Erstcheck?</h2>
+        <p style={{ fontSize: 16, color: '#888', margin: '0 0 28px', lineHeight: 1.75 }}>
+          Wir analysieren Ihre aktuellen Prozesse in 30 Minuten und zeigen Ihnen genau, wo Automatisierung sofort wirkt.
         </p>
-        <a href="https://calendly.com/meyer-samantha-praxisnovaai/30min" target="_blank" rel="noreferrer"
-          style={{ display: 'inline-block', background: CORAL, color: '#fff', padding: '13px 32px', borderRadius: 8, fontSize: 14, fontWeight: 700, textDecoration: 'none' }}>
+        <a href={SITE_CONFIG.calendly} target="_blank" rel="noreferrer"
+          style={{ display: 'inline-block', background: CORAL, color: '#fff', padding: '13px 32px', borderRadius: 8, fontSize: 15, fontWeight: 700, textDecoration: 'none' }}>
           Kostenlosen Audit buchen
         </a>
-        <div style={{ fontSize: 11, color: '#2a2a2a', marginTop: 12 }}>
-          Kein IT-Aufwand &#183; Keine Vorinstallation &#183; Sofort umsetzbar
+        <div style={{ fontSize: 12, color: '#333', marginTop: 14 }}>
+          Kein IT-Aufwand · Keine Vorinstallation · Sofort umsetzbar
         </div>
       </section>
 

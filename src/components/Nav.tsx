@@ -1,18 +1,32 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import { SITE_CONFIG } from '@/config/site';
 
 const CORAL = '#E8472A';
 
 export default function Nav() {
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    function onScroll() {
+      setScrolled(window.scrollY > 10);
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
 
   return (
     <nav style={{
       position: 'sticky', top: 0, zIndex: 50,
-      background: '#0A0A0A', borderBottom: '1px solid #181818',
+      background: scrolled ? 'rgba(10,10,10,0.85)' : '#0A0A0A',
+      backdropFilter: scrolled ? 'blur(12px)' : 'none',
+      WebkitBackdropFilter: scrolled ? 'blur(12px)' : 'none',
+      borderBottom: '1px solid #181818',
       padding: '14px 32px',
+      transition: 'background 0.3s ease, backdrop-filter 0.3s ease',
     }}>
       <style>{`
         @media (max-width: 768px) {
@@ -22,8 +36,10 @@ export default function Nav() {
         @media (min-width: 769px) {
           .show-mobile { display: none !important; }
         }
-        .nav-link { font-size: 13px; color: #555; text-decoration: none; }
-        .nav-link:hover { color: #999; }
+        .nav-link { font-size: 14px; color: #888; text-decoration: none; transition: color 0.2s; }
+        .nav-link:hover { color: #fff; }
+        .nav-cta { transition: transform 0.2s, box-shadow 0.2s; }
+        .nav-cta:hover { transform: translateY(-1px); box-shadow: 0 4px 16px rgba(232,71,42,0.3); }
       `}</style>
 
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', maxWidth: 1100, margin: '0 auto' }}>
@@ -35,9 +51,10 @@ export default function Nav() {
         <div style={{ display: 'flex', gap: 28, alignItems: 'center' }} className="hidden-mobile">
           <Link href="/#angebote" className="nav-link">Workshops</Link>
           <Link href="/automatisierung" className="nav-link">KI-Automatisierung</Link>
-          <Link href="/ueber-uns" className="nav-link">&Uuml;ber uns</Link>
-          <a href="https://calendly.com/meyer-samantha-praxisnovaai/30min" target="_blank" rel="noreferrer"
-            style={{ background: CORAL, color: '#fff', padding: '9px 18px', borderRadius: 7, fontSize: 13, fontWeight: 600, textDecoration: 'none' }}>
+          <Link href="/ueber-uns" className="nav-link">Über uns</Link>
+          <a href={SITE_CONFIG.calendly} target="_blank" rel="noreferrer"
+            className="nav-cta"
+            style={{ background: CORAL, color: '#fff', padding: '9px 18px', borderRadius: 7, fontSize: 14, fontWeight: 600, textDecoration: 'none' }}>
             Kostenlosen Audit buchen
           </a>
         </div>
@@ -46,7 +63,7 @@ export default function Nav() {
           onClick={() => setOpen(!open)}
           style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 4, display: 'none' }}
           className="show-mobile"
-          aria-label="Menu"
+          aria-label="Menü öffnen"
         >
           <div style={{ width: 22, height: 2, background: '#fff', marginBottom: 5 }} />
           <div style={{ width: 22, height: 2, background: '#fff', marginBottom: 5 }} />
@@ -57,18 +74,18 @@ export default function Nav() {
       {open && (
         <div style={{ padding: '16px 32px 20px', borderTop: '1px solid #181818', background: '#0A0A0A' }}>
           <Link href="/#angebote" onClick={() => setOpen(false)}
-            style={{ display: 'block', fontSize: 15, color: '#888', textDecoration: 'none', padding: '10px 0', borderBottom: '1px solid #181818' }}>
+            style={{ display: 'block', fontSize: 16, color: '#888', textDecoration: 'none', padding: '10px 0', borderBottom: '1px solid #181818' }}>
             Workshops
           </Link>
           <Link href="/automatisierung" onClick={() => setOpen(false)}
-            style={{ display: 'block', fontSize: 15, color: '#888', textDecoration: 'none', padding: '10px 0', borderBottom: '1px solid #181818' }}>
+            style={{ display: 'block', fontSize: 16, color: '#888', textDecoration: 'none', padding: '10px 0', borderBottom: '1px solid #181818' }}>
             KI-Automatisierung
           </Link>
           <Link href="/ueber-uns" onClick={() => setOpen(false)}
-            style={{ display: 'block', fontSize: 15, color: '#888', textDecoration: 'none', padding: '10px 0', borderBottom: '1px solid #181818' }}>
-            &Uuml;ber uns
+            style={{ display: 'block', fontSize: 16, color: '#888', textDecoration: 'none', padding: '10px 0', borderBottom: '1px solid #181818' }}>
+            Über uns
           </Link>
-          <a href="https://calendly.com/meyer-samantha-praxisnovaai/30min" target="_blank" rel="noreferrer"
+          <a href={SITE_CONFIG.calendly} target="_blank" rel="noreferrer"
             style={{ display: 'block', marginTop: 16, background: CORAL, color: '#fff', padding: '12px', borderRadius: 7, fontSize: 14, fontWeight: 600, textDecoration: 'none', textAlign: 'center' }}>
             Kostenlosen Audit buchen
           </a>
