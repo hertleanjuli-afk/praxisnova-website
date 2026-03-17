@@ -22,8 +22,8 @@ export default function Nav() {
         @media (min-width: 769px) {
           .show-mobile { display: none !important; }
         }
-        .nav-link { font-size: 13px; color: #555; text-decoration: none; transition: color 0.2s; }
-        .nav-link:hover { color: #999 !important; }
+        .nav-link { font-size: 13px; color: #555; text-decoration: none; }
+        .nav-link:hover { color: #999; }
       `}</style>
 
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', maxWidth: 1100, margin: '0 auto' }}>
@@ -32,24 +32,16 @@ export default function Nav() {
           <span style={{ fontSize: 16, fontWeight: 600, color: '#fff', letterSpacing: '-0.3px' }}>PraxisNova AI</span>
         </Link>
 
-        {/* Desktop */}
         <div style={{ display: 'flex', gap: 28, alignItems: 'center' }} className="hidden-mobile">
-          {[
-            { label: 'Workshops', href: '/#angebote' },
-            { label: 'KI-Automatisierung', href: '/automatisierung' },
-            { label: '\u00dcber uns', href: '/ueber-uns' },
-          ].map(link => (
-            <Link key={link.label} href={link.href} className="nav-link">
-              {link.label}
-            </Link>
-          ))}
+          <Link href="/#angebote" className="nav-link">Workshops</Link>
+          <Link href="/automatisierung" className="nav-link">KI-Automatisierung</Link>
+          <Link href="/ueber-uns" className="nav-link">&Uuml;ber uns</Link>
           <a href="https://calendly.com/meyer-samantha-praxisnovaai/30min" target="_blank" rel="noreferrer"
             style={{ background: CORAL, color: '#fff', padding: '9px 18px', borderRadius: 7, fontSize: 13, fontWeight: 600, textDecoration: 'none' }}>
             Kostenlosen Audit buchen
           </a>
         </div>
 
-        {/* Mobile hamburger */}
         <button
           onClick={() => setOpen(!open)}
           style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 4, display: 'none' }}
@@ -62,20 +54,20 @@ export default function Nav() {
         </button>
       </div>
 
-      {/* Mobile menu */}
       {open && (
         <div style={{ padding: '16px 32px 20px', borderTop: '1px solid #181818', background: '#0A0A0A' }}>
-          {[
-            { label: 'Workshops', href: '/#angebote' },
-            { label: 'KI-Automatisierung', href: '/automatisierung' },
-            { label: '\u00dcber uns', href: '/ueber-uns' },
-          ].map(link => (
-            <Link key={link.label} href={link.href}
-              onClick={() => setOpen(false)}
-              style={{ display: 'block', fontSize: 15, color: '#888', textDecoration: 'none', padding: '10px 0', borderBottom: '1px solid #181818' }}>
-              {link.label}
-            </Link>
-          ))}
+          <Link href="/#angebote" onClick={() => setOpen(false)}
+            style={{ display: 'block', fontSize: 15, color: '#888', textDecoration: 'none', padding: '10px 0', borderBottom: '1px solid #181818' }}>
+            Workshops
+          </Link>
+          <Link href="/automatisierung" onClick={() => setOpen(false)}
+            style={{ display: 'block', fontSize: 15, color: '#888', textDecoration: 'none', padding: '10px 0', borderBottom: '1px solid #181818' }}>
+            KI-Automatisierung
+          </Link>
+          <Link href="/ueber-uns" onClick={() => setOpen(false)}
+            style={{ display: 'block', fontSize: 15, color: '#888', textDecoration: 'none', padding: '10px 0', borderBottom: '1px solid #181818' }}>
+            &Uuml;ber uns
+          </Link>
           <a href="https://calendly.com/meyer-samantha-praxisnovaai/30min" target="_blank" rel="noreferrer"
             style={{ display: 'block', marginTop: 16, background: CORAL, color: '#fff', padding: '12px', borderRadius: 7, fontSize: 14, fontWeight: 600, textDecoration: 'none', textAlign: 'center' }}>
             Kostenlosen Audit buchen
