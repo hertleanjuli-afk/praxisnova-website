@@ -15,7 +15,7 @@ function LinkedInIcon() {
 
 export default function Footer() {
   return (
-    <footer style={{ background: '#060606', borderTop: '1px solid #181818', padding: '36px 32px 24px' }}>
+    <footer style={{ background: '#0F1629', borderTop: '1px solid #1E2947', padding: '36px 32px 24px' }}>
       <style>{`
         .footer-link { font-size: 13px; color: #555; text-decoration: none; transition: color 0.2s; }
         .footer-link:hover { color: #999; }
@@ -53,8 +53,8 @@ export default function Footer() {
           </a>
         </div>
       </div>
-      <div style={{ textAlign: 'center', borderTop: '1px solid #111', paddingTop: 20 }}>
-        <span style={{ fontSize: 12, color: '#333' }}>© 2026 PraxisNova AI. Alle Rechte vorbehalten.</span>
+      <div style={{ textAlign: 'center', borderTop: '1px solid #1E2947', paddingTop: 20 }}>
+        <span style={{ fontSize: 12, color: '#1E2947' }}>© 2026 PraxisNova AI. Alle Rechte vorbehalten.</span>
       </div>
     </footer>
   );

@@ -19,7 +19,7 @@ const STEPS = [
 
 export default function ImmobilienPage() {
   return (
-    <main style={{ background: '#0A0A0A', color: '#fff', fontFamily: 'system-ui, -apple-system, sans-serif', minHeight: '100vh' }}>
+    <main style={{ background: '#080C1A', color: '#fff', fontFamily: 'system-ui, -apple-system, sans-serif', minHeight: '100vh' }}>
       <Nav />
 
       <section style={{ padding: '72px 32px 48px', position: 'relative', overflow: 'hidden' }}>
@@ -62,7 +62,7 @@ export default function ImmobilienPage() {
                   <div style={{ width: 32, height: 32, borderRadius: '50%', background: CORAL, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 13, fontWeight: 700, color: '#fff', flexShrink: 0 }}>
                     {step.num}
                   </div>
-                  {i < STEPS.length - 1 && <div style={{ width: 1, flex: 1, background: '#1a1a1a', margin: '4px 0' }} />}
+                  {i < STEPS.length - 1 && <div style={{ width: 1, flex: 1, background: '#1E2947', margin: '4px 0' }} />}
                 </div>
                 <div style={{ paddingBottom: i < STEPS.length - 1 ? 24 : 0, paddingTop: 4 }}>
                   <div style={{ fontSize: 16, fontWeight: 600, color: '#fff', marginBottom: 4 }}>{step.title}</div>
@@ -74,7 +74,7 @@ export default function ImmobilienPage() {
         </div>
       </section>
 
-      <section style={{ padding: '0 32px 72px', background: '#060606' }}>
+      <section style={{ padding: '0 32px 72px', background: '#0F1629' }}>
         <div style={{ maxWidth: 1000, margin: '0 auto', paddingTop: 48 }}>
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 24 }} className="two-col">
             <div>
@@ -96,13 +96,13 @@ export default function ImmobilienPage() {
               ))}
             </div>
             <div>
-              <div style={{ background: '#0A0A0A', border: '1px solid #1a1a1a', borderRadius: 12, padding: 24, marginBottom: 16 }}>
+              <div style={{ background: '#080C1A', border: '1px solid #1E2947', borderRadius: 12, padding: 24, marginBottom: 16 }}>
                 <div style={{ fontSize: 14, color: '#666', marginBottom: 4 }}>Einrichtung</div>
                 <div style={{ fontSize: 26, fontWeight: 700, color: '#fff' }}>ab €2.500</div>
-                <div style={{ height: 1, background: '#1a1a1a', margin: '14px 0' }} />
+                <div style={{ height: 1, background: '#1E2947', margin: '14px 0' }} />
                 <div style={{ fontSize: 14, color: '#666', marginBottom: 4 }}>Monatliche Wartung</div>
                 <div style={{ fontSize: 22, fontWeight: 600, color: '#fff' }}>ab €600 / Monat</div>
-                <div style={{ height: 1, background: '#1a1a1a', margin: '14px 0' }} />
+                <div style={{ height: 1, background: '#1E2947', margin: '14px 0' }} />
                 {[
                   ['Aufbauzeit', 'ca. 10 Werktage'],
                   ['Datenhaltung', 'EU-Server (DSGVO)'],
@@ -115,10 +115,10 @@ export default function ImmobilienPage() {
                     <span style={{ fontSize: 14, color: '#999' }}>{v}</span>
                   </div>
                 ))}
-                <div style={{ fontSize: 12, color: '#333', marginTop: 10 }}>Genauer Preis nach kostenlosem Audit</div>
+                <div style={{ fontSize: 12, color: '#2D3A5C', marginTop: 10 }}>Genauer Preis nach kostenlosem Audit</div>
               </div>
 
-              <div style={{ background: '#111', border: `1px solid ${CORAL}33`, borderRadius: 12, padding: 22 }}>
+              <div style={{ background: '#0F1629', border: `1px solid ${CORAL}33`, borderRadius: 12, padding: 22 }}>
                 <div style={{ fontSize: 14, fontWeight: 600, color: '#fff', marginBottom: 8 }}>Ihr ROI</div>
                 <p style={{ fontSize: 14, color: '#777', lineHeight: 1.75, margin: '0 0 8px' }}>
                   Ein typischer Makler verbringt 5–10 Stunden pro Monat mit manuellem Lead-Management.
@@ -142,7 +142,7 @@ export default function ImmobilienPage() {
           style={{ display: 'inline-block', background: CORAL, color: '#fff', padding: '13px 32px', borderRadius: 8, fontSize: 15, fontWeight: 700, textDecoration: 'none' }}>
           Kostenlosen Audit buchen
         </a>
-        <div style={{ fontSize: 12, color: '#333', marginTop: 14 }}>
+        <div style={{ fontSize: 12, color: '#2D3A5C', marginTop: 14 }}>
           Kein IT-Aufwand · Keine Vorinstallation · Sofort umsetzbar
         </div>
       </section>

@@ -20,11 +20,11 @@ function LinkedInIcon() {
 
 export default function UeberUnsPage() {
   return (
-    <main style={{ background: '#0A0A0A', color: '#fff', fontFamily: 'system-ui, -apple-system, sans-serif', minHeight: '100vh' }}>
+    <main style={{ background: '#080C1A', color: '#fff', fontFamily: 'system-ui, -apple-system, sans-serif', minHeight: '100vh' }}>
       <Nav />
       <section style={{ padding: '80px 32px 48px', textAlign: 'center' }}>
         <div style={{ maxWidth: 640, margin: '0 auto' }}>
-          <div style={{ display: 'inline-block', background: '#111', border: '1px solid #1E1E1E', borderRadius: 20, padding: '6px 14px', fontSize: 13, color: '#888', marginBottom: 24 }}>
+          <div style={{ display: 'inline-block', background: '#141E3A', border: '1px solid #1E2947', borderRadius: 20, padding: '6px 14px', fontSize: 13, color: '#888', marginBottom: 24 }}>
             ÜBER UNS
           </div>
           <h1 style={{ fontSize: 'clamp(32px, 4vw, 44px)', fontWeight: 700, letterSpacing: '-1px', lineHeight: 1.15, marginBottom: 24 }}>
@@ -39,8 +39,8 @@ export default function UeberUnsPage() {
       <section style={{ padding: '0 32px 80px', maxWidth: 900, margin: '0 auto' }}>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 32 }} className="two-col">
           {SITE_CONFIG.team.map((person, i) => (
-            <div key={i} style={{ background: '#111', border: '1px solid #1E1E1E', borderRadius: 16, padding: 32 }}>
-              <div style={{ width: 64, height: 64, borderRadius: 32, background: '#1a1a1a', marginBottom: 20, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            <div key={i} style={{ background: '#0F1629', border: '1px solid #1E2947', borderRadius: 16, padding: 32 }}>
+              <div style={{ width: 64, height: 64, borderRadius: 32, background: '#141E3A', marginBottom: 20, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                 <span style={{ fontSize: 24 }}>{person.name.charAt(0)}</span>
               </div>
               <h2 style={{ fontSize: 22, fontWeight: 700, marginBottom: 6, color: '#fff' }}>{person.name}</h2>
@@ -58,7 +58,7 @@ export default function UeberUnsPage() {
 
         <div style={{ textAlign: 'center', marginTop: 48 }}>
           <a href={SITE_CONFIG.linkedinFirma} target="_blank" rel="noreferrer"
-            style={{ display: 'inline-flex', alignItems: 'center', gap: 8, fontSize: 15, color: '#888', textDecoration: 'none', border: '1px solid #222', padding: '10px 24px', borderRadius: 8 }}>
+            style={{ display: 'inline-flex', alignItems: 'center', gap: 8, fontSize: 15, color: '#888', textDecoration: 'none', border: '1px solid #1E2947', padding: '10px 24px', borderRadius: 8 }}>
             <LinkedInIcon /> PraxisNova AI auf LinkedIn folgen
           </a>
         </div>
