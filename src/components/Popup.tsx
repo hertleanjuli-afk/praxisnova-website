@@ -29,7 +29,7 @@ export default function Popup() {
   return (
     <div style={{
       position: 'fixed', bottom: 32, right: 32, zIndex: 1000,
-      background: '#111', border: '1px solid #1E1E1E', borderRadius: 16,
+      background: '#0F1629', border: '1px solid #1E2947', borderRadius: 16,
       padding: 28, maxWidth: 360, boxShadow: '0 20px 60px rgba(0,0,0,0.5)',
     }}>
       <button
@@ -66,7 +66,7 @@ export default function Popup() {
               placeholder="Ihr Name"
               required
               style={{
-                width: '100%', background: '#1a1a1a', border: '1px solid #2a2a2a',
+                width: '100%', background: '#141E3A', border: '1px solid #1E2947',
                 borderRadius: 8, padding: '10px 12px', color: '#fff', fontSize: 14,
                 marginBottom: 8, boxSizing: 'border-box',
               }}
@@ -78,7 +78,7 @@ export default function Popup() {
               placeholder="Ihre E-Mail"
               required
               style={{
-                width: '100%', background: '#1a1a1a', border: '1px solid #2a2a2a',
+                width: '100%', background: '#141E3A', border: '1px solid #1E2947',
                 borderRadius: 8, padding: '10px 12px', color: '#fff', fontSize: 14,
                 marginBottom: 12, boxSizing: 'border-box',
               }}

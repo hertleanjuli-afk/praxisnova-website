@@ -53,7 +53,7 @@ const PAKETE = [
 
 export default function AutomatisierungPage() {
   return (
-    <main style={{ background: '#0A0A0A', color: '#fff', fontFamily: 'system-ui, -apple-system, sans-serif', minHeight: '100vh' }}>
+    <main style={{ background: '#080C1A', color: '#fff', fontFamily: 'system-ui, -apple-system, sans-serif', minHeight: '100vh' }}>
       <Nav />
 
       <section style={{ padding: '80px 32px 48px', textAlign: 'center', position: 'relative', overflow: 'hidden' }}>
@@ -77,8 +77,8 @@ export default function AutomatisierungPage() {
       <section style={{ padding: '16px 32px 80px' }}>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 16, maxWidth: 1100, margin: '0 auto' }} className="three-col">
           {PAKETE.map((pkg, i) => (
-            <motion.div key={i} whileHover={{ y: -4, borderColor: '#2a2a2a' }}
-              style={{ background: '#111', border: pkg.highlight ? `1px solid ${CORAL}44` : '1px solid #1a1a1a', borderRadius: 12, padding: 28, display: 'flex', flexDirection: 'column', transition: 'border-color 0.3s' }}>
+            <motion.div key={i} whileHover={{ y: -4, borderColor: '#1E2947' }}
+              style={{ background: '#0F1629', border: pkg.highlight ? `1px solid ${CORAL}44` : '1px solid #1E2947', borderRadius: 12, padding: 28, display: 'flex', flexDirection: 'column', transition: 'border-color 0.3s' }}>
               {pkg.highlight && (
                 <div style={{ fontSize: 11, color: CORAL, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: 8 }}>Meistgebucht</div>
               )}
@@ -95,10 +95,10 @@ export default function AutomatisierungPage() {
                 ))}
               </ul>
 
-              <div style={{ background: '#0A0A0A', border: '1px solid #1a1a1a', borderRadius: 8, padding: '14px 16px', marginBottom: 16 }}>
+              <div style={{ background: '#080C1A', border: '1px solid #1E2947', borderRadius: 8, padding: '14px 16px', marginBottom: 16 }}>
                 <div style={{ fontSize: 22, fontWeight: 700, color: '#fff', marginBottom: 2 }}>{pkg.price}</div>
                 <div style={{ fontSize: 13, color: '#666', marginBottom: 4 }}>{pkg.retainer}</div>
-                <div style={{ fontSize: 12, color: '#333' }}>Genauer Preis nach kostenlosem Audit</div>
+                <div style={{ fontSize: 12, color: '#2D3A5C' }}>Genauer Preis nach kostenlosem Audit</div>
                 <div style={{ fontSize: 12, color: CORAL + 'cc', marginTop: 6 }}>{pkg.roi}</div>
               </div>
 
@@ -112,7 +112,7 @@ export default function AutomatisierungPage() {
       </section>
 
       <section style={{ padding: '0 32px 80px' }}>
-        <div style={{ maxWidth: 700, margin: '0 auto', background: '#060606', border: '1px solid #1a1a1a', borderRadius: 12, padding: '44px 36px', textAlign: 'center' }}>
+        <div style={{ maxWidth: 700, margin: '0 auto', background: '#0F1629', border: '1px solid #1E2947', borderRadius: 12, padding: '44px 36px', textAlign: 'center' }}>
           <h2 style={{ fontSize: 24, fontWeight: 600, margin: '0 0 14px', color: '#fff' }}>Nicht sicher, welches Paket passt?</h2>
           <p style={{ fontSize: 16, color: '#888', margin: '0 0 28px', lineHeight: 1.75 }}>
             Im kostenlosen 15-Minuten-Audit analysieren wir Ihre aktuellen Prozesse und empfehlen das passende Paket mit konkreten ROI-Zahlen.
@@ -121,7 +121,7 @@ export default function AutomatisierungPage() {
             style={{ display: 'inline-block', background: CORAL, color: '#fff', padding: '13px 28px', borderRadius: 8, fontSize: 15, fontWeight: 700, textDecoration: 'none' }}>
             Kostenlosen Audit buchen
           </a>
-          <div style={{ fontSize: 12, color: '#333', marginTop: 14 }}>
+          <div style={{ fontSize: 12, color: '#2D3A5C', marginTop: 14 }}>
             Kein IT-Aufwand · Keine Vorinstallation · Sofort umsetzbar
           </div>
         </div>

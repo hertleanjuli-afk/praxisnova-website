@@ -21,10 +21,10 @@ export default function Nav() {
   return (
     <nav style={{
       position: 'sticky', top: 0, zIndex: 50,
-      background: scrolled ? 'rgba(10,10,10,0.85)' : '#0A0A0A',
+      background: scrolled ? 'rgba(8,12,26,0.85)' : '#080C1A',
       backdropFilter: scrolled ? 'blur(12px)' : 'none',
       WebkitBackdropFilter: scrolled ? 'blur(12px)' : 'none',
-      borderBottom: '1px solid #181818',
+      borderBottom: '1px solid #1E2947',
       padding: '14px 32px',
       transition: 'background 0.3s ease, backdrop-filter 0.3s ease',
     }}>
@@ -72,17 +72,17 @@ export default function Nav() {
       </div>
 
       {open && (
-        <div style={{ padding: '16px 32px 20px', borderTop: '1px solid #181818', background: '#0A0A0A' }}>
+        <div style={{ padding: '16px 32px 20px', borderTop: '1px solid #1E2947', background: '#080C1A' }}>
           <Link href="/#angebote" onClick={() => setOpen(false)}
-            style={{ display: 'block', fontSize: 16, color: '#888', textDecoration: 'none', padding: '10px 0', borderBottom: '1px solid #181818' }}>
+            style={{ display: 'block', fontSize: 16, color: '#888', textDecoration: 'none', padding: '10px 0', borderBottom: '1px solid #1E2947' }}>
             Workshops
           </Link>
           <Link href="/automatisierung" onClick={() => setOpen(false)}
-            style={{ display: 'block', fontSize: 16, color: '#888', textDecoration: 'none', padding: '10px 0', borderBottom: '1px solid #181818' }}>
+            style={{ display: 'block', fontSize: 16, color: '#888', textDecoration: 'none', padding: '10px 0', borderBottom: '1px solid #1E2947' }}>
             KI-Automatisierung
           </Link>
           <Link href="/ueber-uns" onClick={() => setOpen(false)}
-            style={{ display: 'block', fontSize: 16, color: '#888', textDecoration: 'none', padding: '10px 0', borderBottom: '1px solid #181818' }}>
+            style={{ display: 'block', fontSize: 16, color: '#888', textDecoration: 'none', padding: '10px 0', borderBottom: '1px solid #1E2947' }}>
             Über uns
           </Link>
           <a href={SITE_CONFIG.calendly} target="_blank" rel="noreferrer"

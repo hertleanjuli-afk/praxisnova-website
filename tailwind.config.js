@@ -8,13 +8,14 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        bg: '#0A0A0A',
-        'bg-dark': '#060606',
+        bg: '#080C1A',
+        'bg-dark': '#0F1629',
         coral: '#E8472A',
-        card: '#111111',
-        'card-border': '#1E1E1E',
+        card: '#0F1629',
+        'card-hover': '#141E3A',
+        'card-border': '#1E2947',
         muted: '#555555',
-        'border-subtle': '#181818',
+        'border-subtle': '#1E2947',
       },
       fontFamily: {
         sans: ['system-ui', '-apple-system', 'sans-serif'],

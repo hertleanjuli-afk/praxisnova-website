@@ -114,7 +114,7 @@ function LaunchBanner() {
       <section style={{ padding: '0 32px 48px' }}>
         <div style={{
           maxWidth: 700, margin: '0 auto',
-          background: 'linear-gradient(135deg, #111 0%, #0d0d0d 100%)',
+          background: 'linear-gradient(135deg, #0F1629 0%, #0B1125 100%)',
           border: `1px solid ${CORAL}33`,
           borderRadius: 14, padding: '28px 32px',
           position: 'relative', overflow: 'hidden',
@@ -133,7 +133,7 @@ function LaunchBanner() {
 
           <div style={{ marginBottom: 10 }}>
             <div style={{
-              height: 8, borderRadius: 4, background: '#1a1a1a', overflow: 'hidden',
+              height: 8, borderRadius: 4, background: '#1E2947', overflow: 'hidden',
             }}>
               <motion.div
                 initial={{ width: 0 }}
@@ -169,7 +169,7 @@ function LaunchBanner() {
 
 export default function Page() {
   return (
-    <main style={{ background: '#0A0A0A', color: '#fff', fontFamily: 'system-ui, -apple-system, sans-serif', minHeight: '100vh' }}>
+    <main style={{ background: '#080C1A', color: '#fff', fontFamily: 'system-ui, -apple-system, sans-serif', minHeight: '100vh' }}>
       <Nav />
 
       {/* ── HERO ── */}
@@ -181,7 +181,7 @@ export default function Page() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
           >
-            <div style={{ display: 'inline-flex', alignItems: 'center', gap: 8, background: '#141414', border: '1px solid #2a2a2a', color: '#888', fontSize: 13, padding: '5px 14px', borderRadius: 20, marginBottom: 24 }}>
+            <div style={{ display: 'inline-flex', alignItems: 'center', gap: 8, background: '#141E3A', border: '1px solid #1E2947', color: '#888', fontSize: 13, padding: '5px 14px', borderRadius: 20, marginBottom: 24 }}>
               <div style={{ width: 6, height: 6, borderRadius: '50%', background: CORAL, animation: 'pulse 2s infinite' }} />
               KI-Schulung & Prozessautomatisierung für Bau & Immobilien
             </div>
@@ -219,12 +219,12 @@ export default function Page() {
               Workshops entdecken
             </a>
             <a href={SITE_CONFIG.calendly} target="_blank" rel="noreferrer"
-              style={{ background: 'transparent', color: '#999', padding: '14px 28px', borderRadius: 8, fontSize: 15, fontWeight: 600, textDecoration: 'none', border: '1px solid #222' }}>
+              style={{ background: 'transparent', color: '#999', padding: '14px 28px', borderRadius: 8, fontSize: 15, fontWeight: 600, textDecoration: 'none', border: '1px solid #1E2947' }}>
               Kostenlosen Audit buchen
             </a>
           </motion.div>
 
-          <p style={{ fontSize: 12, color: '#333', marginTop: 16 }}>
+          <p style={{ fontSize: 12, color: '#2D3A5C', marginTop: 16 }}>
             Capmo Effizienzstudie, Deutsche Baubranche
           </p>
         </div>
@@ -236,19 +236,19 @@ export default function Page() {
       {/* ── STATS ── */}
       <FadeUp>
         <section style={{ padding: '0 32px 72px' }}>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 1, maxWidth: 1100, margin: '0 auto', background: '#181818', borderRadius: 10, overflow: 'hidden' }} className="stats-grid">
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 1, maxWidth: 1100, margin: '0 auto', background: '#1E2947', borderRadius: 10, overflow: 'hidden' }} className="stats-grid">
             {[
               { value: 8.3, suffix: ' Std.', label: 'pro Woche verschwendet', source: 'Capmo, Baubranche DE' },
               { value: 50, suffix: '%', label: 'der Betriebe nicht KI-bereit', source: 'PwC Deutschland 2025' },
               { label: '45 zu 8 Min.', isText: true, sub: 'Angebotserstellung mit KI', source: 'PraxisNova' },
               { value: 6, suffix: ' Wochen', label: 'Amortisationszeit', source: 'PraxisNova' },
             ].map((stat, i) => (
-              <div key={i} style={{ background: '#0A0A0A', padding: '32px 24px', textAlign: 'center' }}>
+              <div key={i} style={{ background: '#080C1A', padding: '32px 24px', textAlign: 'center' }}>
                 <div style={{ fontSize: 'clamp(24px, 3vw, 36px)', fontWeight: 700, color: CORAL, marginBottom: 6 }}>
                   {stat.isText ? stat.label : <CountUp target={stat.value as number} suffix={stat.suffix} />}
                 </div>
                 <div style={{ fontSize: 14, color: '#666', marginBottom: 4, lineHeight: 1.75 }}>{stat.isText ? stat.sub : stat.label}</div>
-                <div style={{ fontSize: 11, color: '#333' }}>{stat.source}</div>
+                <div style={{ fontSize: 11, color: '#2D3A5C' }}>{stat.source}</div>
               </div>
             ))}
           </div>
@@ -294,8 +294,8 @@ export default function Page() {
                 ],
               },
             ].map((sector, i) => (
-              <motion.div key={i} whileHover={{ y: -3, borderColor: '#2a2a2a' }}
-                style={{ background: '#111', border: '1px solid #1a1a1a', borderRadius: 10, padding: 28, transition: 'border-color 0.3s' }}>
+              <motion.div key={i} whileHover={{ y: -3, borderColor: '#1E2947' }}
+                style={{ background: '#0F1629', border: '1px solid #1E2947', borderRadius: 10, padding: 28, transition: 'border-color 0.3s' }}>
                 <div style={{ marginBottom: 16 }}><sector.Icon /></div>
                 <h3 style={{ fontSize: 18, fontWeight: 600, color: '#fff', margin: '0 0 18px' }}>{sector.title}</h3>
                 <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
@@ -314,7 +314,7 @@ export default function Page() {
 
       {/* ── WORKSHOPS ── */}
       <FadeUp>
-        <section id="angebote" style={{ padding: '24px 32px 80px', background: '#060606' }}>
+        <section id="angebote" style={{ padding: '24px 32px 80px', background: '#0F1629' }}>
           <div style={{ textAlign: 'center', marginBottom: 48 }}>
             <div style={{ fontSize: 11, color: CORAL, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: 14 }}>Unsere Angebote</div>
             <h2 style={{ fontSize: 'clamp(26px, 3vw, 38px)', fontWeight: 700, letterSpacing: '-0.3px', margin: '0 0 12px', color: '#fff' }}>Einstieg oder Vollautomatisierung</h2>
@@ -323,30 +323,30 @@ export default function Page() {
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 14, maxWidth: 1100, margin: '0 auto' }} className="three-col">
             {/* STARTER */}
-            <motion.div whileHover={{ y: -3, borderColor: '#2a2a2a' }} style={{ background: '#060606', border: '1px solid #1a1a1a', borderRadius: 10, padding: 24, transition: 'border-color 0.3s' }}>
+            <motion.div whileHover={{ y: -3, borderColor: '#1E2947' }} style={{ background: '#0F1629', border: '1px solid #1E2947', borderRadius: 10, padding: 24, transition: 'border-color 0.3s' }}>
               <div style={{ fontSize: 11, color: CORAL, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: 8 }}>Workshop</div>
               <div style={{ fontSize: 20, fontWeight: 600, color: '#fff', marginBottom: 8 }}>Starter</div>
               <div style={{ fontSize: 14, color: '#777', lineHeight: 1.75, marginBottom: 20 }}>
                 4 Stunden online, bis 12 Personen, 3 sofort umsetzbare Use Cases, 10 Bau-Prompts inklusive, 30 Tage E-Mail-Support
               </div>
-              <div style={{ height: 1, background: '#1a1a1a', marginBottom: 14 }} />
+              <div style={{ height: 1, background: '#1E2947', marginBottom: 14 }} />
               <div style={{ fontSize: 24, fontWeight: 700, color: '#fff' }}>€4.900</div>
               <div style={{ fontSize: 12, color: '#555', marginBottom: 16 }}>pro Unternehmen, Flatrate</div>
               <a href={SITE_CONFIG.calendly} target="_blank" rel="noreferrer"
-                style={{ display: 'block', width: '100%', padding: '11px', textAlign: 'center', background: 'transparent', border: '1px solid #222', color: '#888', borderRadius: 7, fontSize: 14, textDecoration: 'none', fontWeight: 600 }}>
+                style={{ display: 'block', width: '100%', padding: '11px', textAlign: 'center', background: 'transparent', border: '1px solid #1E2947', color: '#888', borderRadius: 7, fontSize: 14, textDecoration: 'none', fontWeight: 600 }}>
                 Workshop anfragen
               </a>
             </motion.div>
 
             {/* PROFESSIONAL */}
-            <motion.div whileHover={{ y: -3 }} style={{ background: '#060606', border: `1px solid ${CORAL}44`, borderRadius: 10, padding: 24, position: 'relative' }}>
+            <motion.div whileHover={{ y: -3 }} style={{ background: '#0F1629', border: `1px solid ${CORAL}44`, borderRadius: 10, padding: 24, position: 'relative' }}>
               <div style={{ position: 'absolute', top: 0, right: 14, background: CORAL, color: '#fff', fontSize: 10, fontWeight: 700, padding: '3px 10px', borderRadius: '0 0 6px 6px', letterSpacing: '0.04em' }}>BELIEBT</div>
               <div style={{ fontSize: 11, color: CORAL, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: 8 }}>Workshop</div>
               <div style={{ fontSize: 20, fontWeight: 600, color: '#fff', marginBottom: 8 }}>Professional</div>
               <div style={{ fontSize: 14, color: '#777', lineHeight: 1.75, marginBottom: 20 }}>
                 7 Stunden online, bis 15 Personen, eigene Workflows entwickeln, Prompt-Bibliothek, 60 Tage Support und 2 Follow-up Calls
               </div>
-              <div style={{ height: 1, background: '#1a1a1a', marginBottom: 14 }} />
+              <div style={{ height: 1, background: '#1E2947', marginBottom: 14 }} />
               <div style={{ fontSize: 24, fontWeight: 700, color: '#fff' }}>€7.900</div>
               <div style={{ fontSize: 12, color: '#555', marginBottom: 16 }}>pro Unternehmen, Flatrate</div>
               <a href={SITE_CONFIG.calendly} target="_blank" rel="noreferrer"
@@ -356,17 +356,17 @@ export default function Page() {
             </motion.div>
 
             {/* AUTOMATISIERUNG */}
-            <motion.div whileHover={{ y: -3, borderColor: '#2a2a2a' }} style={{ background: '#060606', border: '1px solid #1a1a1a', borderRadius: 10, padding: 24, transition: 'border-color 0.3s' }}>
+            <motion.div whileHover={{ y: -3, borderColor: '#1E2947' }} style={{ background: '#0F1629', border: '1px solid #1E2947', borderRadius: 10, padding: 24, transition: 'border-color 0.3s' }}>
               <div style={{ fontSize: 11, color: CORAL, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: 8 }}>Premium</div>
               <div style={{ fontSize: 20, fontWeight: 600, color: '#fff', marginBottom: 8 }}>KI-Prozessautomatisierung</div>
               <div style={{ fontSize: 14, color: '#777', lineHeight: 1.75, marginBottom: 20 }}>
                 Audit, Konzept, Umsetzung, Training, laufende Wartung. Individuelle Workflows für Ihr Unternehmen. DSGVO-konform auf EU-Servern.
               </div>
-              <div style={{ height: 1, background: '#1a1a1a', marginBottom: 14 }} />
+              <div style={{ height: 1, background: '#1E2947', marginBottom: 14 }} />
               <div style={{ fontSize: 24, fontWeight: 700, color: '#fff' }}>ab €1.800</div>
               <div style={{ fontSize: 12, color: '#555', marginBottom: 16 }}>Einrichtung + monatliche Wartung ab €500</div>
               <Link href="/automatisierung"
-                style={{ display: 'block', width: '100%', padding: '11px', textAlign: 'center', background: 'transparent', border: '1px solid #222', color: '#888', borderRadius: 7, fontSize: 14, textDecoration: 'none', fontWeight: 600 }}>
+                style={{ display: 'block', width: '100%', padding: '11px', textAlign: 'center', background: 'transparent', border: '1px solid #1E2947', color: '#888', borderRadius: 7, fontSize: 14, textDecoration: 'none', fontWeight: 600 }}>
                 Pakete ansehen
               </Link>
             </motion.div>
@@ -411,8 +411,8 @@ export default function Page() {
                 retainer: '+ ab €800 / Monat',
               },
             ].map((pkg, i) => (
-              <motion.div key={i} whileHover={{ y: -3, borderColor: '#2a2a2a' }}
-                style={{ background: '#111', border: pkg.highlight ? `1px solid ${CORAL}44` : '1px solid #1a1a1a', borderRadius: 10, padding: 28, display: 'flex', flexDirection: 'column', transition: 'border-color 0.3s' }}>
+              <motion.div key={i} whileHover={{ y: -3, borderColor: '#1E2947' }}
+                style={{ background: '#0F1629', border: pkg.highlight ? `1px solid ${CORAL}44` : '1px solid #1E2947', borderRadius: 10, padding: 28, display: 'flex', flexDirection: 'column', transition: 'border-color 0.3s' }}>
                 {pkg.highlight && (
                   <div style={{ fontSize: 11, color: CORAL, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: 6 }}>Meistgebucht</div>
                 )}
@@ -426,10 +426,10 @@ export default function Page() {
                     </li>
                   ))}
                 </ul>
-                <div style={{ borderTop: '1px solid #1a1a1a', paddingTop: 14, marginBottom: 14 }}>
+                <div style={{ borderTop: '1px solid #1E2947', paddingTop: 14, marginBottom: 14 }}>
                   <div style={{ fontSize: 20, fontWeight: 700, color: '#fff' }}>{pkg.price}</div>
                   <div style={{ fontSize: 13, color: '#555' }}>{pkg.retainer}</div>
-                  <div style={{ fontSize: 11, color: '#333', marginTop: 4 }}>Genauer Preis nach kostenlosem Audit</div>
+                  <div style={{ fontSize: 11, color: '#2D3A5C', marginTop: 4 }}>Genauer Preis nach kostenlosem Audit</div>
                 </div>
                 <Link href={pkg.href}
                   style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 6, width: '100%', padding: '11px', textAlign: 'center', background: pkg.highlight ? CORAL : 'transparent', border: pkg.highlight ? 'none' : '1px solid #222', color: pkg.highlight ? '#fff' : '#888', borderRadius: 7, fontSize: 14, textDecoration: 'none', fontWeight: 600 }}>
@@ -443,14 +443,14 @@ export default function Page() {
 
       {/* ── TEAM ── */}
       <FadeUp>
-        <section id="team" style={{ padding: '24px 32px 80px', background: '#060606' }}>
+        <section id="team" style={{ padding: '24px 32px 80px', background: '#0F1629' }}>
           <div style={{ textAlign: 'center', marginBottom: 44 }}>
             <h2 style={{ fontSize: 'clamp(26px, 3vw, 34px)', fontWeight: 600, color: '#fff', letterSpacing: '-0.3px', margin: '0 0 8px' }}>Ihr Team</h2>
           </div>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 16, maxWidth: 800, margin: '0 auto' }} className="two-col">
             {SITE_CONFIG.team.map((person, i) => (
-              <motion.div key={i} whileHover={{ y: -2, borderColor: '#2a2a2a' }}
-                style={{ background: '#0A0A0A', border: '1px solid #1a1a1a', borderRadius: 10, padding: 28, transition: 'border-color 0.3s' }}>
+              <motion.div key={i} whileHover={{ y: -2, borderColor: '#1E2947' }}
+                style={{ background: '#080C1A', border: '1px solid #1E2947', borderRadius: 10, padding: 28, transition: 'border-color 0.3s' }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: 14, marginBottom: 14 }}>
                   <div>
                     <div style={{ fontSize: 18, fontWeight: 600, color: '#fff' }}>{person.name}</div>
@@ -472,7 +472,7 @@ export default function Page() {
 
       {/* ── CTA ── */}
       <FadeUp>
-        <section style={{ padding: '80px 32px', textAlign: 'center', background: '#060606', position: 'relative', overflow: 'hidden' }}>
+        <section style={{ padding: '80px 32px', textAlign: 'center', background: '#0F1629', position: 'relative', overflow: 'hidden' }}>
           <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(ellipse 50% 100% at 50% 100%, rgba(232,71,42,0.06) 0%, transparent 70%)', pointerEvents: 'none' }} />
           <h2 style={{ fontSize: 'clamp(24px, 3vw, 30px)', fontWeight: 600, color: '#fff', margin: '0 0 14px' }}>15 Minuten. Kein Risiko.</h2>
           <p style={{ fontSize: 17, color: '#888', margin: '0 0 32px', lineHeight: 1.75 }}>
@@ -482,7 +482,7 @@ export default function Page() {
             style={{ display: 'inline-block', background: CORAL, color: '#fff', padding: '15px 36px', borderRadius: 9, fontSize: 16, fontWeight: 700, textDecoration: 'none' }}>
             Kostenlosen Audit buchen
           </a>
-          <div style={{ fontSize: 13, color: '#333', marginTop: 14 }}>
+          <div style={{ fontSize: 13, color: '#2D3A5C', marginTop: 14 }}>
             Kein IT-Aufwand · Keine Vorinstallation · Sofort umsetzbar
           </div>
         </section>

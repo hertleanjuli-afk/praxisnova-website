@@ -9,7 +9,7 @@ export const metadata = {
 
 export default function DatenschutzPage() {
   return (
-    <main style={{ background: '#0A0A0A', color: '#fff', fontFamily: 'system-ui, -apple-system, sans-serif', minHeight: '100vh' }}>
+    <main style={{ background: '#080C1A', color: '#fff', fontFamily: 'system-ui, -apple-system, sans-serif', minHeight: '100vh' }}>
       <Nav />
       <section style={{ padding: '72px 32px 80px', maxWidth: 700, margin: '0 auto' }}>
         <h1 style={{ fontSize: 32, fontWeight: 700, marginBottom: 36, letterSpacing: '-0.3px', color: '#fff' }}>Datenschutzerklärung</h1>
