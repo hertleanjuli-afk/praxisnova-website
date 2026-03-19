@@ -8,6 +8,7 @@ export default function Popup() {
   const [email, setEmail] = useState('');
   const [name, setName] = useState('');
   const [sent, setSent] = useState(false);
+  const [dsgvo, setDsgvo] = useState(false);
 
   useEffect(() => {
     const timer = setTimeout(() => setShow(true), 10000);
@@ -16,11 +17,15 @@ export default function Popup() {
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    await fetch('/api/lead', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ email, name }),
-    });
+    try {
+      await fetch('/api/lead', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, name }),
+      });
+    } catch {
+      // silently ignore – user should not be blocked
+    }
     setSent(true);
   }
 
@@ -46,7 +51,7 @@ export default function Popup() {
       {sent ? (
         <div style={{ textAlign: 'center', padding: '16px 0' }}>
           <div style={{ fontSize: 32, marginBottom: 8 }}>✓</div>
-          <p style={{ color: '#fff', fontWeight: 600, fontSize: 16 }}>Danke! Wir melden uns in Kürze.</p>
+          <p style={{ color: '#fff', fontWeight: 600, fontSize: 16 }}>Danke! Wir melden uns innerhalb von 24 Stunden.</p>
         </div>
       ) : (
         <>
@@ -83,6 +88,24 @@ export default function Popup() {
                 marginBottom: 12, boxSizing: 'border-box',
               }}
             />
+            <label style={{
+              display: 'flex', alignItems: 'flex-start', gap: 8,
+              fontSize: 11, color: '#888', marginBottom: 12, cursor: 'pointer', lineHeight: 1.4,
+            }}>
+              <input
+                type="checkbox"
+                checked={dsgvo}
+                onChange={(e) => setDsgvo(e.target.checked)}
+                required
+                style={{ marginTop: 2, accentColor: CORAL }}
+              />
+              <span>
+                Ich stimme zu, dass PraxisNova AI mich per E-Mail kontaktiert.{' '}
+                <a href="/datenschutz" target="_blank" style={{ color: CORAL, textDecoration: 'underline' }}>
+                  Datenschutz
+                </a>.
+              </span>
+            </label>
             <button
               type="submit"
               style={{
