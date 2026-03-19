@@ -17,8 +17,8 @@ export default function ImpressumPage() {
         <div style={{ fontSize: 16, color: '#888', lineHeight: 1.75 }}>
           <h2 style={{ fontSize: 18, fontWeight: 600, color: '#fff', marginBottom: 10, marginTop: 32 }}>Angaben gemäß § 5 TMG</h2>
           <p style={{ margin: '0 0 4px' }}>PraxisNova AI</p>
-          <p style={{ margin: '0 0 4px' }}>[Straße und Hausnummer]</p>
-          <p style={{ margin: '0 0 4px' }}>[PLZ Ort]</p>
+          <p style={{ margin: '0 0 4px' }}>Otto-Hahn-Str. 15</p>
+          <p style={{ margin: '0 0 4px' }}>72622 Nürtingen</p>
           <p style={{ margin: '0 0 4px' }}>Deutschland</p>
 
           <h2 style={{ fontSize: 18, fontWeight: 600, color: '#fff', marginBottom: 10, marginTop: 32 }}>Vertreten durch</h2>
@@ -28,13 +28,9 @@ export default function ImpressumPage() {
           <h2 style={{ fontSize: 18, fontWeight: 600, color: '#fff', marginBottom: 10, marginTop: 32 }}>Kontakt</h2>
           <p style={{ margin: '0 0 4px' }}>E-Mail: <a href="mailto:info@praxisnovaai.com" style={{ color: '#E8472A', textDecoration: 'none' }}>info@praxisnovaai.com</a></p>
 
-          <h2 style={{ fontSize: 18, fontWeight: 600, color: '#fff', marginBottom: 10, marginTop: 32 }}>Umsatzsteuer-ID</h2>
-          <p style={{ margin: '0 0 4px' }}>Umsatzsteuer-Identifikationsnummer gemäß § 27a Umsatzsteuergesetz:</p>
-          <p style={{ margin: '0 0 4px' }}>[USt-ID wird nachgetragen]</p>
-
           <h2 style={{ fontSize: 18, fontWeight: 600, color: '#fff', marginBottom: 10, marginTop: 32 }}>Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV</h2>
           <p style={{ margin: '0 0 4px' }}>Anjuli Hertle</p>
-          <p style={{ margin: '0 0 4px' }}>[Adresse wie oben]</p>
+          <p style={{ margin: '0 0 4px' }}>Otto-Hahn-Str. 15, 72622 Nürtingen</p>
 
           <h2 style={{ fontSize: 18, fontWeight: 600, color: '#fff', marginBottom: 10, marginTop: 32 }}>Haftungsausschluss</h2>
           <p style={{ margin: '0 0 14px' }}>
@@ -50,9 +46,6 @@ export default function ImpressumPage() {
           </p>
         </div>
 
-        <p style={{ fontSize: 13, color: '#333', marginTop: 36 }}>
-          Bitte ergänzen Sie die mit [Klammern] markierten Felder mit Ihren tatsächlichen Angaben.
-        </p>
       </section>
       <Footer />
     </main>
