@@ -21,7 +21,7 @@ export async function POST(req: Request) {
         name,
         email,
         source: 'website_popup',
-        secret: 'pn_inbound_2026_secret',
+        secret: process.env.INBOUND_WEBHOOK_SECRET,
       }),
     }),
   ]);
