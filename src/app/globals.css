@@ -17,6 +17,14 @@ html {
   50% { opacity: 0.4; }
 }
 
+/* Ensure content is visible even if JS hydration fails */
+@keyframes forceVisible {
+  to { opacity: 1; transform: none; }
+}
+body [style*="opacity: 0"] {
+  animation: forceVisible 0s 3s forwards;
+}
+
 * {
   box-sizing: border-box;
 }
