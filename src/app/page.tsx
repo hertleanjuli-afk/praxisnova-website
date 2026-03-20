@@ -1,11 +1,12 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
-import { motion, useInView } from 'framer-motion';
+import { motion, useInView, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
 import Nav from '@/components/Nav';
 import Footer from '@/components/Footer';
 import { SITE_CONFIG } from '@/config/site';
+import { trackClick } from '@/lib/tracking';
 
 const CORAL = '#E8472A';
 
@@ -103,6 +104,164 @@ function ArrowRight() {
   );
 }
 
+function ChevronDown({ open }: { open: boolean }) {
+  return (
+    <motion.svg
+      width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#555" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"
+      animate={{ rotate: open ? 180 : 0 }}
+      transition={{ duration: 0.25 }}
+      style={{ flexShrink: 0 }}
+    >
+      <polyline points="5,8 10,13 15,8" />
+    </motion.svg>
+  );
+}
+
+/* ── ServiceItem ── */
+
+interface ServiceItemProps {
+  number: string;
+  label: string;
+  title: string;
+  price: string;
+  priceNote: string;
+  description?: string;
+  features: string[];
+  ctaText: string;
+  ctaHref: string;
+  ctaExternal?: boolean;
+  highlight?: boolean;
+  badge?: string;
+  trackingId: string;
+}
+
+function ServiceItem({ number, label, title, price, priceNote, description, features, ctaText, ctaHref, ctaExternal, highlight, badge, trackingId }: ServiceItemProps) {
+  const [open, setOpen] = useState(false);
+  const ref = useRef(null);
+  const inView = useInView(ref, { once: true, margin: '-40px' });
+
+  const midpoint = Math.ceil(features.length / 2);
+  const col1 = features.slice(0, midpoint);
+  const col2 = features.slice(midpoint);
+
+  return (
+    <motion.div
+      ref={ref}
+      initial={{ opacity: 0, y: 20 }}
+      animate={inView ? { opacity: 1, y: 0 } : {}}
+      transition={{ duration: 0.5, ease: 'easeOut' }}
+      style={{ borderTop: '1px solid #1E2947', position: 'relative' }}
+    >
+      {badge && (
+        <div style={{
+          position: 'absolute', top: -1, right: 0,
+          background: CORAL, color: '#fff', fontSize: 10, fontWeight: 700,
+          padding: '4px 12px', borderRadius: '0 0 6px 6px', letterSpacing: '0.04em',
+        }}>
+          {badge}
+        </div>
+      )}
+
+      <button
+        onClick={() => setOpen(!open)}
+        style={{
+          width: '100%', background: 'none', border: 'none', cursor: 'pointer',
+          padding: '28px 0', display: 'flex', alignItems: 'flex-start', gap: 24,
+          textAlign: 'left',
+        }}
+        className="service-item-btn"
+      >
+        <span style={{
+          fontSize: 'clamp(36px, 4vw, 48px)', fontWeight: 700,
+          color: highlight ? CORAL : '#1E2947',
+          lineHeight: 1, flexShrink: 0, minWidth: 64,
+        }}
+        className="service-number"
+        >
+          {number}
+        </span>
+
+        <div style={{ flex: 1, minWidth: 0 }}>
+          <div style={{ fontSize: 11, color: CORAL, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: 6 }}>
+            {label}
+          </div>
+          <div style={{ fontSize: 'clamp(20px, 2.5vw, 26px)', fontWeight: 700, color: '#fff', marginBottom: 6, lineHeight: 1.2 }}>
+            {title}
+          </div>
+          <div style={{ display: 'flex', alignItems: 'baseline', gap: 10, flexWrap: 'wrap' }}>
+            <span style={{ fontSize: 20, fontWeight: 700, color: '#fff' }}>{price}</span>
+            <span style={{ fontSize: 13, color: '#555' }}>{priceNote}</span>
+          </div>
+          {description && (
+            <p style={{ fontSize: 14, color: '#666', lineHeight: 1.75, marginTop: 8, marginBottom: 0 }}>{description}</p>
+          )}
+        </div>
+
+        <ChevronDown open={open} />
+      </button>
+
+      <AnimatePresence>
+        {open && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: 'auto', opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.3, ease: 'easeInOut' }}
+            style={{ overflow: 'hidden' }}
+          >
+            <div style={{ paddingBottom: 28, paddingLeft: 88 }} className="service-expanded">
+              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '8px 32px', marginBottom: 20 }} className="feature-grid">
+                {col1.map((f, i) => (
+                  <div key={i} style={{ display: 'flex', gap: 8, alignItems: 'flex-start' }}>
+                    <span style={{ color: CORAL, fontSize: 13, marginTop: 2, flexShrink: 0 }}>✓</span>
+                    <span style={{ fontSize: 14, color: '#888', lineHeight: 1.75 }}>{f}</span>
+                  </div>
+                ))}
+                {col2.map((f, i) => (
+                  <div key={i + midpoint} style={{ display: 'flex', gap: 8, alignItems: 'flex-start' }}>
+                    <span style={{ color: CORAL, fontSize: 13, marginTop: 2, flexShrink: 0 }}>✓</span>
+                    <span style={{ fontSize: 14, color: '#888', lineHeight: 1.75 }}>{f}</span>
+                  </div>
+                ))}
+              </div>
+
+              {ctaExternal ? (
+                <a
+                  href={ctaHref} target="_blank" rel="noreferrer"
+                  onClick={() => trackClick(trackingId, ctaText)}
+                  style={{
+                    display: 'inline-flex', alignItems: 'center', gap: 6,
+                    background: highlight ? CORAL : 'transparent',
+                    border: highlight ? 'none' : '1px solid #1E2947',
+                    color: highlight ? '#fff' : '#888',
+                    padding: '11px 24px', borderRadius: 7, fontSize: 14, fontWeight: 600, textDecoration: 'none',
+                  }}
+                >
+                  {ctaText} <ArrowRight />
+                </a>
+              ) : (
+                <Link
+                  href={ctaHref}
+                  onClick={() => trackClick(trackingId, ctaText)}
+                  style={{
+                    display: 'inline-flex', alignItems: 'center', gap: 6,
+                    background: highlight ? CORAL : 'transparent',
+                    border: highlight ? 'none' : '1px solid #1E2947',
+                    color: highlight ? '#fff' : '#888',
+                    padding: '11px 24px', borderRadius: 7, fontSize: 14, fontWeight: 600, textDecoration: 'none',
+                  }}
+                >
+                  {ctaText} <ArrowRight />
+                </Link>
+              )}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </motion.div>
+  );
+}
+
 /* ── Launch Banner ── */
 
 const LAUNCH_END = new Date('2026-04-03T00:00:00');
@@ -161,6 +320,7 @@ function LaunchBanner() {
               Angebot läuft ab am 3. April 2026
             </span>
             <a href={SITE_CONFIG.calendly} target="_blank" rel="noreferrer"
+              onClick={() => trackClick('launch_banner_cta', 'Jetzt Platz sichern')}
               style={{
                 background: CORAL, color: '#fff', padding: '8px 20px', borderRadius: 7,
                 fontSize: 13, fontWeight: 700, textDecoration: 'none',
@@ -223,11 +383,13 @@ export default function Page() {
             transition={{ duration: 0.5, delay: 0.55 }}
             style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap' }}
           >
-            <a href={SITE_CONFIG.calendly} target="_blank" rel="noreferrer"
+            <a href="#angebote"
+              onClick={() => trackClick('hero_cta_primary', 'Workshops entdecken')}
               style={{ background: CORAL, color: '#fff', padding: '14px 28px', borderRadius: 8, fontSize: 15, fontWeight: 700, textDecoration: 'none' }}>
               Workshops entdecken
             </a>
             <a href={SITE_CONFIG.calendly} target="_blank" rel="noreferrer"
+              onClick={() => trackClick('hero_cta_secondary', 'Kostenlosen Audit buchen')}
               style={{ background: 'transparent', color: '#999', padding: '14px 28px', borderRadius: 8, fontSize: 15, fontWeight: 600, textDecoration: 'none', border: '1px solid #1E2947' }}>
               Kostenlosen Audit buchen
             </a>
@@ -330,55 +492,45 @@ export default function Page() {
             <p style={{ fontSize: 16, color: '#888', lineHeight: 1.75 }}>Workshops für schnelle Ergebnisse. KI-Automatisierung für nachhaltigen Vorsprung.</p>
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 14, maxWidth: 1100, margin: '0 auto' }} className="three-col">
-            {/* STARTER */}
-            <motion.div whileHover={{ y: -3, borderColor: '#1E2947' }} style={{ background: '#0F1629', border: '1px solid #1E2947', borderRadius: 10, padding: 24, transition: 'border-color 0.3s' }}>
-              <div style={{ fontSize: 11, color: CORAL, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: 8 }}>Workshop</div>
-              <div style={{ fontSize: 20, fontWeight: 600, color: '#fff', marginBottom: 8 }}>Starter</div>
-              <div style={{ fontSize: 14, color: '#777', lineHeight: 1.75, marginBottom: 20 }}>
-                4 Stunden online, bis 12 Personen, 3 sofort umsetzbare Use Cases, 10 Bau-Prompts inklusive, 30 Tage E-Mail-Support
-              </div>
-              <div style={{ height: 1, background: '#1E2947', marginBottom: 14 }} />
-              <div style={{ fontSize: 24, fontWeight: 700, color: '#fff' }}>€4.900</div>
-              <div style={{ fontSize: 12, color: '#555', marginBottom: 16 }}>pro Unternehmen, Flatrate</div>
-              <a href={SITE_CONFIG.calendly} target="_blank" rel="noreferrer"
-                style={{ display: 'block', width: '100%', padding: '11px', textAlign: 'center', background: 'transparent', border: '1px solid #1E2947', color: '#888', borderRadius: 7, fontSize: 14, textDecoration: 'none', fontWeight: 600 }}>
-                Workshop anfragen
-              </a>
-            </motion.div>
-
-            {/* PROFESSIONAL */}
-            <motion.div whileHover={{ y: -3 }} style={{ background: '#0F1629', border: `1px solid ${CORAL}44`, borderRadius: 10, padding: 24, position: 'relative' }}>
-              <div style={{ position: 'absolute', top: 0, right: 14, background: CORAL, color: '#fff', fontSize: 10, fontWeight: 700, padding: '3px 10px', borderRadius: '0 0 6px 6px', letterSpacing: '0.04em' }}>BELIEBT</div>
-              <div style={{ fontSize: 11, color: CORAL, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: 8 }}>Workshop</div>
-              <div style={{ fontSize: 20, fontWeight: 600, color: '#fff', marginBottom: 8 }}>Professional</div>
-              <div style={{ fontSize: 14, color: '#777', lineHeight: 1.75, marginBottom: 20 }}>
-                7 Stunden online, bis 15 Personen, eigene Workflows entwickeln, Prompt-Bibliothek, 60 Tage Support und 2 Follow-up Calls
-              </div>
-              <div style={{ height: 1, background: '#1E2947', marginBottom: 14 }} />
-              <div style={{ fontSize: 24, fontWeight: 700, color: '#fff' }}>€7.900</div>
-              <div style={{ fontSize: 12, color: '#555', marginBottom: 16 }}>pro Unternehmen, Flatrate</div>
-              <a href={SITE_CONFIG.calendly} target="_blank" rel="noreferrer"
-                style={{ display: 'block', width: '100%', padding: '11px', textAlign: 'center', background: CORAL, color: '#fff', borderRadius: 7, fontSize: 14, textDecoration: 'none', fontWeight: 600 }}>
-                Workshop anfragen
-              </a>
-            </motion.div>
-
-            {/* AUTOMATISIERUNG */}
-            <motion.div whileHover={{ y: -3, borderColor: '#1E2947' }} style={{ background: '#0F1629', border: '1px solid #1E2947', borderRadius: 10, padding: 24, transition: 'border-color 0.3s' }}>
-              <div style={{ fontSize: 11, color: CORAL, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: 8 }}>Premium</div>
-              <div style={{ fontSize: 20, fontWeight: 600, color: '#fff', marginBottom: 8 }}>KI-Prozessautomatisierung</div>
-              <div style={{ fontSize: 14, color: '#777', lineHeight: 1.75, marginBottom: 20 }}>
-                Audit, Konzept, Umsetzung, Training, laufende Wartung. Individuelle Workflows für Ihr Unternehmen. DSGVO-konform auf EU-Servern.
-              </div>
-              <div style={{ height: 1, background: '#1E2947', marginBottom: 14 }} />
-              <div style={{ fontSize: 24, fontWeight: 700, color: '#fff' }}>ab €1.800</div>
-              <div style={{ fontSize: 12, color: '#555', marginBottom: 16 }}>Einrichtung + monatliche Wartung ab €500</div>
-              <Link href="/automatisierung"
-                style={{ display: 'block', width: '100%', padding: '11px', textAlign: 'center', background: 'transparent', border: '1px solid #1E2947', color: '#888', borderRadius: 7, fontSize: 14, textDecoration: 'none', fontWeight: 600 }}>
-                Pakete ansehen
-              </Link>
-            </motion.div>
+          <div style={{ maxWidth: 900, margin: '0 auto' }}>
+            <ServiceItem
+              number="01"
+              label="Workshop"
+              title="Starter"
+              price="€4.900"
+              priceNote="pro Unternehmen, Flatrate"
+              features={['4 Stunden online', 'Bis 12 Personen', '3 sofort umsetzbare Use Cases', '10 branchenspezifische Prompts', '30 Tage E-Mail-Support']}
+              ctaText="Workshop anfragen"
+              ctaHref={SITE_CONFIG.calendly}
+              ctaExternal
+              trackingId="service_cta_01"
+            />
+            <ServiceItem
+              number="02"
+              label="Workshop"
+              title="Professional"
+              price="€7.900"
+              priceNote="pro Unternehmen, Flatrate"
+              features={['7 Stunden online', 'Bis 15 Personen', 'Eigene Workflows entwickeln', 'Maßgeschneiderte Prompt-Bibliothek', '60 Tage Support inkl. 2 Follow-up Calls']}
+              ctaText="Workshop anfragen"
+              ctaHref={SITE_CONFIG.calendly}
+              ctaExternal
+              highlight
+              badge="BELIEBT"
+              trackingId="service_cta_02"
+            />
+            <ServiceItem
+              number="03"
+              label="Premium"
+              title="KI-Prozessautomatisierung"
+              price="ab €1.800"
+              priceNote="Einrichtung + monatliche Wartung ab €500"
+              features={['Individueller Prozess-Audit', 'Maßgeschneidertes Automatisierungskonzept', 'Komplette Umsetzung', 'Team-Training', 'Laufende Wartung', 'DSGVO-konform EU-Server']}
+              ctaText="Pakete ansehen"
+              ctaHref="/automatisierung"
+              trackingId="service_cta_03"
+            />
+            <div style={{ borderTop: '1px solid #1E2947' }} />
           </div>
         </section>
       </FadeUp>
@@ -392,60 +544,43 @@ export default function Page() {
             <p style={{ fontSize: 16, color: '#888', lineHeight: 1.75 }}>Jedes Paket ist produktisiert, sofort einsetzbar und DSGVO-konform.</p>
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 14, maxWidth: 1100, margin: '0 auto' }} className="three-col">
-            {[
-              {
-                href: '/automatisierung/immobilien',
-                label: 'Immobilienmakler',
-                tagline: 'Kein Lead geht mehr verloren',
-                features: ['Lead-Erfassung aus ImmoScout24', 'KI-basiertes Lead-Scoring', 'Automatische CRM-Befüllung', 'Besichtigungsautomatisierung', 'Google-Bewertungsanfragen'],
-                price: 'ab €2.500',
-                retainer: '+ ab €600 / Monat',
-              },
-              {
-                href: '/automatisierung/handwerk',
-                label: 'Handwerksbetriebe',
-                tagline: 'Anfragen, Angebote, Rechnungen',
-                features: ['Automatische Anfragebestätigung', 'KI-Angebotsgenerierung', 'Online-Terminbuchung', 'Automatische Rechnungen (ZUGFeRD)', 'Mahnwesen & Bewertungsanfragen'],
-                price: 'ab €1.800',
-                retainer: '+ ab €500 / Monat',
-                highlight: true,
-              },
-              {
-                href: '/automatisierung/bau',
-                label: 'Bauunternehmen',
-                tagline: 'Kommunikation und Dokumentation',
-                features: ['Projektstart-Automatisierung', 'Automatischer Wochenbericht', 'Mängelmanagement mit Eskalation', 'Subunternehmer-Koordination', 'Übergabedokumentation (automatisch)'],
-                price: 'ab €3.500',
-                retainer: '+ ab €800 / Monat',
-              },
-            ].map((pkg, i) => (
-              <motion.div key={i} whileHover={{ y: -3, borderColor: '#1E2947' }}
-                style={{ background: '#0F1629', border: pkg.highlight ? `1px solid ${CORAL}44` : '1px solid #1E2947', borderRadius: 10, padding: 28, display: 'flex', flexDirection: 'column', transition: 'border-color 0.3s' }}>
-                {pkg.highlight && (
-                  <div style={{ fontSize: 11, color: CORAL, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: 6 }}>Meistgebucht</div>
-                )}
-                <h3 style={{ fontSize: 18, fontWeight: 600, color: '#fff', margin: '0 0 6px' }}>{pkg.label}</h3>
-                <p style={{ fontSize: 14, color: CORAL, margin: '0 0 18px' }}>{pkg.tagline}</p>
-                <ul style={{ listStyle: 'none', padding: 0, margin: '0 0 20px', flex: 1 }}>
-                  {pkg.features.map((f, j) => (
-                    <li key={j} style={{ display: 'flex', gap: 8, alignItems: 'flex-start', marginBottom: 10 }}>
-                      <span style={{ color: CORAL, fontSize: 13, marginTop: 2, flexShrink: 0 }}>✓</span>
-                      <span style={{ fontSize: 14, color: '#777', lineHeight: 1.75 }}>{f}</span>
-                    </li>
-                  ))}
-                </ul>
-                <div style={{ borderTop: '1px solid #1E2947', paddingTop: 14, marginBottom: 14 }}>
-                  <div style={{ fontSize: 20, fontWeight: 700, color: '#fff' }}>{pkg.price}</div>
-                  <div style={{ fontSize: 13, color: '#555' }}>{pkg.retainer}</div>
-                  <div style={{ fontSize: 11, color: '#2D3A5C', marginTop: 4 }}>Genauer Preis nach kostenlosem Audit</div>
-                </div>
-                <Link href={pkg.href}
-                  style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 6, width: '100%', padding: '11px', textAlign: 'center', background: pkg.highlight ? CORAL : 'transparent', border: pkg.highlight ? 'none' : '1px solid #222', color: pkg.highlight ? '#fff' : '#888', borderRadius: 7, fontSize: 14, textDecoration: 'none', fontWeight: 600 }}>
-                  Mehr erfahren <ArrowRight />
-                </Link>
-              </motion.div>
-            ))}
+          <div style={{ maxWidth: 900, margin: '0 auto' }}>
+            <ServiceItem
+              number="01"
+              label="Immobilienmakler"
+              title="Kein Lead geht mehr verloren"
+              price="ab €2.500"
+              priceNote="+ ab €600 / Monat"
+              features={['Lead-Erfassung aus ImmoScout24', 'KI-basiertes Lead-Scoring', 'Automatische CRM-Befüllung', 'Besichtigungsautomatisierung', 'Google-Bewertungsanfragen']}
+              ctaText="Mehr erfahren"
+              ctaHref="/automatisierung/immobilien"
+              trackingId="service_cta_immo"
+            />
+            <ServiceItem
+              number="02"
+              label="Handwerksbetriebe"
+              title="Anfragen, Angebote, Rechnungen"
+              price="ab €1.800"
+              priceNote="+ ab €500 / Monat"
+              features={['Automatische Anfragebestätigung', 'KI-Angebotsgenerierung', 'Online-Terminbuchung', 'Automatische Rechnungen (ZUGFeRD)', 'Mahnwesen & Bewertungsanfragen']}
+              ctaText="Mehr erfahren"
+              ctaHref="/automatisierung/handwerk"
+              highlight
+              badge="MEISTGEBUCHT"
+              trackingId="service_cta_handwerk"
+            />
+            <ServiceItem
+              number="03"
+              label="Bauunternehmen"
+              title="Kommunikation und Dokumentation"
+              price="ab €3.500"
+              priceNote="+ ab €800 / Monat"
+              features={['Projektstart-Automatisierung', 'Automatischer Wochenbericht', 'Mängelmanagement mit Eskalation', 'Subunternehmer-Koordination', 'Übergabedokumentation (automatisch)']}
+              ctaText="Mehr erfahren"
+              ctaHref="/automatisierung/bau"
+              trackingId="service_cta_bau"
+            />
+            <div style={{ borderTop: '1px solid #1E2947' }} />
           </div>
         </section>
       </FadeUp>
@@ -488,6 +623,7 @@ export default function Page() {
             Wir zeigen Ihnen konkret, wie viel Zeit Ihr Team zurückgewinnt<br />und was das für Ihren Jahresumsatz bedeutet.
           </p>
           <a href={SITE_CONFIG.calendly} target="_blank" rel="noreferrer"
+            onClick={() => trackClick('cta_bottom', 'Kostenlosen Audit buchen')}
             style={{ display: 'inline-block', background: CORAL, color: '#fff', padding: '15px 36px', borderRadius: 9, fontSize: 16, fontWeight: 700, textDecoration: 'none' }}>
             Kostenlosen Audit buchen
           </a>
@@ -505,6 +641,10 @@ export default function Page() {
           .three-col { grid-template-columns: 1fr !important; }
           .two-col { grid-template-columns: 1fr !important; }
           .stats-grid { grid-template-columns: repeat(2, 1fr) !important; }
+          .service-item-btn { flex-direction: column !important; gap: 12px !important; }
+          .service-number { min-width: auto !important; }
+          .service-expanded { padding-left: 0 !important; }
+          .feature-grid { grid-template-columns: 1fr !important; }
         }
       `}</style>
     </main>
