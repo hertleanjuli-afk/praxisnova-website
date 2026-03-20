@@ -17,11 +17,12 @@ export default function Popup() {
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
+    const visitorId = typeof window !== 'undefined' ? localStorage.getItem('pn_vid') || '' : '';
     try {
       await fetch('/api/lead', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, name }),
+        body: JSON.stringify({ email, name, visitorId }),
       });
     } catch {
       // silently ignore – user should not be blocked

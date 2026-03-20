@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 
 export async function POST(req: Request) {
-  const { email, name } = await req.json();
+  const { email, name, visitorId } = await req.json();
 
   await Promise.allSettled([
     fetch('https://api.hubspot.com/crm/v3/objects/contacts', {
@@ -20,6 +20,7 @@ export async function POST(req: Request) {
       body: JSON.stringify({
         name,
         email,
+        visitorId,
         source: 'website_popup',
         secret: process.env.INBOUND_WEBHOOK_SECRET,
       }),
