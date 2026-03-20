@@ -505,7 +505,7 @@ export default function Page() {
               ctaText="Workshop anfragen"
               ctaHref={SITE_CONFIG.calendly}
               ctaExternal
-              trackingId="service_cta_01"
+              trackingId="workshop_01_starter"
             />
             <ServiceItem
               number="02"
@@ -519,7 +519,7 @@ export default function Page() {
               ctaExternal
               highlight
               badge="BELIEBT"
-              trackingId="service_cta_02"
+              trackingId="workshop_02_professional"
             />
             <ServiceItem
               number="03"
@@ -530,7 +530,7 @@ export default function Page() {
               features={['Individueller Prozess-Audit', 'Maßgeschneidertes Automatisierungskonzept', 'Komplette Umsetzung', 'Team-Training', 'Laufende Wartung', 'DSGVO-konform EU-Server']}
               ctaText="Pakete ansehen"
               ctaHref="/automatisierung"
-              trackingId="service_cta_03"
+              trackingId="workshop_03_premium"
             />
             <div style={{ borderTop: '1px solid #1E2947' }} />
           </div>
@@ -556,7 +556,7 @@ export default function Page() {
               features={['Lead-Erfassung aus ImmoScout24', 'KI-basiertes Lead-Scoring', 'Automatische CRM-Befüllung', 'Besichtigungsautomatisierung', 'Google-Bewertungsanfragen']}
               ctaText="Mehr erfahren"
               ctaHref="/automatisierung/immobilien"
-              trackingId="service_cta_immo"
+              trackingId="auto_01_immobilien"
             />
             <ServiceItem
               number="02"
@@ -569,7 +569,7 @@ export default function Page() {
               ctaHref="/automatisierung/handwerk"
               highlight
               badge="MEISTGEBUCHT"
-              trackingId="service_cta_handwerk"
+              trackingId="auto_02_handwerk"
             />
             <ServiceItem
               number="03"
@@ -580,7 +580,7 @@ export default function Page() {
               features={['Projektstart-Automatisierung', 'Automatischer Wochenbericht', 'Mängelmanagement mit Eskalation', 'Subunternehmer-Koordination', 'Übergabedokumentation (automatisch)']}
               ctaText="Mehr erfahren"
               ctaHref="/automatisierung/bau"
-              trackingId="service_cta_bau"
+              trackingId="auto_03_bau"
             />
             <div style={{ borderTop: '1px solid #1E2947' }} />
           </div>
