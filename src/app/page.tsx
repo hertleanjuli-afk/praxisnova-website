@@ -105,9 +105,18 @@ function ArrowRight() {
 
 /* ── Launch Banner ── */
 
+const LAUNCH_END = new Date('2026-04-03T00:00:00');
+const LAUNCH_TOTAL_DAYS = 14;
+
 function LaunchBanner() {
-  const vergeben = SITE_CONFIG.totalPlaetze - SITE_CONFIG.verfuegbarePlaetze;
-  const prozent = (vergeben / SITE_CONFIG.totalPlaetze) * 100;
+  const now = new Date();
+  const diffMs = LAUNCH_END.getTime() - now.getTime();
+  const daysLeft = Math.ceil(diffMs / (1000 * 60 * 60 * 24));
+
+  if (daysLeft <= 0) return null;
+
+  const barPercent = (daysLeft / LAUNCH_TOTAL_DAYS) * 100;
+  const label = daysLeft === 1 ? 'Letzter Tag!' : `${daysLeft} Tagen`;
 
   return (
     <FadeUp>
@@ -127,7 +136,7 @@ function LaunchBanner() {
           <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 14 }}>
             <span style={{ fontSize: 20 }}>🔥</span>
             <span style={{ fontSize: 18, fontWeight: 700, color: '#fff' }}>
-              Einführungsangebot: Noch {SITE_CONFIG.verfuegbarePlaetze} Plätze zum Launch-Preis verfügbar
+              Launch-Preis endet in {label} — Jetzt sichern!
             </span>
           </div>
 
@@ -137,7 +146,7 @@ function LaunchBanner() {
             }}>
               <motion.div
                 initial={{ width: 0 }}
-                animate={{ width: `${prozent}%` }}
+                animate={{ width: `${barPercent}%` }}
                 transition={{ duration: 1.2, ease: 'easeOut', delay: 0.3 }}
                 style={{
                   height: '100%', borderRadius: 4,
@@ -149,7 +158,7 @@ function LaunchBanner() {
 
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
             <span style={{ fontSize: 14, color: '#777' }}>
-              {vergeben} von {SITE_CONFIG.totalPlaetze} Plätzen vergeben
+              Angebot läuft ab am 3. April 2026
             </span>
             <a href={SITE_CONFIG.calendly} target="_blank" rel="noreferrer"
               style={{
