@@ -6,7 +6,7 @@ import Link from 'next/link';
 import Nav from '@/components/Nav';
 import Footer from '@/components/Footer';
 import { SITE_CONFIG } from '@/config/site';
-import { trackClick } from '@/lib/tracking';
+import { trackClick, trackPageView, trackScrollDepth, initTracking } from '@/lib/tracking';
 
 const CORAL = '#E8472A';
 
@@ -337,6 +337,8 @@ function LaunchBanner() {
 /* ── Page ── */
 
 export default function Page() {
+  useEffect(() => { initTracking(); trackPageView(); trackScrollDepth(); }, []);
+
   return (
     <main style={{ background: '#080C1A', color: '#fff', fontFamily: 'system-ui, -apple-system, sans-serif', minHeight: '100vh' }}>
       <Nav />

@@ -1,10 +1,12 @@
 'use client';
 
+import { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import Nav from '@/components/Nav';
 import Footer from '@/components/Footer';
 import { SITE_CONFIG } from '@/config/site';
+import { trackClick, trackPageView, initTracking } from '@/lib/tracking';
 
 const CORAL = '#E8472A';
 
@@ -52,6 +54,8 @@ const PAKETE = [
 ];
 
 export default function AutomatisierungPage() {
+  useEffect(() => { initTracking(); trackPageView(); }, []);
+
   return (
     <main style={{ background: '#080C1A', color: '#fff', fontFamily: 'system-ui, -apple-system, sans-serif', minHeight: '100vh' }}>
       <Nav />
@@ -68,6 +72,7 @@ export default function AutomatisierungPage() {
             Der genaue Preis hängt von Ihren bestehenden Tools ab und wird im kostenlosen Audit festgelegt.
           </p>
           <a href={SITE_CONFIG.calendly} target="_blank" rel="noreferrer"
+            onClick={() => trackClick('auto_hero_cta', 'Kostenlosen Audit buchen')}
             style={{ display: 'inline-block', background: CORAL, color: '#fff', padding: '13px 28px', borderRadius: 8, fontSize: 15, fontWeight: 700, textDecoration: 'none' }}>
             Kostenlosen Audit buchen
           </a>
@@ -118,6 +123,7 @@ export default function AutomatisierungPage() {
             Im kostenlosen 15-Minuten-Audit analysieren wir Ihre aktuellen Prozesse und empfehlen das passende Paket mit konkreten ROI-Zahlen.
           </p>
           <a href={SITE_CONFIG.calendly} target="_blank" rel="noreferrer"
+            onClick={() => trackClick('auto_bottom_cta', 'Kostenlosen Audit buchen')}
             style={{ display: 'inline-block', background: CORAL, color: '#fff', padding: '13px 28px', borderRadius: 8, fontSize: 15, fontWeight: 700, textDecoration: 'none' }}>
             Kostenlosen Audit buchen
           </a>

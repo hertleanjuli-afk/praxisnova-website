@@ -1,9 +1,11 @@
 'use client';
 
+import { useEffect } from 'react';
 import Link from 'next/link';
 import Nav from '@/components/Nav';
 import Footer from '@/components/Footer';
 import { SITE_CONFIG } from '@/config/site';
+import { trackClick, trackPageView, initTracking } from '@/lib/tracking';
 
 const CORAL = '#E8472A';
 
@@ -20,6 +22,8 @@ const STEPS = [
 ];
 
 export default function HandwerkPage() {
+  useEffect(() => { initTracking(); trackPageView(); }, []);
+
   return (
     <main style={{ background: '#080C1A', color: '#fff', fontFamily: 'system-ui, -apple-system, sans-serif', minHeight: '100vh' }}>
       <Nav />
@@ -148,6 +152,7 @@ export default function HandwerkPage() {
           Wir analysieren Ihre aktuellen Prozesse in 30 Minuten und zeigen Ihnen genau, wo Automatisierung sofort wirkt.
         </p>
         <a href={SITE_CONFIG.calendly} target="_blank" rel="noreferrer"
+          onClick={() => trackClick('handwerk_cta', 'Kostenlosen Audit buchen')}
           style={{ display: 'inline-block', background: CORAL, color: '#fff', padding: '13px 32px', borderRadius: 8, fontSize: 15, fontWeight: 700, textDecoration: 'none' }}>
           Kostenlosen Audit buchen
         </a>
