@@ -104,10 +104,10 @@ export default function BauPage() {
             <div>
               <div style={{ background: '#080C1A', border: '1px solid #1E2947', borderRadius: 12, padding: 24, marginBottom: 16 }}>
                 <div style={{ fontSize: 14, color: '#666', marginBottom: 4 }}>Einrichtung</div>
-                <div style={{ fontSize: 26, fontWeight: 700, color: '#fff' }}>ab €3.500</div>
+                <div style={{ fontSize: 16, fontWeight: 600, color: CORAL }}>Starten Sie mit dem KI-Quickcheck</div>
                 <div style={{ height: 1, background: '#1E2947', margin: '14px 0' }} />
                 <div style={{ fontSize: 14, color: '#666', marginBottom: 4 }}>Monatliche Wartung</div>
-                <div style={{ fontSize: 22, fontWeight: 600, color: '#fff' }}>ab €800 / Monat</div>
+                <div style={{ fontSize: 26, fontWeight: 700, color: '#fff' }}>€490 einmalig</div>
                 <div style={{ height: 1, background: '#1E2947', margin: '14px 0' }} />
                 {[
                   ['Aufbauzeit', 'ca. 14 Werktage'],
@@ -121,7 +121,7 @@ export default function BauPage() {
                     <span style={{ fontSize: 14, color: '#999' }}>{v}</span>
                   </div>
                 ))}
-                <div style={{ fontSize: 12, color: '#2D3A5C', marginTop: 10 }}>Genauer Preis nach kostenlosem Audit</div>
+                <div style={{ fontSize: 12, color: '#2D3A5C', marginTop: 10 }}>Danach KI-Autopilot ab €1.500/Monat</div>
               </div>
 
               <div style={{ background: '#0F1629', border: `1px solid ${CORAL}33`, borderRadius: 12, padding: 22 }}>
@@ -144,9 +144,9 @@ export default function BauPage() {
           Wir analysieren Ihre aktuellen Prozesse in 30 Minuten und zeigen Ihnen genau, wo Automatisierung sofort wirkt.
         </p>
         <a href={SITE_CONFIG.calendly} target="_blank" rel="noreferrer"
-          onClick={() => trackClick('bau_cta', 'Kostenlosen Audit buchen')}
+          onClick={() => trackClick('bau_cta', 'KI-Quickcheck buchen — €490')}
           style={{ display: 'inline-block', background: CORAL, color: '#fff', padding: '13px 32px', borderRadius: 8, fontSize: 15, fontWeight: 700, textDecoration: 'none' }}>
-          Kostenlosen Audit buchen
+          KI-Quickcheck buchen — €490
         </a>
         <div style={{ fontSize: 12, color: '#2D3A5C', marginTop: 14 }}>
           Kein IT-Aufwand · Keine Vorinstallation · Sofort umsetzbar
