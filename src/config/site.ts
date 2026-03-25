@@ -1,12 +1,11 @@
 export const SITE_CONFIG = {
-  // Launch Angebot — hier einfach ändern
-  verfuegbarePlaetze: 4,
-  totalPlaetze: 10,
-
-  // Preise
-  preisHandwerk: 'ab €450/Monat',
-  preisImmobilien: 'ab €600/Monat',
-  preisBau: 'ab €800/Monat',
+  // Produkte & Preise (Value Ladder v2.0 — März 2026)
+  produkte: {
+    potenzialrechner: { name: 'KI-Potenzialrechner', preis: 'Kostenlos', beschreibung: 'Online ROI-Rechner' },
+    quickcheck: { name: 'KI-Quickcheck', preis: '€490', beschreibung: '2-Stunden Prozess-Audit + Report' },
+    autopilot: { name: 'KI-Autopilot', preis: '€1.500/Monat', beschreibung: 'Laufende Automatisierung' },
+    workshop: { name: 'KI-Workshop Pro', preis: '€4.900', beschreibung: 'Team-Enablement, 4 Std., bis 12 Personen' },
+  },
 
   // Team
   team: [
@@ -26,6 +25,6 @@ export const SITE_CONFIG = {
 
   // Kontakt
   email: 'info@praxisnovaai.com',
-  calendly: 'https://calendly.com/meyer-samantha-praxisnovaai/30min',
+  calendly: 'https://calendly.com/hertle-anjuli-praxisnovaai/erstgesprach',
   linkedinFirma: 'https://www.linkedin.com/company/112236759/',
 };
