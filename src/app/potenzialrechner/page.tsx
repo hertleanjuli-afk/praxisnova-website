@@ -18,8 +18,8 @@ interface Question {
 const questions: Question[] = [
   {
     id: 'branche',
-    title: 'In welcher Branche sind Sie t\u00E4tig?',
-    subtitle: 'W\u00E4hlen Sie Ihren Schwerpunkt.',
+    title: 'In welcher Branche sind Sie tätig?',
+    subtitle: 'Wählen Sie Ihren Schwerpunkt.',
     options: [
       { label: 'Bauunternehmen', value: 1, detail: 'Hoch- und Tiefbau, Generalunternehmer' },
       { label: 'Handwerksbetrieb', value: 2, detail: 'SHK, Elektro, Maler, Schreiner, etc.' },
@@ -29,29 +29,29 @@ const questions: Question[] = [
   {
     id: 'mitarbeiter',
     title: 'Wie viele Mitarbeiter hat Ihr Unternehmen?',
-    subtitle: 'Inkl. B\u00FCro und Baustelle/Au\u00DFendienst.',
+    subtitle: 'Inkl. Büro und Baustelle/Außendienst.',
     options: [
-      { label: '1\u20135', value: 5, detail: 'Kleinstbetrieb' },
-      { label: '6\u201320', value: 15, detail: 'Kleiner Betrieb' },
-      { label: '21\u201350', value: 35, detail: 'Mittelst\u00E4ndisch' },
-      { label: '50+', value: 75, detail: 'Gr\u00F6\u00DFeres Unternehmen' },
+      { label: '1–5', value: 5, detail: 'Kleinstbetrieb' },
+      { label: '6–20', value: 15, detail: 'Kleiner Betrieb' },
+      { label: '21–50', value: 35, detail: 'Mittelständisch' },
+      { label: '50+', value: 75, detail: 'Größeres Unternehmen' },
     ],
   },
   {
     id: 'stunden',
-    title: 'Wie viele Stunden pro Woche gehen f\u00FCr B\u00FCroarbeit drauf?',
+    title: 'Wie viele Stunden pro Woche gehen für Büroarbeit drauf?',
     subtitle: 'Angebote, Rechnungen, E-Mails, Dokumentation, Nachfassen.',
     options: [
       { label: 'Unter 5 Std.', value: 3 },
-      { label: '5\u201310 Std.', value: 8 },
-      { label: '10\u201320 Std.', value: 15 },
-      { label: '\u00DCber 20 Std.', value: 25 },
+      { label: '5–10 Std.', value: 8 },
+      { label: '10–20 Std.', value: 15 },
+      { label: 'Über 20 Std.', value: 25 },
     ],
   },
   {
     id: 'prozesse',
     title: 'Welche Aufgaben kosten am meisten Zeit?',
-    subtitle: 'W\u00E4hlen Sie den gr\u00F6\u00DFten Zeitfresser.',
+    subtitle: 'Wählen Sie den größten Zeitfresser.',
     options: [
       { label: 'Angebote & Kalkulation', value: 1 },
       { label: 'Rechnungen & Mahnungen', value: 2 },
@@ -64,9 +64,9 @@ const questions: Question[] = [
     title: 'Wie viele Software-Tools nutzen Sie aktuell?',
     subtitle: 'E-Mail, Buchhaltung, Projektmanagement, CRM, etc.',
     options: [
-      { label: '1\u20132 Tools', value: 1 },
-      { label: '3\u20135 Tools', value: 4 },
-      { label: '6\u201310 Tools', value: 8 },
+      { label: '1–2 Tools', value: 1 },
+      { label: '3–5 Tools', value: 4 },
+      { label: '6–10 Tools', value: 8 },
       { label: 'Mehr als 10', value: 12 },
     ],
   },
@@ -180,7 +180,7 @@ export default function PotenzialrechnerPage() {
                   padding: '8px 0',
                 }}
               >
-                \u2190 Zur\u00FCck
+                ← Zurück
               </button>
             )}
           </div>
@@ -205,7 +205,7 @@ export default function PotenzialrechnerPage() {
                 Ihre Ergebnisse
               </h1>
               <p style={{ color: '#888', fontSize: 16 }}>
-                Basierend auf Ihren Angaben sch\u00E4tzen wir folgendes Einsparpotenzial:
+                Basierend auf Ihren Angaben schätzen wir folgendes Einsparpotenzial:
               </p>
             </div>
 
@@ -243,7 +243,7 @@ export default function PotenzialrechnerPage() {
                 border: `2px solid ${CORAL}`,
               }}>
                 <div style={{ fontSize: 36, fontWeight: 700, color: '#fff' }}>
-                  {results.yearlySavings.toLocaleString('de-DE')} \u20AC
+                  {results.yearlySavings.toLocaleString('de-DE')} €
                 </div>
                 <div style={{ color: '#ccc', fontSize: 14, marginTop: 4, fontWeight: 600 }}>
                   Einsparpotenzial/Jahr
@@ -260,13 +260,13 @@ export default function PotenzialrechnerPage() {
             }}>
               <p style={{ color: '#ccc', fontSize: 15, lineHeight: 1.7, margin: 0 }}>
                 <strong style={{ color: '#fff' }}>Was bedeutet das konkret?</strong><br />
-                Mit gezielter KI-Automatisierung k\u00F6nnten Sie ca. <strong style={{ color: CORAL }}>{results.monthlyValue.toLocaleString('de-DE')} \u20AC pro Monat</strong> an
+                Mit gezielter KI-Automatisierung könnten Sie ca. <strong style={{ color: CORAL }}>{results.monthlyValue.toLocaleString('de-DE')} € pro Monat</strong> an
                 Personalkosten und Zeitaufwand einsparen. Besonders bei{' '}
                 {answers.prozesse === 1 && 'Angebotserstellung und Kalkulation'}
                 {answers.prozesse === 2 && 'Rechnungsstellung und Mahnwesen'}
                 {answers.prozesse === 3 && 'Kommunikation und Abstimmung'}
                 {answers.prozesse === 4 && 'Dokumentation und Berichtswesen'}
-                {' '}sehen wir das gr\u00F6\u00DFte Potenzial.
+                {' '}sehen wir das größte Potenzial.
               </p>
             </div>
 
@@ -281,7 +281,7 @@ export default function PotenzialrechnerPage() {
               </h3>
               <p style={{ color: 'rgba(255,255,255,0.9)', fontSize: 15, marginBottom: 20, lineHeight: 1.6 }}>
                 In 2 Stunden analysieren wir Ihre konkreten Prozesse und zeigen Ihnen genau,
-                wo und wie Sie diese Einsparungen realisieren k\u00F6nnen.
+                wo und wie Sie diese Einsparungen realisieren können.
               </p>
               <a
                 href={SITE_CONFIG.calendly}
@@ -298,10 +298,10 @@ export default function PotenzialrechnerPage() {
                   fontSize: 16,
                 }}
               >
-                Jetzt KI-Quickcheck buchen \u2014 \u20AC490
+                Jetzt KI-Quickcheck buchen — €490
               </a>
               <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: 13, marginTop: 12 }}>
-                Auf Rechnung \u00B7 Ergebnis in 48 Stunden
+                Auf Rechnung · Ergebnis in 48 Stunden
               </p>
             </div>
 
@@ -317,7 +317,7 @@ export default function PotenzialrechnerPage() {
                   padding: '8px 0',
                 }}
               >
-                \u2190 Nochmal berechnen
+                ← Nochmal berechnen
               </button>
             </div>
           </div>
