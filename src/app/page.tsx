@@ -281,7 +281,61 @@ export default function Page() {
 
       {/* ── VALUE LADDER / ANGEBOTE ── */}
       <FadeUp>
-        <section id="angebote" style={{ padding: '24px 32px 80px', background: '#0F1629' }}>
+        
+      {/* FORDERUNGSMANAGEMENT / KOSTENLOSES PILOTPROJEKT */}
+      <section className="py-20 px-4 bg-gray-50">
+        <div className="max-w-5xl mx-auto">
+          <div className="relative border-2 border-[#FF6B6B] rounded-2xl p-8 md:p-12 bg-white shadow-lg">
+            <div className="absolute -top-4 left-8">
+              <span className="bg-[#FF6B6B] text-white text-sm font-bold px-4 py-1.5 rounded-full uppercase tracking-wide">
+                Neu: Kostenloses Pilotprojekt
+              </span>
+            </div>
+            <div className="text-center mt-4 mb-8">
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3">
+                Automatisches Forderungsmanagement
+              </h2>
+              <p className="text-lg text-gray-600">
+                Nie wieder offenen Rechnungen hinterherlaufen.
+              </p>
+            </div>
+            <div className="grid md:grid-cols-3 gap-6 mb-10">
+              <div className="text-center p-6 bg-green-50 rounded-xl border border-green-200">
+                <div className="text-3xl font-bold text-green-600 mb-2">Tag 3</div>
+                <div className="font-semibold text-gray-800 mb-1">Stufe 1</div>
+                <p className="text-sm text-gray-600">Freundliche Zahlungserinnerung per E-Mail</p>
+              </div>
+              <div className="text-center p-6 bg-yellow-50 rounded-xl border border-yellow-200">
+                <div className="text-3xl font-bold text-yellow-600 mb-2">Tag 10</div>
+                <div className="font-semibold text-gray-800 mb-1">Stufe 2</div>
+                <p className="text-sm text-gray-600">Bestimmte Mahnung mit Fristsetzung</p>
+              </div>
+              <div className="text-center p-6 bg-red-50 rounded-xl border border-red-200">
+                <div className="text-3xl font-bold text-red-600 mb-2">Tag 21</div>
+                <div className="font-semibold text-gray-800 mb-1">Stufe 3</div>
+                <p className="text-sm text-gray-600">{"F\u00F6rmliche Mahnung mit Frist und Konsequenzhinweis"}</p>
+              </div>
+            </div>
+            <div className="text-center">
+              <p className="text-lg font-semibold text-gray-800 mb-6">{"F\u00FCr 3 Unternehmen richten wir das komplett kostenlos ein."}</p>
+              <a
+                href={SITE_CONFIG.calendly}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 bg-[#FF6B6B] hover:bg-[#e55a5a] text-white font-semibold py-3 px-8 rounded-lg text-lg transition-colors shadow-md hover:shadow-lg"
+              >
+                Kostenlos testen
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                </svg>
+              </a>
+              <p className="text-sm text-gray-500 mt-4">Im Gegenzug teilen Sie uns kurz Ihre Erfahrung mit.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+<section id="angebote" style={{ padding: '24px 32px 80px', background: '#0F1629' }}>
           <div style={{ textAlign: 'center', marginBottom: 48 }}>
             <div style={{ fontSize: 11, color: CORAL, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: 14 }}>Unsere Leistungen</div>
             <h2 style={{ fontSize: 'clamp(26px, 3vw, 38px)', fontWeight: 700, letterSpacing: '-0.3px', margin: '0 0 12px', color: '#fff' }}>Von der Analyse bis zur Vollautomatisierung</h2>
