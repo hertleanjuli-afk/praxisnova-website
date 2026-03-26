@@ -1,4 +1,5 @@
 import './globals.css'
+import { GeistSans } from 'geist/font/sans'
 import Popup from '@/components/Popup'
 import type { Metadata } from 'next'
 
@@ -11,7 +12,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: 'PraxisNova AI | KI-Automatisierung für Bau, Handwerk & Immobilien',
-    description: '8,3 Stunden pro Woche verschwendet – wir ändern das. KI-Workshops und Prozessautomatisierung für Bau, Handwerk und Immobilien.',
+    description: '8,3 Stunden pro Woche verschwendet \u2013 wir ändern das. KI-Workshops und Prozessautomatisierung für Bau, Handwerk und Immobilien.',
     url: 'https://www.praxisnovaai.com',
     siteName: 'PraxisNova AI',
     locale: 'de_DE',
@@ -20,7 +21,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'PraxisNova AI | KI-Automatisierung für Bau, Handwerk & Immobilien',
-    description: '8,3 Stunden pro Woche verschwendet – wir ändern das mit KI.',
+    description: '8,3 Stunden pro Woche verschwendet \u2013 wir ändern das mit KI.',
   },
   robots: {
     index: true,
@@ -30,7 +31,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="de">
+    <html lang="de" className={GeistSans.className}>
       <head>
         <script
           type="application/ld+json"
