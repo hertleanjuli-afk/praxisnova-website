@@ -11,7 +11,9 @@ export default function Nav() {
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
-    function onScroll() { setScrolled(window.scrollY > 10); }
+    function onScroll() {
+      setScrolled(window.scrollY > 10);
+    }
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
@@ -27,8 +29,13 @@ export default function Nav() {
       transition: 'background 0.3s ease, backdrop-filter 0.3s ease',
     }}>
       <style>{`
-        @media (max-width: 768px) { .hidden-mobile { display: none !important; } .show-mobile { display: block !important; } }
-        @media (min-width: 769px) { .show-mobile { display: none !important; } }
+        @media (max-width: 768px) {
+          .hidden-mobile { display: none !important; }
+          .show-mobile { display: block !important; }
+        }
+        @media (min-width: 769px) {
+          .show-mobile { display: none !important; }
+        }
         .nav-link { font-size: 14px; color: #888; text-decoration: none; transition: color 0.2s; }
         .nav-link:hover { color: #fff; }
         .nav-cta { transition: transform 0.2s, box-shadow 0.2s; }
@@ -42,18 +49,22 @@ export default function Nav() {
         </Link>
 
         <div style={{ display: 'flex', gap: 28, alignItems: 'center' }} className="hidden-mobile">
-          <Link href="/#angebote" className="nav-link">Leistungen</Link>
-          <Link href="/automatisierung" className="nav-link">Branchen</Link>
+          <Link href="/#angebote" className="nav-link">Workshops</Link>
+          <Link href="/automatisierung" className="nav-link">KI-Automatisierung</Link>
           <Link href="/ueber-uns" className="nav-link">Über uns</Link>
-          <a href={SITE_CONFIG.calendly} target="_blank" rel="noreferrer" className="nav-cta"
+          <a href={SITE_CONFIG.calendly} target="_blank" rel="noreferrer"
+            className="nav-cta"
             style={{ background: CORAL, color: '#fff', padding: '9px 18px', borderRadius: 7, fontSize: 14, fontWeight: 600, textDecoration: 'none' }}>
-            KI-Quickcheck buchen
+            Kostenlosen Audit buchen
           </a>
         </div>
 
-        <button onClick={() => setOpen(!open)}
+        <button
+          onClick={() => setOpen(!open)}
           style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 4, display: 'none' }}
-          className="show-mobile" aria-label="Menü öffnen">
+          className="show-mobile"
+          aria-label="Menü öffnen"
+        >
           <div style={{ width: 22, height: 2, background: '#fff', marginBottom: 5 }} />
           <div style={{ width: 22, height: 2, background: '#fff', marginBottom: 5 }} />
           <div style={{ width: 22, height: 2, background: '#fff' }} />
@@ -64,11 +75,11 @@ export default function Nav() {
         <div style={{ padding: '16px 32px 20px', borderTop: '1px solid #1E2947', background: '#080C1A' }}>
           <Link href="/#angebote" onClick={() => setOpen(false)}
             style={{ display: 'block', fontSize: 16, color: '#888', textDecoration: 'none', padding: '10px 0', borderBottom: '1px solid #1E2947' }}>
-            Leistungen
+            Workshops
           </Link>
           <Link href="/automatisierung" onClick={() => setOpen(false)}
             style={{ display: 'block', fontSize: 16, color: '#888', textDecoration: 'none', padding: '10px 0', borderBottom: '1px solid #1E2947' }}>
-            Branchen
+            KI-Automatisierung
           </Link>
           <Link href="/ueber-uns" onClick={() => setOpen(false)}
             style={{ display: 'block', fontSize: 16, color: '#888', textDecoration: 'none', padding: '10px 0', borderBottom: '1px solid #1E2947' }}>
@@ -76,7 +87,7 @@ export default function Nav() {
           </Link>
           <a href={SITE_CONFIG.calendly} target="_blank" rel="noreferrer"
             style={{ display: 'block', marginTop: 16, background: CORAL, color: '#fff', padding: '12px', borderRadius: 7, fontSize: 14, fontWeight: 600, textDecoration: 'none', textAlign: 'center' }}>
-            KI-Quickcheck buchen
+            Kostenlosen Audit buchen
           </a>
         </div>
       )}
