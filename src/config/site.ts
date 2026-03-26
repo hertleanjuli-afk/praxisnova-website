@@ -6,7 +6,6 @@ export const SITE_CONFIG = {
     autopilot: { name: 'KI-Autopilot', preis: '€1.500/Monat', beschreibung: 'Laufende Automatisierung' },
     workshop: { name: 'KI-Workshop Pro', preis: '€4.900', beschreibung: 'Team-Enablement, 4 Std., bis 12 Personen' },
   },
-
   // Team
   team: [
     {
@@ -25,6 +24,6 @@ export const SITE_CONFIG = {
 
   // Kontakt
   email: 'info@praxisnovaai.com',
-  calendly: 'https://calendly.com/hertle-anjuli-praxisnovaai/erstgesprach',
+  calendly: 'https://calendly.com/meyer-samantha-praxisnovaai/erstgesprach',
   linkedinFirma: 'https://www.linkedin.com/company/112236759/',
 };
