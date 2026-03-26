@@ -12,6 +12,7 @@ interface Question {
   id: string;
   title: string;
   subtitle: string;
+  multi?: boolean;
   options: { label: string; value: number; detail?: string }[];
 }
 
@@ -51,7 +52,8 @@ const questions: Question[] = [
   {
     id: 'prozesse',
     title: 'Welche Aufgaben kosten am meisten Zeit?',
-    subtitle: 'Wählen Sie den größten Zeitfresser.',
+    subtitle: 'Wählen Sie alle zutreffenden.',
+    multi: true,
     options: [
       { label: 'Angebote & Kalkulation', value: 1 },
       { label: 'Rechnungen & Mahnungen', value: 2 },
@@ -64,6 +66,7 @@ const questions: Question[] = [
     title: 'Wie viele Software-Tools nutzen Sie aktuell?',
     subtitle: 'E-Mail, Buchhaltung, Projektmanagement, CRM, etc.',
     options: [
+      { label: 'Keine', value: 0, detail: 'Alles manuell / nur Papier' },
       { label: '1–2 Tools', value: 1 },
       { label: '3–5 Tools', value: 4 },
       { label: '6–10 Tools', value: 8 },
@@ -72,30 +75,45 @@ const questions: Question[] = [
   },
 ];
 
-function calculateResults(answers: Record<string, number>) {
-  const stunden = answers.stunden || 8;
-  const mitarbeiter = answers.mitarbeiter || 15;
-  const tools = answers.tools || 4;
+const processLabels: Record<number, string> = {
+  1: 'Angebotserstellung und Kalkulation',
+  2: 'Rechnungsstellung und Mahnwesen',
+  3: 'Kommunikation und Abstimmung',
+  4: 'Dokumentation und Berichtswesen',
+};
 
-  const automationRate = 0.4 + (tools > 5 ? 0.15 : 0) + (stunden > 10 ? 0.1 : 0);
+function calculateResults(answers: Record<string, number>, multiAnswers: Record<string, number[]>) {
+  const stunden = answers.stunden || 8;
+  const tools = answers.tools ?? 4;
+  const selectedProcesses = multiAnswers.prozesse || [];
+
+  let automationRate = 0.40;
+  if (tools > 5) automationRate += 0.15;
+  if (stunden > 10) automationRate += 0.10;
+  if (selectedProcesses.length > 1) automationRate += (selectedProcesses.length - 1) * 0.05;
+  if (tools === 0) automationRate += 0.10;
+  automationRate = Math.min(automationRate, 0.75);
+
   const weeklyHoursSaved = Math.round(stunden * automationRate);
   const yearlyHoursSaved = weeklyHoursSaved * 48;
   const costPerHour = 45;
   const yearlySavings = yearlyHoursSaved * costPerHour;
   const monthlyValue = Math.round(yearlySavings / 12);
 
-  return { weeklyHoursSaved, yearlyHoursSaved, yearlySavings, monthlyValue };
+  return { weeklyHoursSaved, yearlyHoursSaved, yearlySavings, monthlyValue, automationRate: Math.round(automationRate * 100) };
 }
 
 export default function PotenzialrechnerPage() {
   const [step, setStep] = useState(0);
   const [answers, setAnswers] = useState<Record<string, number>>({});
+  const [multiAnswers, setMultiAnswers] = useState<Record<string, number[]>>({});
   const [showResults, setShowResults] = useState(false);
 
-  const handleAnswer = (questionId: string, value: number) => {
-    const newAnswers = { ...answers, [questionId]: value };
-    setAnswers(newAnswers);
+  const currentQ = questions[step];
+  const isMulti = currentQ?.multi;
 
+  const handleSingleAnswer = (questionId: string, value: number) => {
+    setAnswers({ ...answers, [questionId]: value });
     if (step < questions.length - 1) {
       setTimeout(() => setStep(step + 1), 300);
     } else {
@@ -103,15 +121,31 @@ export default function PotenzialrechnerPage() {
     }
   };
 
-  const results = calculateResults(answers);
-  const progress = showResults ? 100 : ((step + (answers[questions[step]?.id] !== undefined ? 1 : 0)) / questions.length) * 100;
+  const handleMultiToggle = (questionId: string, value: number) => {
+    const current = multiAnswers[questionId] || [];
+    const updated = current.includes(value)
+      ? current.filter(v => v !== value)
+      : [...current, value];
+    setMultiAnswers({ ...multiAnswers, [questionId]: updated });
+  };
+
+  const handleMultiConfirm = () => {
+    if (step < questions.length - 1) {
+      setStep(step + 1);
+    } else {
+      setShowResults(true);
+    }
+  };
+
+  const results = calculateResults(answers, multiAnswers);
+  const selectedProcesses = multiAnswers.prozesse || [];
+  const progress = showResults ? 100 : ((step + (answers[questions[step]?.id] !== undefined || (multiAnswers[questions[step]?.id]?.length ?? 0) > 0 ? 1 : 0)) / questions.length) * 100;
 
   return (
     <main style={{ background: NAVY, minHeight: '100vh' }}>
       <Nav />
 
       <div style={{ maxWidth: 720, margin: '0 auto', padding: '120px 24px 80px' }}>
-        {/* Progress bar */}
         <div style={{ marginBottom: 40 }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 8 }}>
             <span style={{ color: '#888', fontSize: 14 }}>
@@ -133,22 +167,25 @@ export default function PotenzialrechnerPage() {
         {!showResults ? (
           <div key={step}>
             <h1 style={{ fontSize: 'clamp(24px, 4vw, 32px)', fontWeight: 700, color: '#fff', marginBottom: 8 }}>
-              {questions[step].title}
+              {currentQ.title}
             </h1>
             <p style={{ color: '#888', fontSize: 16, marginBottom: 32 }}>
-              {questions[step].subtitle}
+              {currentQ.subtitle}
             </p>
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
-              {questions[step].options.map((opt, i) => {
-                const isSelected = answers[questions[step].id] === opt.value;
+              {currentQ.options.map((opt, i) => {
+                const isSelected = isMulti
+                  ? (multiAnswers[currentQ.id] || []).includes(opt.value)
+                  : answers[currentQ.id] === opt.value;
                 return (
                   <button
                     key={i}
-                    onClick={() => handleAnswer(questions[step].id, opt.value)}
+                    onClick={() => isMulti ? handleMultiToggle(currentQ.id, opt.value) : handleSingleAnswer(currentQ.id, opt.value)}
                     style={{
                       display: 'flex',
-                      flexDirection: 'column',
+                      alignItems: 'center',
+                      gap: 12,
                       padding: '16px 20px',
                       background: isSelected ? 'rgba(255,107,107,0.15)' : 'rgba(255,255,255,0.05)',
                       border: isSelected ? `2px solid ${CORAL}` : '2px solid rgba(255,255,255,0.1)',
@@ -158,20 +195,56 @@ export default function PotenzialrechnerPage() {
                       transition: 'all 0.2s ease',
                     }}
                   >
-                    <span style={{ color: '#fff', fontSize: 16, fontWeight: 600 }}>{opt.label}</span>
-                    {opt.detail && (
-                      <span style={{ color: '#888', fontSize: 13, marginTop: 4 }}>{opt.detail}</span>
+                    {isMulti && (
+                      <span style={{
+                        width: 22, height: 22, borderRadius: 4,
+                        border: isSelected ? `2px solid ${CORAL}` : '2px solid rgba(255,255,255,0.3)',
+                        background: isSelected ? CORAL : 'transparent',
+                        display: 'flex', alignItems: 'center', justifyContent: 'center',
+                        flexShrink: 0, fontSize: 14, color: '#fff',
+                      }}>
+                        {isSelected ? '✓' : ''}
+                      </span>
                     )}
+                    <div>
+                      <span style={{ color: '#fff', fontSize: 16, fontWeight: 600 }}>{opt.label}</span>
+                      {opt.detail && (
+                        <span style={{ color: '#888', fontSize: 13, marginTop: 4, display: 'block' }}>{opt.detail}</span>
+                      )}
+                    </div>
                   </button>
                 );
               })}
             </div>
 
+            {isMulti && (
+              <button
+                onClick={handleMultiConfirm}
+                disabled={(multiAnswers[currentQ.id] || []).length === 0}
+                style={{
+                  marginTop: 24,
+                  width: '100%',
+                  padding: '14px 24px',
+                  background: (multiAnswers[currentQ.id] || []).length > 0 ? CORAL : 'rgba(255,255,255,0.1)',
+                  color: '#fff',
+                  border: 'none',
+                  borderRadius: 10,
+                  fontSize: 16,
+                  fontWeight: 600,
+                  cursor: (multiAnswers[currentQ.id] || []).length > 0 ? 'pointer' : 'not-allowed',
+                  transition: 'all 0.2s ease',
+                  opacity: (multiAnswers[currentQ.id] || []).length > 0 ? 1 : 0.5,
+                }}
+              >
+                Weiter
+              </button>
+            )}
+
             {step > 0 && (
               <button
                 onClick={() => setStep(step - 1)}
                 style={{
-                  marginTop: 24,
+                  marginTop: 16,
                   background: 'transparent',
                   border: 'none',
                   color: '#888',
@@ -260,13 +333,22 @@ export default function PotenzialrechnerPage() {
             }}>
               <p style={{ color: '#ccc', fontSize: 15, lineHeight: 1.7, margin: 0 }}>
                 <strong style={{ color: '#fff' }}>Was bedeutet das konkret?</strong><br />
-                Mit gezielter KI-Automatisierung könnten Sie ca. <strong style={{ color: CORAL }}>{results.monthlyValue.toLocaleString('de-DE')} € pro Monat</strong> an
-                Personalkosten und Zeitaufwand einsparen. Besonders bei{' '}
-                {answers.prozesse === 1 && 'Angebotserstellung und Kalkulation'}
-                {answers.prozesse === 2 && 'Rechnungsstellung und Mahnwesen'}
-                {answers.prozesse === 3 && 'Kommunikation und Abstimmung'}
-                {answers.prozesse === 4 && 'Dokumentation und Berichtswesen'}
-                {' '}sehen wir das größte Potenzial.
+                Mit gezielter KI-Automatisierung könnten Sie ca.{' '}
+                <strong style={{ color: CORAL }}>{results.monthlyValue.toLocaleString('de-DE')} € pro Monat</strong>{' '}
+                an Personalkosten und Zeitaufwand einsparen.
+                {selectedProcesses.length > 0 && (
+                  <>{' '}Besonders bei{' '}
+                    {selectedProcesses.map((p, i) => {
+                      const label = processLabels[p] || '';
+                      if (i === 0) return label;
+                      if (i === selectedProcesses.length - 1) return ` und ${label}`;
+                      return `, ${label}`;
+                    }).join('')}
+                    {' '}sehen wir das größte Potenzial.</>
+                )}
+              </p>
+              <p style={{ color: '#999', fontSize: 13, marginTop: 12, marginBottom: 0 }}>
+                Berechnung: {results.automationRate}% Automationsrate × {answers.stunden || 8} Std./Woche × 48 Wochen × 45€/Std.
               </p>
             </div>
 
@@ -307,7 +389,7 @@ export default function PotenzialrechnerPage() {
 
             <div style={{ textAlign: 'center', marginTop: 24 }}>
               <button
-                onClick={() => { setShowResults(false); setStep(0); setAnswers({}); }}
+                onClick={() => { setShowResults(false); setStep(0); setAnswers({}); setMultiAnswers({}); }}
                 style={{
                   background: 'transparent',
                   border: 'none',
