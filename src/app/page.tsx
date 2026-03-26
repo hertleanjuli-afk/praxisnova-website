@@ -352,7 +352,7 @@ export default function Page() {
               description="Finden Sie in 2 Minuten heraus, wie viel Zeit und Geld KI-Automatisierung in Ihrem Unternehmen sparen kann."
               features={['5 gezielte Fragen zu Ihren Prozessen', 'Sofortige Potenzialanalyse', 'Personalisierte Einsparungsschätzung', 'Kein Account nötig']}
               ctaText="Jetzt berechnen"
-              ctaHref="/#potenzialrechner"
+              ctaHref="/potenzialrechner"
               trackingId="value_00_rechner"
             />
 
