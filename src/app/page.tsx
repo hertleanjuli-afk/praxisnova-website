@@ -10,7 +10,7 @@ import { trackClick, trackPageView, trackScrollDepth, initTracking } from '@/lib
 
 const CORAL = '#E8472A';
 
-/* ── Animation Helpers ── */
+/* ââ Animation Helpers ââ */
 function FadeUp({ children, delay = 0 }: { children: React.ReactNode; delay?: number }) {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: '-60px' });
@@ -41,7 +41,7 @@ function CountUp({ target, suffix = '', prefix = '' }: { target: number; suffix?
   return <span ref={ref}>{prefix}{target % 1 !== 0 ? count.toFixed(1).replace('.', ',') : count}{suffix}</span>;
 }
 
-/* ── Icons ── */
+/* ââ Icons ââ */
 function BuildingIcon() {
   return (
     <svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke={CORAL} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
@@ -98,7 +98,7 @@ function CheckIcon() {
   );
 }
 
-/* ── ServiceItem ── */
+/* ââ ServiceItem ââ */
 interface ServiceItemProps {
   number: string; label: string; title: string; price: string; priceNote: string;
   description?: string; features: string[]; ctaText: string; ctaHref: string;
@@ -141,13 +141,13 @@ function ServiceItem({ number, label, title, price, priceNote, description, feat
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '8px 32px', marginBottom: 20 }} className="feature-grid">
                 {col1.map((f, i) => (
                   <div key={i} style={{ display: 'flex', gap: 8, alignItems: 'flex-start' }}>
-                    <span style={{ color: CORAL, fontSize: 13, marginTop: 2, flexShrink: 0 }}>✓</span>
+                    <span style={{ color: CORAL, fontSize: 13, marginTop: 2, flexShrink: 0 }}>â</span>
                     <span style={{ fontSize: 14, color: '#888', lineHeight: 1.75 }}>{f}</span>
                   </div>
                 ))}
                 {col2.map((f, i) => (
                   <div key={i + midpoint} style={{ display: 'flex', gap: 8, alignItems: 'flex-start' }}>
-                    <span style={{ color: CORAL, fontSize: 13, marginTop: 2, flexShrink: 0 }}>✓</span>
+                    <span style={{ color: CORAL, fontSize: 13, marginTop: 2, flexShrink: 0 }}>â</span>
                     <span style={{ fontSize: 14, color: '#888', lineHeight: 1.75 }}>{f}</span>
                   </div>
                 ))}
@@ -171,7 +171,7 @@ function ServiceItem({ number, label, title, price, priceNote, description, feat
   );
 }
 
-/* ── Page ── */
+/* ââ Page ââ */
 export default function Page() {
   useEffect(() => {
     initTracking();
@@ -183,14 +183,14 @@ export default function Page() {
     <main style={{ background: '#080C1A', color: '#fff', fontFamily: 'system-ui, -apple-system, sans-serif', minHeight: '100vh' }}>
       <Nav />
 
-      {/* ── HERO ── */}
+      {/* ââ HERO ââ */}
       <section style={{ padding: '80px 32px 56px', textAlign: 'center', position: 'relative', overflow: 'hidden' }}>
         <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(ellipse 60% 50% at 50% 0%, rgba(232,71,42,0.08) 0%, transparent 70%)', pointerEvents: 'none' }} />
         <div style={{ maxWidth: 760, margin: '0 auto', position: 'relative' }}>
           <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.1 }}>
             <div style={{ display: 'inline-flex', alignItems: 'center', gap: 8, background: '#141E3A', border: '1px solid #1E2947', color: '#888', fontSize: 13, padding: '5px 14px', borderRadius: 20, marginBottom: 24 }}>
               <div style={{ width: 6, height: 6, borderRadius: '50%', background: CORAL, animation: 'pulse 2s infinite' }} />
-              KI-Automatisierung für Bau, Handwerk & Immobilien
+              KI-Automatisierung fÃ¼r Bau, Handwerk & Immobilien
             </div>
           </motion.div>
 
@@ -202,7 +202,7 @@ export default function Page() {
 
           <motion.p initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.4 }}
             style={{ fontSize: 'clamp(16px, 2vw, 18px)', color: '#888', margin: '0 0 36px', lineHeight: 1.75 }}>
-            Unser KI-Quickcheck analysiert Ihre Prozesse und zeigt konkret, wie viel Zeit und Geld Sie mit Automatisierung sparen. Für einmalig €490.
+            Unser KI-Quickcheck analysiert Ihre Prozesse und zeigt konkret, wie viel Zeit und Geld Sie mit Automatisierung sparen. FÃ¼r einmalig â¬490.
           </motion.p>
 
           <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.55 }}
@@ -210,7 +210,7 @@ export default function Page() {
             <a href={SITE_CONFIG.calendly} target="_blank" rel="noreferrer"
               onClick={() => trackClick('hero_cta_primary', 'KI-Quickcheck buchen')}
               style={{ background: CORAL, color: '#fff', padding: '14px 28px', borderRadius: 8, fontSize: 15, fontWeight: 700, textDecoration: 'none' }}>
-              KI-Quickcheck buchen — €490
+              KI-Quickcheck buchen â â¬490
             </a>
             <a href="#angebote"
               onClick={() => trackClick('hero_cta_secondary', 'Alle Leistungen ansehen')}
@@ -225,7 +225,7 @@ export default function Page() {
         </div>
       </section>
 
-      {/* ── STATS ── */}
+      {/* ââ STATS ââ */}
       <FadeUp>
         <section style={{ padding: '0 32px 72px' }}>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 1, maxWidth: 1100, margin: '0 auto', background: '#1E2947', borderRadius: 10, overflow: 'hidden' }} className="stats-grid">
@@ -233,7 +233,7 @@ export default function Page() {
               { value: 8.3, suffix: ' Std.', label: 'pro Woche verschwendet', source: 'Capmo, Baubranche DE' },
               { value: 50, suffix: '%', label: 'der Betriebe nicht KI-bereit', source: 'PwC Deutschland 2025' },
               { label: '45 zu 8 Min.', isText: true, sub: 'Angebotserstellung mit KI', source: 'PraxisNova' },
-              { value: 490, suffix: ' €', label: 'für Ihren KI-Quickcheck', source: 'Einmaliger Festpreis' },
+              { value: 490, suffix: ' â¬', label: 'fÃ¼r Ihren KI-Quickcheck', source: 'Einmaliger Festpreis' },
             ].map((stat, i) => (
               <div key={i} style={{ background: '#080C1A', padding: '32px 24px', textAlign: 'center' }}>
                 <div style={{ fontSize: 'clamp(24px, 3vw, 36px)', fontWeight: 700, color: CORAL, marginBottom: 6 }}>
@@ -247,19 +247,19 @@ export default function Page() {
         </section>
       </FadeUp>
 
-      {/* ── PROBLEM SECTION ── */}
+      {/* ââ PROBLEM SECTION ââ */}
       <FadeUp>
         <section style={{ padding: '24px 32px 80px' }}>
           <div style={{ textAlign: 'center', marginBottom: 48 }}>
             <div style={{ fontSize: 11, color: CORAL, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: 14 }}>Der Alltag in der Baubranche</div>
             <h2 style={{ fontSize: 'clamp(26px, 3vw, 38px)', fontWeight: 700, letterSpacing: '-0.3px', margin: '0 0 12px', color: '#fff' }}>Wo geht Ihre Zeit wirklich hin?</h2>
-            <p style={{ fontSize: 16, color: '#888', lineHeight: 1.75 }}>Drei Branchen. Dieselben Probleme. Eine Lösung.</p>
+            <p style={{ fontSize: 16, color: '#888', lineHeight: 1.75 }}>Drei Branchen. Dieselben Probleme. Eine LÃ¶sung.</p>
           </div>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 14, maxWidth: 1100, margin: '0 auto' }} className="three-col">
             {[
-              { Icon: BuildingIcon, title: 'Bauunternehmen', problems: ['Angebote kosten Stunden statt Minuten', 'Subunternehmer-Kommunikation frisst Baustellen-Zeit', 'Projektdokumentation bindet Fachkräfte unnötig'] },
+              { Icon: BuildingIcon, title: 'Bauunternehmen', problems: ['Angebote kosten Stunden statt Minuten', 'Subunternehmer-Kommunikation frisst Baustellen-Zeit', 'Projektdokumentation bindet FachkrÃ¤fte unnÃ¶tig'] },
               { Icon: WrenchIcon, title: 'Handwerksbetriebe', problems: ['Anfragen bleiben stundenlang unbeantwortet', 'Angebote werden manuell geschrieben statt automatisiert', 'Rechnungen und Mahnungen kosten wertvolle Arbeitszeit'] },
-              { Icon: KeyIcon, title: 'Immobilienprofis', problems: ['Exposé-Erstellung ist repetitiv und nicht skalierbar', 'Lead-Nachverfolgung kostet zu viel Zeit', 'Kundenbetreuung ohne KI nicht ausbaubar'] },
+              { Icon: KeyIcon, title: 'Immobilienprofis', problems: ['ExposÃ©-Erstellung ist repetitiv und nicht skalierbar', 'Lead-Nachverfolgung kostet zu viel Zeit', 'Kundenbetreuung ohne KI nicht ausbaubar'] },
             ].map((sector, i) => (
               <motion.div key={i} whileHover={{ y: -3, borderColor: '#1E2947' }}
                 style={{ background: '#0F1629', border: '1px solid #1E2947', borderRadius: 10, padding: 28, transition: 'border-color 0.3s' }}>
@@ -268,7 +268,7 @@ export default function Page() {
                 <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
                   {sector.problems.map((p, j) => (
                     <li key={j} style={{ display: 'flex', gap: 10, alignItems: 'flex-start', marginBottom: 12 }}>
-                      <span style={{ color: CORAL, fontSize: 15, marginTop: 1, flexShrink: 0 }}>×</span>
+                      <span style={{ color: CORAL, fontSize: 15, marginTop: 1, flexShrink: 0 }}>Ã</span>
                       <span style={{ fontSize: 15, color: '#777', lineHeight: 1.75 }}>{p}</span>
                     </li>
                   ))}
@@ -279,8 +279,43 @@ export default function Page() {
         </section>
       </FadeUp>
 
-      {/* ── VALUE LADDER / ANGEBOTE ── */}
-      <FadeUp>
+      {/* ââ VALUE LADDER / ANGEBOTE ââ */}
+      
+          {/* ── Forderungsmanagement Pilot Section ── */}
+          <FadeUp>
+            <section style={{ padding: '80px 0 60px' }}>
+              <div style={{ maxWidth: 900, margin: '0 auto', border: '2px solid ' + '#E8472A', borderRadius: 12, padding: '48px 40px', position: 'relative', background: 'linear-gradient(135deg, rgba(232,71,42,0.04) 0%, rgba(30,41,71,0.02) 100%)' }}>
+                <div style={{ position: 'absolute', top: -1, left: 32, background: '#E8472A', color: '#fff', fontSize: 10, fontWeight: 700, padding: '6px 16px', borderRadius: '0 0 6px 6px', letterSpacing: '0.08em', display: 'flex', alignItems: 'center', gap: 6 }}>
+                  <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#fff', animation: 'pulse 2s infinite' }} />
+                  NEU: KOSTENLOSES PILOTPROJEKT
+                </div>
+                <h2 style={{ fontSize: 'clamp(24px, 3vw, 34px)', fontWeight: 700, color: '#fff', marginTop: 8, marginBottom: 8 }}>Automatisches Forderungsmanagement</h2>
+                <p style={{ fontSize: 18, color: '#E8472A', fontWeight: 600, marginBottom: 20 }}>Nie wieder offenen Rechnungen hinterherlaufen.</p>
+                <p style={{ fontSize: 15, color: '#888', lineHeight: 1.75, marginBottom: 28 }}>Unser KI-gest\u00fctztes Mahnsystem verschickt automatisch freundliche Zahlungserinnerungen in 3 Stufen \u2014 von h\u00f6flich bis f\u00f6rmlich. Kein Aufwand f\u00fcr Sie, l\u00e4uft im Hintergrund.</p>
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 16, marginBottom: 28 }} className="features-grid-drei">
+                  {[['Stufe 1', 'Freundliche Erinnerung', 'Tag 3'], ['Stufe 2', 'Bestimmte Nachfassung', 'Tag 10'], ['Stufe 3', 'F\u00f6rmliche Mahnung', 'Tag 21']].map(([title, desc, day]) => (
+                    <div key={title} style={{ background: 'rgba(30,41,71,0.5)', borderRadius: 8, padding: '20px 16px', textAlign: 'center' }}>
+                      <div style={{ fontSize: 13, color: '#E8472A', fontWeight: 700, marginBottom: 6 }}>{title}</div>
+                      <div style={{ fontSize: 14, color: '#fff', fontWeight: 600, marginBottom: 4 }}>{desc}</div>
+                      <div style={{ fontSize: 12, color: '#666' }}>{day}</div>
+                    </div>
+                  ))}
+                </div>
+                <div style={{ background: 'rgba(232,71,42,0.08)', borderRadius: 8, padding: '14px 20px', marginBottom: 24, textAlign: 'center' }}>
+                  <p style={{ fontSize: 16, color: '#fff', fontWeight: 600, margin: 0 }}>F\u00fcr 3 Unternehmen richten wir das komplett kostenlos ein.</p>
+                </div>
+                <div style={{ textAlign: 'center' }}>
+                  <a href={SITE_CONFIG.calendly} target="_blank" rel="noopener noreferrer"
+                    onClick={() => trackClick('cta_forderung_pilot')}
+                    style={{ display: 'inline-flex', alignItems: 'center', gap: 8, background: '#E8472A', color: '#fff', padding: '14px 32px', borderRadius: 8, fontSize: 15, fontWeight: 600, textDecoration: 'none', border: 'none', cursor: 'pointer' }}>
+                    Kostenlos testen <ArrowRight />
+                  </a>
+                </div>
+              </div>
+            </section>
+          </FadeUp>
+
+<FadeUp>
         <section id="angebote" style={{ padding: '24px 32px 80px', background: '#0F1629' }}>
           <div style={{ textAlign: 'center', marginBottom: 48 }}>
             <div style={{ fontSize: 11, color: CORAL, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: 14 }}>Unsere Leistungen</div>
@@ -293,10 +328,10 @@ export default function Page() {
               number="00"
               label="Kostenlos"
               title="KI-Potenzialrechner"
-              price="€0"
+              price="â¬0"
               priceNote="Online, in 2 Minuten"
               description="Finden Sie in 2 Minuten heraus, wie viel Zeit und Geld KI-Automatisierung in Ihrem Unternehmen sparen kann."
-              features={['5 gezielte Fragen zu Ihren Prozessen', 'Sofortige Potenzialanalyse', 'Personalisierte Einsparungsschätzung', 'Kein Account nötig']}
+              features={['5 gezielte Fragen zu Ihren Prozessen', 'Sofortige Potenzialanalyse', 'Personalisierte EinsparungsschÃ¤tzung', 'Kein Account nÃ¶tig']}
               ctaText="Jetzt berechnen"
               ctaHref="/#potenzialrechner"
               trackingId="value_00_rechner"
@@ -306,10 +341,10 @@ export default function Page() {
               number="01"
               label="Einstieg"
               title="KI-Quickcheck"
-              price="€490"
+              price="â¬490"
               priceNote="einmalig, auf Rechnung"
               description="In 2 Stunden analysieren wir Ihre Prozesse und liefern einen konkreten Report mit ROI-Berechnung und Handlungsempfehlungen."
-              features={['45-Minuten Remote-Interview', 'Personalisierter Audit-Report (8–12 Seiten)', 'Konkrete ROI-Berechnung: Stunden und Euro', 'Priorisierter Automatisierungs-Fahrplan', '15-Minuten Follow-up Call', 'Unter €500 — keine Gremiumsfreigabe nötig']}
+              features={['45-Minuten Remote-Interview', 'Personalisierter Audit-Report (8â12 Seiten)', 'Konkrete ROI-Berechnung: Stunden und Euro', 'Priorisierter Automatisierungs-Fahrplan', '15-Minuten Follow-up Call', 'Unter â¬500 â keine Gremiumsfreigabe nÃ¶tig']}
               ctaText="Quickcheck buchen"
               ctaHref={SITE_CONFIG.calendly}
               ctaExternal
@@ -322,11 +357,11 @@ export default function Page() {
               number="02"
               label="Laufende Automatisierung"
               title="KI-Autopilot"
-              price="€1.500/Monat"
-              priceNote="keine Einrichtungsgebühr, 3 Monate Minimum"
+              price="â¬1.500/Monat"
+              priceNote="keine EinrichtungsgebÃ¼hr, 3 Monate Minimum"
               description="Wir bauen, warten und optimieren Ihre KI-Automatisierungen kontinuierlich. Sie sehen jeden Monat, was es bringt."
               features={['Bis zu 3 neue Automatisierungen pro Monat', 'Monitoring und Wartung aller aktiven Automationen', 'Monatlicher ROI-Report', 'Priority Support (E-Mail + optional Slack)', 'Quartalsweise Strategie-Review (30 Min.)', 'DSGVO-konform, EU-Server']}
-              ctaText="Erstgespräch buchen"
+              ctaText="ErstgesprÃ¤ch buchen"
               ctaHref={SITE_CONFIG.calendly}
               ctaExternal
               trackingId="value_02_autopilot"
@@ -336,10 +371,10 @@ export default function Page() {
               number="03"
               label="Team-Enablement"
               title="KI-Workshop Pro"
-              price="€4.900"
+              price="â¬4.900"
               priceNote="pro Unternehmen, Flatrate"
-              description="4-stündiger Workshop für bis zu 12 Personen. Ihr Team lernt, KI eigenständig im Alltag einzusetzen."
-              features={['4 Stunden intensiv, online oder vor Ort', 'Bis 12 Teilnehmer', 'Maßgeschneiderte Übungen mit Ihren echten Prozessen', 'Branchenspezifische Prompt-Bibliothek', '30-Tage Follow-up Check-in', 'Ideal nach 2–3 Monaten KI-Autopilot']}
+              description="4-stÃ¼ndiger Workshop fÃ¼r bis zu 12 Personen. Ihr Team lernt, KI eigenstÃ¤ndig im Alltag einzusetzen."
+              features={['4 Stunden intensiv, online oder vor Ort', 'Bis 12 Teilnehmer', 'MaÃgeschneiderte Ãbungen mit Ihren echten Prozessen', 'Branchenspezifische Prompt-Bibliothek', '30-Tage Follow-up Check-in', 'Ideal nach 2â3 Monaten KI-Autopilot']}
               ctaText="Workshop anfragen"
               ctaHref={SITE_CONFIG.calendly}
               ctaExternal
@@ -350,30 +385,30 @@ export default function Page() {
         </section>
       </FadeUp>
 
-      {/* ── BRANCHEN OVERVIEW ── */}
+      {/* ââ BRANCHEN OVERVIEW ââ */}
       <FadeUp>
         <section style={{ padding: '24px 32px 80px' }}>
           <div style={{ textAlign: 'center', marginBottom: 48 }}>
-            <div style={{ fontSize: 11, color: CORAL, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: 14 }}>Branchenlösungen</div>
-            <h2 style={{ fontSize: 'clamp(26px, 3vw, 38px)', fontWeight: 700, letterSpacing: '-0.3px', margin: '0 0 12px', color: '#fff' }}>Drei Branchen. Maßgeschneiderte KI.</h2>
-            <p style={{ fontSize: 16, color: '#888', lineHeight: 1.75 }}>Jede Branche hat eigene Prozesse. Unsere Lösungen sind darauf zugeschnitten.</p>
+            <div style={{ fontSize: 11, color: CORAL, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: 14 }}>BranchenlÃ¶sungen</div>
+            <h2 style={{ fontSize: 'clamp(26px, 3vw, 38px)', fontWeight: 700, letterSpacing: '-0.3px', margin: '0 0 12px', color: '#fff' }}>Drei Branchen. MaÃgeschneiderte KI.</h2>
+            <p style={{ fontSize: 16, color: '#888', lineHeight: 1.75 }}>Jede Branche hat eigene Prozesse. Unsere LÃ¶sungen sind darauf zugeschnitten.</p>
           </div>
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 14, maxWidth: 1100, margin: '0 auto' }} className="three-col">
             {[
               {
                 Icon: KeyIcon, title: 'Immobilienmakler', sub: 'Kein Lead geht verloren',
-                points: ['Lead-Erfassung aus ImmoScout24 & Website', 'KI-basiertes Lead-Scoring', 'Automatische CRM-Befüllung'],
+                points: ['Lead-Erfassung aus ImmoScout24 & Website', 'KI-basiertes Lead-Scoring', 'Automatische CRM-BefÃ¼llung'],
                 href: '/automatisierung/immobilien', badge: 'MEISTGEBUCHT',
               },
               {
                 Icon: WrenchIcon, title: 'Handwerksbetriebe', sub: 'Anfragen, Angebote, Rechnungen',
-                points: ['Automatische Anfragebestätigung', 'KI-Angebotsgenerierung', 'Automatische Rechnungen (ZUGFeRD)'],
+                points: ['Automatische AnfragebestÃ¤tigung', 'KI-Angebotsgenerierung', 'Automatische Rechnungen (ZUGFeRD)'],
                 href: '/automatisierung/handwerk', badge: null,
               },
               {
                 Icon: BuildingIcon, title: 'Bauunternehmen', sub: 'Kommunikation und Dokumentation',
-                points: ['Automatischer Wochenbericht', 'Mängelmanagement mit Eskalation', 'Subunternehmer-Koordination'],
+                points: ['Automatischer Wochenbericht', 'MÃ¤ngelmanagement mit Eskalation', 'Subunternehmer-Koordination'],
                 href: '/automatisierung/bau', badge: null,
               },
             ].map((sector, i) => (
@@ -390,7 +425,7 @@ export default function Page() {
                 <ul style={{ listStyle: 'none', padding: 0, margin: '0 0 20px' }}>
                   {sector.points.map((p, j) => (
                     <li key={j} style={{ display: 'flex', gap: 8, alignItems: 'flex-start', marginBottom: 8 }}>
-                      <span style={{ color: CORAL, fontSize: 13, marginTop: 2, flexShrink: 0 }}>✓</span>
+                      <span style={{ color: CORAL, fontSize: 13, marginTop: 2, flexShrink: 0 }}>â</span>
                       <span style={{ fontSize: 14, color: '#777', lineHeight: 1.6 }}>{p}</span>
                     </li>
                   ))}
@@ -405,7 +440,7 @@ export default function Page() {
         </section>
       </FadeUp>
 
-      {/* ── TEAM ── */}
+      {/* ââ TEAM ââ */}
       <FadeUp>
         <section id="team" style={{ padding: '24px 32px 80px', background: '#0F1629' }}>
           <div style={{ textAlign: 'center', marginBottom: 44 }}>
@@ -432,15 +467,15 @@ export default function Page() {
         </section>
       </FadeUp>
 
-      {/* ── CTA ── */}
+      {/* ââ CTA ââ */}
       <FadeUp>
         <section style={{ padding: '80px 32px', textAlign: 'center', background: '#0F1629', position: 'relative', overflow: 'hidden' }}>
           <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(ellipse 50% 100% at 50% 100%, rgba(232,71,42,0.06) 0%, transparent 70%)', pointerEvents: 'none' }} />
           <h2 style={{ fontSize: 'clamp(24px, 3vw, 30px)', fontWeight: 600, color: '#fff', margin: '0 0 14px' }}>
-            Bereit für Ihren KI-Quickcheck?
+            Bereit fÃ¼r Ihren KI-Quickcheck?
           </h2>
           <p style={{ fontSize: 17, color: '#888', margin: '0 0 32px', lineHeight: 1.75 }}>
-            In 2 Stunden wissen Sie genau, wo KI Ihrem Unternehmen<br />am meisten Zeit und Geld spart. Für einmalig €490.
+            In 2 Stunden wissen Sie genau, wo KI Ihrem Unternehmen<br />am meisten Zeit und Geld spart. FÃ¼r einmalig â¬490.
           </p>
           <a href={SITE_CONFIG.calendly} target="_blank" rel="noreferrer"
             onClick={() => trackClick('cta_bottom', 'KI-Quickcheck buchen')}
@@ -448,7 +483,7 @@ export default function Page() {
             Jetzt KI-Quickcheck buchen
           </a>
           <div style={{ fontSize: 13, color: '#2D3A5C', marginTop: 14 }}>
-            Auf Rechnung · Keine Vorinstallation · Ergebnis in 48 Stunden
+            Auf Rechnung Â· Keine Vorinstallation Â· Ergebnis in 48 Stunden
           </div>
         </section>
       </FadeUp>
