@@ -279,35 +279,37 @@ export default function Page() {
         </section>
       </FadeUp>
 
-      {/* ââ VALUE LADDER / ANGEBOTE ââ */}
       
-          {/* ── Forderungsmanagement Pilot Section ── */}
+          {/* Forderungsmanagement Pilot */}
           <FadeUp>
             <section style={{ padding: '80px 0 60px' }}>
-              <div style={{ maxWidth: 900, margin: '0 auto', border: '2px solid ' + '#E8472A', borderRadius: 12, padding: '48px 40px', position: 'relative', background: 'linear-gradient(135deg, rgba(232,71,42,0.04) 0%, rgba(30,41,71,0.02) 100%)' }}>
-                <div style={{ position: 'absolute', top: -1, left: 32, background: '#E8472A', color: '#fff', fontSize: 10, fontWeight: 700, padding: '6px 16px', borderRadius: '0 0 6px 6px', letterSpacing: '0.08em', display: 'flex', alignItems: 'center', gap: 6 }}>
-                  <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#fff', animation: 'pulse 2s infinite' }} />
+              <div style={{ maxWidth: 900, margin: '0 auto', border: '2px solid #E8472A', borderRadius: 12, padding: '48px 40px', position: 'relative', background: 'linear-gradient(135deg, rgba(232,71,42,0.04) 0%, rgba(30,41,71,0.02) 100%)' }}>
+                <div style={{ position: 'absolute', top: -1, left: 32, background: '#E8472A', color: '#fff', fontSize: 10, fontWeight: 700, padding: '6px 16px', borderRadius: '0 0 6px 6px', letterSpacing: '0.08em' }}>
                   NEU: KOSTENLOSES PILOTPROJEKT
                 </div>
                 <h2 style={{ fontSize: 'clamp(24px, 3vw, 34px)', fontWeight: 700, color: '#fff', marginTop: 8, marginBottom: 8 }}>Automatisches Forderungsmanagement</h2>
-                <p style={{ fontSize: 18, color: '#E8472A', fontWeight: 600, marginBottom: 20 }}>Nie wieder offenen Rechnungen hinterherlaufen.</p>
-                <p style={{ fontSize: 15, color: '#888', lineHeight: 1.75, marginBottom: 28 }}>Unser KI-gest\u00fctztes Mahnsystem verschickt automatisch freundliche Zahlungserinnerungen in 3 Stufen \u2014 von h\u00f6flich bis f\u00f6rmlich. Kein Aufwand f\u00fcr Sie, l\u00e4uft im Hintergrund.</p>
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 16, marginBottom: 28 }} className="features-grid-drei">
-                  {[['Stufe 1', 'Freundliche Erinnerung', 'Tag 3'], ['Stufe 2', 'Bestimmte Nachfassung', 'Tag 10'], ['Stufe 3', 'F\u00f6rmliche Mahnung', 'Tag 21']].map(([title, desc, day]) => (
-                    <div key={title} style={{ background: 'rgba(30,41,71,0.5)', borderRadius: 8, padding: '20px 16px', textAlign: 'center' }}>
-                      <div style={{ fontSize: 13, color: '#E8472A', fontWeight: 700, marginBottom: 6 }}>{title}</div>
-                      <div style={{ fontSize: 14, color: '#fff', fontWeight: 600, marginBottom: 4 }}>{desc}</div>
+                <p style={{ fontSize: 18, color: CORAL, fontWeight: 600, marginBottom: 20 }}>Nie wieder offenen Rechnungen hinterherlaufen.</p>
+                <p style={{ fontSize: 15, color: '#888', lineHeight: 1.75, marginBottom: 28 }}>Unser KI-Mahnsystem verschickt automatisch freundliche Zahlungserinnerungen in 3 Stufen. Kein Aufwand, läuft im Hintergrund.</p>
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 16, marginBottom: 28 }}>
+                  {[
+                    { t: 'Stufe 1', d: 'Freundliche Erinnerung', day: 'Tag 3' },
+                    { t: 'Stufe 2', d: 'Bestimmte Nachfassung', day: 'Tag 10' },
+                    { t: 'Stufe 3', d: 'Letzte Mahnung', day: 'Tag 21' }
+                  ].map(({ t, d, day }) => (
+                    <div key={t} style={{ background: 'rgba(30,41,71,0.5)', borderRadius: 8, padding: '20px 16px', textAlign: 'center' }}>
+                      <div style={{ fontSize: 13, color: CORAL, fontWeight: 700, marginBottom: 6 }}>{t}</div>
+                      <div style={{ fontSize: 14, color: '#fff', fontWeight: 600, marginBottom: 4 }}>{d}</div>
                       <div style={{ fontSize: 12, color: '#666' }}>{day}</div>
                     </div>
                   ))}
                 </div>
                 <div style={{ background: 'rgba(232,71,42,0.08)', borderRadius: 8, padding: '14px 20px', marginBottom: 24, textAlign: 'center' }}>
-                  <p style={{ fontSize: 16, color: '#fff', fontWeight: 600, margin: 0 }}>F\u00fcr 3 Unternehmen richten wir das komplett kostenlos ein.</p>
+                  <p style={{ fontSize: 16, color: '#fff', fontWeight: 600, margin: 0 }}>Für 3 Unternehmen richten wir das komplett kostenlos ein.</p>
                 </div>
                 <div style={{ textAlign: 'center' }}>
                   <a href={SITE_CONFIG.calendly} target="_blank" rel="noopener noreferrer"
                     onClick={() => trackClick('cta_forderung_pilot')}
-                    style={{ display: 'inline-flex', alignItems: 'center', gap: 8, background: '#E8472A', color: '#fff', padding: '14px 32px', borderRadius: 8, fontSize: 15, fontWeight: 600, textDecoration: 'none', border: 'none', cursor: 'pointer' }}>
+                    style={{ display: 'inline-flex', alignItems: 'center', gap: 8, background: CORAL, color: '#fff', padding: '14px 32px', borderRadius: 8, fontSize: 15, fontWeight: 600, textDecoration: 'none' }}>
                     Kostenlos testen <ArrowRight />
                   </a>
                 </div>
@@ -315,7 +317,8 @@ export default function Page() {
             </section>
           </FadeUp>
 
-<FadeUp>
+          {/* ââ VALUE LADDER / ANGEBOTE ââ */}
+      <FadeUp>
         <section id="angebote" style={{ padding: '24px 32px 80px', background: '#0F1629' }}>
           <div style={{ textAlign: 'center', marginBottom: 48 }}>
             <div style={{ fontSize: 11, color: CORAL, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: 14 }}>Unsere Leistungen</div>
