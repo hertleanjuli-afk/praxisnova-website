@@ -164,8 +164,8 @@ export default function Page() {
               fontSize: 'clamp(38px, 5.5vw, 64px)', fontWeight: 700, lineHeight: 1.06,
               letterSpacing: '-0.03em', margin: '0 0 28px',
             }}>
-            <span style={{ color: TEXT_PRIMARY }}>In 2 Stunden wissen,</span><br />
-            <span style={{ color: CORAL }}>wo KI Ihnen am meisten bringt.</span>
+            <span style={{ color: TEXT_PRIMARY }}>KI-Automatisierung für</span><br />
+            <span style={{ color: CORAL }}>Bau, Handwerk & Immobilien.</span>
           </motion.h1>
 
           <motion.p initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.4 }}
@@ -173,7 +173,7 @@ export default function Page() {
               fontSize: 'clamp(17px, 2vw, 20px)', color: TEXT_SECONDARY,
               margin: '0 auto 44px', lineHeight: 1.7, maxWidth: 620,
             }}>
-            Unser KI-Quickcheck analysiert Ihre Prozesse und zeigt konkret, wie viel Zeit und Geld Sie mit Automatisierung sparen. Für einmalig €490.
+            Wir zeigen Ihnen in 2 Stunden, wo KI Ihren Betrieb am meisten entlastet — mit konkretem Report und Umsetzungsplan. Starten Sie mit dem kostenlosen Potenzialrechner oder buchen Sie direkt den KI-Quickcheck.
           </motion.p>
 
           <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.55 }}
@@ -188,16 +188,16 @@ export default function Page() {
               }}>
               KI-Quickcheck buchen — €490
             </a>
-            <a href="#angebote"
-              onClick={() => trackClick('hero_cta_secondary', 'Alle Leistungen ansehen')}
+            <Link href="/potenzialrechner"
+              onClick={() => trackClick('hero_cta_secondary', 'Kostenloser Potenzialrechner')}
               className="cta-secondary"
               style={{
                 background: 'transparent', color: TEXT_SECONDARY, padding: '16px 32px', borderRadius: 10,
                 fontSize: 16, fontWeight: 600, textDecoration: 'none', border: `1px solid ${BORDER}`,
                 transition: 'border-color 0.2s, color 0.2s',
               }}>
-              Alle Leistungen ansehen
-            </a>
+              Kostenloser Potenzialrechner →
+            </Link>
           </motion.div>
 
           <p style={{ fontSize: 12, color: TEXT_FAINT, marginTop: 20, letterSpacing: '0.02em' }}>
