@@ -126,7 +126,7 @@ export default function ImmobilienPage() {
                 <div style={{ fontSize: 14, fontWeight: 600, color: '#fff', marginBottom: 8 }}>Ihr ROI</div>
                 <p style={{ fontSize: 14, color: '#777', lineHeight: 1.75, margin: '0 0 8px' }}>
                   Ein typischer Makler verbringt 5–10 Stunden pro Monat mit manuellem Lead-Management.
-                  Bei einem Stundensatz von 80€ sind das bis zu <span style={{ color: '#fff' }}>800€ verschwendet pro Monat</span>.
+                  Bei einem Stundensatz von 80 € sind das bis zu <span style={{ color: '#fff' }}>800 € verschwendet pro Monat</span>.
                 </p>
                 <p style={{ fontSize: 14, color: '#777', lineHeight: 1.75, margin: 0 }}>
                   Reaktion in unter 2 Minuten erhöht die Abschlusswahrscheinlichkeit um das <span style={{ color: CORAL }}>21-fache</span>.

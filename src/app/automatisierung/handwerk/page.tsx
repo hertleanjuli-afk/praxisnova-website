@@ -135,10 +135,10 @@ export default function HandwerkPage() {
               <div style={{ background: '#0F1629', border: `1px solid ${CORAL}33`, borderRadius: 12, padding: 22 }}>
                 <div style={{ fontSize: 14, fontWeight: 600, color: '#fff', marginBottom: 8 }}>Ihr ROI</div>
                 <p style={{ fontSize: 14, color: '#777', lineHeight: 1.75, margin: '0 0 8px' }}>
-                  Ein 3-Personen-Betrieb verbringt 6–8 Stunden pro Woche mit Admin. Bei 60€/Std. Opportunitätskosten sind das bis zu <span style={{ color: '#fff' }}>20.000€ verschwendet pro Jahr</span>.
+                  Ein 3-Personen-Betrieb verbringt 6–8 Stunden pro Woche mit Admin. Bei 60 €/Std. Opportunitätskosten sind das bis zu <span style={{ color: '#fff' }}>20.000 € verschwendet pro Jahr</span>.
                 </p>
                 <p style={{ fontSize: 14, color: '#777', lineHeight: 1.75, margin: 0 }}>
-                  Ab <span style={{ color: CORAL }}>500€/Monat</span> ist das schon nach wenigen Wochen amortisiert.
+                  Ab <span style={{ color: CORAL }}>500 €/Monat</span> ist das schon nach wenigen Wochen amortisiert.
                 </p>
               </div>
             </div>

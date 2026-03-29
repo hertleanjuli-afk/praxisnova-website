@@ -358,7 +358,7 @@ export default function PotenzialrechnerPage() {
                 )}
               </p>
               <p style={{ color: '#999', fontSize: 13, marginTop: 12, marginBottom: 0 }}>
-                Berechnung: {results.automationRate}% Automationsrate × {answers.stunden || 8} Std./Woche × 48 Wochen × 45€/Std.
+                Berechnung: {results.automationRate} % Automationsrate × {answers.stunden || 8} Std./Woche × 48 Wochen × 45 €/Std.
               </p>
             </div>
 

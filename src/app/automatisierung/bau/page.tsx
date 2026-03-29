@@ -127,10 +127,10 @@ export default function BauPage() {
               <div style={{ background: '#0F1629', border: `1px solid ${CORAL}33`, borderRadius: 12, padding: 22 }}>
                 <div style={{ fontSize: 14, fontWeight: 600, color: '#fff', marginBottom: 8 }}>Ihr ROI</div>
                 <p style={{ fontSize: 14, color: '#777', lineHeight: 1.75, margin: '0 0 8px' }}>
-                  Ein mittelgroßes Bauunternehmen verschwendet 10–15 Stunden pro Woche mit manueller Koordination. Bei 60€/Std. sind das bis zu <span style={{ color: '#fff' }}>48.000€ pro Jahr</span> an verlorenem Overhead.
+                  Ein mittelgroßes Bauunternehmen verschwendet 10–15 Stunden pro Woche mit manueller Koordination. Bei 60 €/Std. sind das bis zu <span style={{ color: '#fff' }}>48.000 € pro Jahr</span> an verlorenem Overhead.
                 </p>
                 <p style={{ fontSize: 14, color: '#777', lineHeight: 1.75, margin: 0 }}>
-                  Ab <span style={{ color: CORAL }}>800€/Monat</span> ist das in wenigen Wochen amortisiert. Dazu kommen verbesserte Bauherren-Beziehungen und mehr Folgeaufträge.
+                  Ab <span style={{ color: CORAL }}>800 €/Monat</span> ist das in wenigen Wochen amortisiert. Dazu kommen verbesserte Bauherren-Beziehungen und mehr Folgeaufträge.
                 </p>
               </div>
             </div>
