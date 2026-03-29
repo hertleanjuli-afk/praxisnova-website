@@ -30,7 +30,7 @@ export default function BauPage() {
       <section style={{ padding: '72px 32px 48px', position: 'relative', overflow: 'hidden' }}>
         <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(ellipse 60% 40% at 50% 0%, rgba(232,71,42,0.07) 0%, transparent 70%)', pointerEvents: 'none' }} />
         <div style={{ maxWidth: 800, margin: '0 auto', position: 'relative' }}>
-          <Link href="/automatisierung" style={{ display: 'inline-flex', alignItems: 'center', gap: 6, fontSize: 14, color: '#888', textDecoration: 'none', marginBottom: 24 }}>
+          <Link href="/automatisierung" aria-label="Zurück zur Übersicht aller Automatisierungspakete" style={{ display: 'inline-flex', alignItems: 'center', gap: 6, fontSize: 14, color: '#888', textDecoration: 'none', marginBottom: 24 }}>
             ← Alle Pakete
           </Link>
           <div style={{ fontSize: 11, color: CORAL, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: 14 }}>Bauunternehmen Paket</div>
@@ -150,6 +150,25 @@ export default function BauPage() {
         </a>
         <div style={{ fontSize: 12, color: '#2D3A5C', marginTop: 14 }}>
           Kein IT-Aufwand · Keine Vorinstallation · Sofort umsetzbar
+        </div>
+        <div style={{ marginTop: 20 }}>
+          <Link href="/potenzialrechner" style={{ fontSize: 14, color: '#888', textDecoration: 'none' }}>
+            Oder erst kostenlos Ihr Einsparpotenzial berechnen →
+          </Link>
+        </div>
+      </section>
+
+      <section style={{ padding: '0 32px 72px' }}>
+        <div style={{ maxWidth: 800, margin: '0 auto' }}>
+          <h3 style={{ fontSize: 14, color: '#555', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: 16 }}>Weitere Branchenlösungen</h3>
+          <div style={{ display: 'flex', gap: 16, flexWrap: 'wrap' }}>
+            <Link href="/automatisierung/immobilien" style={{ fontSize: 14, color: '#888', textDecoration: 'none', padding: '10px 20px', border: '1px solid #1E2947', borderRadius: 8 }}>
+              Immobilienmakler →
+            </Link>
+            <Link href="/automatisierung/handwerk" style={{ fontSize: 14, color: '#888', textDecoration: 'none', padding: '10px 20px', border: '1px solid #1E2947', borderRadius: 8 }}>
+              Handwerksbetriebe →
+            </Link>
+          </div>
         </div>
       </section>
 

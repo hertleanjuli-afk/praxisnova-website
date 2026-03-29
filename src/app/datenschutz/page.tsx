@@ -37,7 +37,7 @@ export default function DatenschutzPage() {
 
           <h3 style={{ fontSize: 16, fontWeight: 600, color: '#bbb', marginBottom: 6, marginTop: 18 }}>Verantwortliche Stelle</h3>
           <p style={{ margin: '0 0 4px' }}>PraxisNova AI</p>
-          <p style={{ margin: '0 0 4px' }}>[Adresse]</p>
+          <p style={{ margin: '0 0 4px' }}>Otto-Hahn-Str. 15, 72622 Nürtingen, Deutschland</p>
           <p style={{ margin: '0 0 14px' }}>E-Mail: <a href="mailto:info@praxisnovaai.com" style={{ color: '#E8472A', textDecoration: 'none' }}>info@praxisnovaai.com</a></p>
 
           <h3 style={{ fontSize: 16, fontWeight: 600, color: '#bbb', marginBottom: 6, marginTop: 18 }}>Speicherdauer</h3>

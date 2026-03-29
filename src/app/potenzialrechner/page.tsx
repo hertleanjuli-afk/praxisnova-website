@@ -146,6 +146,13 @@ export default function PotenzialrechnerPage() {
       <Nav />
 
       <div style={{ maxWidth: 720, margin: '0 auto', padding: '120px 24px 80px' }}>
+        <h1 style={{ fontSize: 'clamp(28px, 4vw, 36px)', fontWeight: 700, color: '#fff', textAlign: 'center', marginBottom: 8, letterSpacing: '-0.02em' }}>
+          KI-Potenzialrechner
+        </h1>
+        <p style={{ color: '#888', fontSize: 16, textAlign: 'center', marginBottom: 40, lineHeight: 1.7 }}>
+          In 2 Minuten erfahren Sie, wie viel Zeit und Geld KI in Ihrem Betrieb sparen kann.
+        </p>
+
         <div style={{ marginBottom: 40 }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 8 }}>
             <span style={{ color: '#888', fontSize: 14 }}>
@@ -166,14 +173,14 @@ export default function PotenzialrechnerPage() {
 
         {!showResults ? (
           <div key={step}>
-            <h1 style={{ fontSize: 'clamp(24px, 4vw, 32px)', fontWeight: 700, color: '#fff', marginBottom: 8 }}>
+            <h2 style={{ fontSize: 'clamp(24px, 4vw, 32px)', fontWeight: 700, color: '#fff', marginBottom: 8 }}>
               {currentQ.title}
-            </h1>
+            </h2>
             <p style={{ color: '#888', fontSize: 16, marginBottom: 32 }}>
               {currentQ.subtitle}
             </p>
 
-            <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
+            <div role={isMulti ? 'group' : 'radiogroup'} aria-label={currentQ.title} style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
               {currentQ.options.map((opt, i) => {
                 const isSelected = isMulti
                   ? (multiAnswers[currentQ.id] || []).includes(opt.value)
@@ -181,6 +188,9 @@ export default function PotenzialrechnerPage() {
                 return (
                   <button
                     key={i}
+                    role={isMulti ? 'checkbox' : 'radio'}
+                    aria-checked={isSelected}
+                    aria-label={opt.label}
                     onClick={() => isMulti ? handleMultiToggle(currentQ.id, opt.value) : handleSingleAnswer(currentQ.id, opt.value)}
                     style={{
                       display: 'flex',
@@ -274,9 +284,9 @@ export default function PotenzialrechnerPage() {
               }}>
                 Ihr KI-Potenzial
               </div>
-              <h1 style={{ fontSize: 'clamp(28px, 5vw, 40px)', fontWeight: 700, color: '#fff', marginBottom: 8 }}>
+              <h2 style={{ fontSize: 'clamp(28px, 5vw, 40px)', fontWeight: 700, color: '#fff', marginBottom: 8 }}>
                 Ihre Ergebnisse
-              </h1>
+              </h2>
               <p style={{ color: '#888', fontSize: 16 }}>
                 Basierend auf Ihren Angaben schätzen wir folgendes Einsparpotenzial:
               </p>

@@ -97,7 +97,7 @@ export function trackButtonClick(buttonId: string, buttonText: string): void {
   });
 }
 
-export function trackScrollDepth(): void {
+export function trackScrollDepth(): (() => void) | undefined {
   if (typeof window === 'undefined') return;
 
   const thresholds = [25, 50, 75, 100];
@@ -137,7 +137,7 @@ export function trackScrollDepth(): void {
   window.addEventListener('scroll', onScroll, { passive: true });
   return () => {
     window.removeEventListener('scroll', onScroll);
-  } as unknown as void;
+  };
 }
 
 export default function WebsiteTracker() {

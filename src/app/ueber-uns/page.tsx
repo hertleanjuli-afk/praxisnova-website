@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Nav from '@/components/Nav';
 import Footer from '@/components/Footer';
 import { SITE_CONFIG } from '@/config/site';
@@ -38,10 +39,12 @@ export default function UeberUnsPage() {
 
       <section style={{ padding: '0 32px 80px', maxWidth: 900, margin: '0 auto' }}>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 32 }} className="two-col">
-          {SITE_CONFIG.team.map((person, i) => (
+          {SITE_CONFIG.team.map((person, i) => {
+            const imgSrc = i === 0 ? '/images/anjuli.png' : '/images/samantha.png';
+            return (
             <div key={i} style={{ background: '#0F1629', border: '1px solid #1E2947', borderRadius: 16, padding: 32 }}>
-              <div style={{ width: 64, height: 64, borderRadius: 32, background: '#141E3A', marginBottom: 20, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                <span style={{ fontSize: 24 }}>{person.name.charAt(0)}</span>
+              <div style={{ width: 64, height: 64, borderRadius: 32, overflow: 'hidden', marginBottom: 20 }}>
+                <Image src={imgSrc} alt={`${person.name} – ${person.role}`} width={64} height={64} style={{ objectFit: 'cover', width: '100%', height: '100%' }} />
               </div>
               <h2 style={{ fontSize: 22, fontWeight: 700, marginBottom: 6, color: '#fff' }}>{person.name}</h2>
               <p style={{ fontSize: 14, color: '#E8472A', marginBottom: 18 }}>{person.role}</p>
@@ -53,7 +56,8 @@ export default function UeberUnsPage() {
                 <LinkedInIcon /> LinkedIn Profil →
               </a>
             </div>
-          ))}
+            );
+          })}
         </div>
 
         <div style={{ textAlign: 'center', marginTop: 48 }}>

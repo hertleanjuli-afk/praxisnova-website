@@ -41,7 +41,8 @@ export default function Footer() {
           </a>
         </div>
         <div style={{ display: 'flex', gap: 20, justifyContent: 'center', flexWrap: 'wrap', alignItems: 'flex-start' }}>
-          <Link href="/#angebote" className="footer-link">Workshops</Link>
+          <Link href="/potenzialrechner" className="footer-link">Potenzialrechner</Link>
+          <Link href="/#angebote" className="footer-link">Leistungen</Link>
           <Link href="/automatisierung" className="footer-link">KI-Automatisierung</Link>
           <Link href="/ueber-uns" className="footer-link">Über uns</Link>
           <Link href="/impressum" className="footer-link">Impressum</Link>
@@ -54,7 +55,7 @@ export default function Footer() {
         </div>
       </div>
       <div style={{ textAlign: 'center', borderTop: '1px solid #1E2947', paddingTop: 20 }}>
-        <span style={{ fontSize: 12, color: '#1E2947' }}>© 2026 PraxisNova AI. Alle Rechte vorbehalten.</span>
+        <span style={{ fontSize: 12, color: '#555' }}>© 2026 PraxisNova AI. Alle Rechte vorbehalten.</span>
       </div>
     </footer>
   );

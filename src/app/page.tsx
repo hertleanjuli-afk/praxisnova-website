@@ -523,10 +523,12 @@ export default function Page() {
                 <PremiumCard key={i} style={{ padding: 36, textAlign: 'center' }}>
                   <div style={{
                     width: 100, height: 100, borderRadius: '50%', margin: '0 auto 20px',
-                    background: `${BG} url(${imgSrc}) center/cover no-repeat`,
+                    overflow: 'hidden', position: 'relative',
                     border: `2px solid ${BORDER}`,
                     boxShadow: '0 4px 20px rgba(0,0,0,0.3)',
-                  }} />
+                  }}>
+                    <Image src={imgSrc} alt={`${person.name} – ${person.role}`} width={100} height={100} style={{ objectFit: 'cover', width: '100%', height: '100%' }} />
+                  </div>
                   <div style={{ fontSize: 20, fontWeight: 600, color: TEXT_PRIMARY, marginBottom: 4, letterSpacing: '-0.01em' }}>{person.name}</div>
                   <div style={{ fontSize: 14, color: CORAL, fontWeight: 500, marginBottom: 16 }}>{person.role}</div>
                   <p style={{ fontSize: 15, color: TEXT_SECONDARY, lineHeight: 1.7, margin: '0 0 20px' }}>{person.bio}</p>

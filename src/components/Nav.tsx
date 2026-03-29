@@ -49,7 +49,8 @@ export default function Nav() {
         </Link>
 
         <div style={{ display: 'flex', gap: 28, alignItems: 'center' }} className="hidden-mobile">
-          <Link href="/#angebote" className="nav-link">Workshops</Link>
+          <Link href="/potenzialrechner" className="nav-link">Potenzialrechner</Link>
+          <Link href="/#angebote" className="nav-link">Leistungen</Link>
           <Link href="/automatisierung" className="nav-link">KI-Automatisierung</Link>
           <Link href="/ueber-uns" className="nav-link">Über uns</Link>
           <a href={SITE_CONFIG.calendly} target="_blank" rel="noreferrer"
@@ -73,9 +74,13 @@ export default function Nav() {
 
       {open && (
         <div style={{ padding: '16px 32px 20px', borderTop: '1px solid #1E2947', background: '#080C1A' }}>
+          <Link href="/potenzialrechner" onClick={() => setOpen(false)}
+            style={{ display: 'block', fontSize: 16, color: '#888', textDecoration: 'none', padding: '10px 0', borderBottom: '1px solid #1E2947' }}>
+            Potenzialrechner
+          </Link>
           <Link href="/#angebote" onClick={() => setOpen(false)}
             style={{ display: 'block', fontSize: 16, color: '#888', textDecoration: 'none', padding: '10px 0', borderBottom: '1px solid #1E2947' }}>
-            Workshops
+            Leistungen
           </Link>
           <Link href="/automatisierung" onClick={() => setOpen(false)}
             style={{ display: 'block', fontSize: 16, color: '#888', textDecoration: 'none', padding: '10px 0', borderBottom: '1px solid #1E2947' }}>
