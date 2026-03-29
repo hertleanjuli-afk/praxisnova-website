@@ -1,3 +1,17 @@
+const CONSENT_KEY = 'pn_cookie_consent';
+
+function hasAnalyticsConsent(): boolean {
+  if (typeof window === 'undefined') return false;
+  try {
+    const raw = localStorage.getItem(CONSENT_KEY);
+    if (!raw) return false;
+    const consent = JSON.parse(raw);
+    return consent?.analytics === true;
+  } catch {
+    return false;
+  }
+}
+
 function getVisitorId(): string {
   if (typeof window === 'undefined') return '';
   let vid = localStorage.getItem('pn_vid');
@@ -49,6 +63,7 @@ export function initTracking() {
 
 export function trackClick(buttonId: string, buttonText: string) {
   if (typeof window === 'undefined') return;
+  if (!hasAnalyticsConsent()) return;
   fetch('/api/track', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
@@ -66,6 +81,7 @@ export function trackClick(buttonId: string, buttonText: string) {
 
 export function trackPageView() {
   if (typeof window === 'undefined') return;
+  if (!hasAnalyticsConsent()) return;
   fetch('/api/track', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
@@ -83,6 +99,7 @@ export function trackPageView() {
 
 export function trackScrollDepth() {
   if (typeof window === 'undefined') return;
+  if (!hasAnalyticsConsent()) return;
   const thresholds = [25, 50, 75, 100];
   const fired = new Set<number>();
 
