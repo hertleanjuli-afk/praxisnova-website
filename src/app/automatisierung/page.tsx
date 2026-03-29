@@ -70,7 +70,7 @@ export default function AutomatisierungPage() {
           <a href={SITE_CONFIG.calendly} target="_blank" rel="noreferrer"
             onClick={() => trackClick('auto_hero_cta', 'KI-Quickcheck buchen')}
             style={{ display: 'inline-block', background: CORAL, color: '#fff', padding: '13px 28px', borderRadius: 8, fontSize: 15, fontWeight: 700, textDecoration: 'none' }}>
-            KI-Quickcheck buchen — €490
+            KI-Quickcheck buchen – €490
           </a>
         </div>
       </section>
@@ -137,12 +137,12 @@ export default function AutomatisierungPage() {
         <div style={{ maxWidth: 700, margin: '0 auto', background: '#0F1629', border: '1px solid #1E2947', borderRadius: 12, padding: '44px 36px', textAlign: 'center' }}>
           <h2 style={{ fontSize: 24, fontWeight: 600, margin: '0 0 14px', color: '#fff' }}>Nicht sicher, wo Sie anfangen sollen?</h2>
           <p style={{ fontSize: 16, color: '#888', margin: '0 0 28px', lineHeight: 1.75 }}>
-            Der KI-Quickcheck zeigt Ihnen in 2 Stunden genau, wo die größten Automations-Hebel in Ihrem Unternehmen liegen — mit konkreten Zahlen.
+            Der KI-Quickcheck zeigt Ihnen in 2 Stunden genau, wo die größten Automations-Hebel in Ihrem Unternehmen liegen – mit konkreten Zahlen.
           </p>
           <a href={SITE_CONFIG.calendly} target="_blank" rel="noreferrer"
             onClick={() => trackClick('auto_bottom_cta', 'KI-Quickcheck buchen')}
             style={{ display: 'inline-block', background: CORAL, color: '#fff', padding: '13px 28px', borderRadius: 8, fontSize: 15, fontWeight: 700, textDecoration: 'none' }}>
-            KI-Quickcheck buchen — €490
+            KI-Quickcheck buchen – €490
           </a>
           <div style={{ fontSize: 12, color: '#2D3A5C', marginTop: 14 }}>
             Auf Rechnung · Keine Vorinstallation · Ergebnis in 48 Stunden

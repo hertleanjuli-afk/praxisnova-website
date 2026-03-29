@@ -380,7 +380,7 @@ export default function PotenzialrechnerPage() {
                   fontSize: 16,
                 }}
               >
-                Jetzt KI-Quickcheck buchen — €490
+                Jetzt KI-Quickcheck buchen – €490
               </a>
               <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: 13, marginTop: 12 }}>
                 Auf Rechnung · Ergebnis in 48 Stunden

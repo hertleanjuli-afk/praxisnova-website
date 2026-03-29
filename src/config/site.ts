@@ -1,5 +1,5 @@
 export const SITE_CONFIG = {
-  // Produkte & Preise (Value Ladder v2.0 — März 2026)
+  // Produkte & Preise (Value Ladder v2.0 – März 2026)
   produkte: {
     potenzialrechner: { name: 'KI-Potenzialrechner', preis: 'Kostenlos', beschreibung: 'Online ROI-Rechner' },
     quickcheck: { name: 'KI-Quickcheck', preis: '€490', beschreibung: '2-Stunden Prozess-Audit + Report' },

@@ -152,9 +152,9 @@ export default function HandwerkPage() {
           Wir analysieren Ihre aktuellen Prozesse in 30 Minuten und zeigen Ihnen genau, wo Automatisierung sofort wirkt.
         </p>
         <a href={SITE_CONFIG.calendly} target="_blank" rel="noreferrer"
-          onClick={() => trackClick('handwerk_cta', 'KI-Quickcheck buchen — €490')}
+          onClick={() => trackClick('handwerk_cta', 'KI-Quickcheck buchen – €490')}
           style={{ display: 'inline-block', background: CORAL, color: '#fff', padding: '13px 32px', borderRadius: 8, fontSize: 15, fontWeight: 700, textDecoration: 'none' }}>
-          KI-Quickcheck buchen — €490
+          KI-Quickcheck buchen – €490
         </a>
         <div style={{ fontSize: 12, color: '#2D3A5C', marginTop: 14 }}>
           Kein IT-Aufwand · Keine Vorinstallation · Sofort umsetzbar

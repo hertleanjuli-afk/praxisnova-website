@@ -173,23 +173,27 @@ export default function Page() {
               fontSize: 'clamp(17px, 2vw, 20px)', color: TEXT_SECONDARY,
               margin: '0 auto 44px', lineHeight: 1.7, maxWidth: 620,
             }}>
-            Wir zeigen Ihnen in 2 Stunden, wo KI Ihren Betrieb am meisten entlastet — mit konkretem Report und Umsetzungsplan. Starten Sie mit dem kostenlosen Potenzialrechner oder buchen Sie direkt den KI-Quickcheck.
+            Wir zeigen Ihnen in 2 Stunden, wo KI Ihren Betrieb am meisten entlastet – mit konkretem Report und Umsetzungsplan. Starten Sie mit dem kostenlosen Potenzialrechner oder buchen Sie direkt den KI-Quickcheck.
           </motion.p>
 
           <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.55 }}
             style={{ display: 'flex', gap: 14, justifyContent: 'center', flexWrap: 'wrap' }}>
             <a href={SITE_CONFIG.calendly} target="_blank" rel="noreferrer"
               onClick={() => trackClick('hero_cta_primary', 'KI-Quickcheck buchen')}
+              data-track-id="hero_cta_primary"
+              data-track-text="KI-Quickcheck buchen"
               className="cta-primary"
               style={{
                 background: CORAL, color: '#fff', padding: '16px 32px', borderRadius: 10,
                 fontSize: 16, fontWeight: 700, textDecoration: 'none', letterSpacing: '-0.01em',
                 transition: 'transform 0.2s, box-shadow 0.2s',
               }}>
-              KI-Quickcheck buchen — €490
+              KI-Quickcheck buchen – €490
             </a>
             <Link href="/potenzialrechner"
               onClick={() => trackClick('hero_cta_secondary', 'Kostenloser Potenzialrechner')}
+              data-track-id="hero_cta_secondary"
+              data-track-text="Kostenloser Potenzialrechner"
               className="cta-secondary"
               style={{
                 background: 'transparent', color: TEXT_SECONDARY, padding: '16px 32px', borderRadius: 10,
@@ -311,6 +315,8 @@ export default function Page() {
                 </p>
                 <a href={SITE_CONFIG.calendly} target="_blank" rel="noopener noreferrer"
                   onClick={() => trackClick('forderung_cta', 'Kostenlos testen')}
+                  data-track-id="forderung_cta"
+                  data-track-text="Kostenlos testen"
                   className="cta-primary"
                   style={{
                     display: 'inline-flex', alignItems: 'center', gap: 8,
@@ -327,7 +333,7 @@ export default function Page() {
         </section>
       </FadeUp>
 
-      {/* ── VALUE LADDER / ANGEBOTE — Side-by-side Pricing Cards ── */}
+      {/* ── VALUE LADDER / ANGEBOTE – Side-by-side Pricing Cards ── */}
       <FadeUp>
         <section id="angebote" style={{ padding: '60px 32px 100px', background: BG_ELEVATED }}>
           <div style={{ textAlign: 'center', marginBottom: 56 }}>
@@ -348,7 +354,7 @@ export default function Page() {
               {
                 label: 'Einstieg', title: 'KI-QuickCheck', price: '€490', priceNote: 'einmalig, auf Rechnung',
                 description: 'In 2 Stunden analysieren wir Ihre Prozesse und liefern einen konkreten Report mit ROI-Berechnung und Handlungsempfehlungen.',
-                features: ['45-Minuten Remote-Interview', 'Personalisierter Audit-Report (8–12 Seiten)', 'Konkrete ROI-Berechnung: Stunden und Euro', 'Priorisierter Automatisierungs-Fahrplan', '15-Minuten Follow-up Call', 'Unter €500 — keine Gremiumsfreigabe nötig'],
+                features: ['45-Minuten Remote-Interview', 'Personalisierter Audit-Report (8–12 Seiten)', 'Konkrete ROI-Berechnung: Stunden und Euro', 'Priorisierter Automatisierungs-Fahrplan', '15-Minuten Follow-up Call', 'Unter €500 – keine Gremiumsfreigabe nötig'],
                 ctaText: 'Quickcheck buchen', ctaHref: SITE_CONFIG.calendly, ctaExternal: true,
                 highlight: true, badge: 'EMPFOHLEN', trackingId: 'value_01_quickcheck',
               },
@@ -406,6 +412,8 @@ export default function Page() {
                 {pkg.ctaExternal ? (
                   <a href={pkg.ctaHref} target="_blank" rel="noreferrer"
                     onClick={() => trackClick(pkg.trackingId, pkg.ctaText)}
+                    data-track-id={pkg.trackingId}
+                    data-track-text={pkg.ctaText}
                     style={{
                       display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 6,
                       background: pkg.highlight ? CORAL : 'transparent',
@@ -420,6 +428,8 @@ export default function Page() {
                 ) : (
                   <Link href={pkg.ctaHref}
                     onClick={() => trackClick(pkg.trackingId, pkg.ctaText)}
+                    data-track-id={pkg.trackingId}
+                    data-track-text={pkg.ctaText}
                     style={{
                       display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 6,
                       background: 'transparent', border: `1px solid ${BORDER}`, color: TEXT_SECONDARY,
@@ -488,6 +498,8 @@ export default function Page() {
                   ))}
                 </ul>
                 <Link href={sector.href} onClick={() => trackClick(`branch_${i}`, sector.title)}
+                  data-track-id={`branch_${i}`}
+                  data-track-text={sector.title}
                   style={{ display: 'inline-flex', alignItems: 'center', gap: 6, fontSize: 14, color: TEXT_SECONDARY, textDecoration: 'none', fontWeight: 500, transition: 'color 0.2s' }}>
                   Details ansehen <ArrowRight />
                 </Link>
@@ -554,6 +566,8 @@ export default function Page() {
             </p>
             <a href={SITE_CONFIG.calendly} target="_blank" rel="noreferrer"
               onClick={() => trackClick('cta_bottom', 'KI-Quickcheck buchen')}
+              data-track-id="cta_bottom"
+              data-track-text="KI-Quickcheck buchen"
               className="cta-primary"
               style={{
                 display: 'inline-block', background: CORAL, color: '#fff',
