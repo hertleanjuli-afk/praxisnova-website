@@ -59,6 +59,11 @@ export default function DatenschutzPage() {
             Diese Website nutzt HubSpot für das Customer-Relationship-Management. Anbieter ist die HubSpot, Inc., 25 First Street, 2nd Floor Cambridge, MA 02141 USA. Wenn Sie ein Formular auf dieser Website ausfüllen, werden Ihre Daten auf den Servern von HubSpot gespeichert. HubSpot ist unter dem EU-US Data Privacy Framework zertifiziert. Mehr Informationen finden Sie in der <a href="https://legal.hubspot.com/privacy-policy" target="_blank" rel="noreferrer" style={{ color: '#E8472A', textDecoration: 'none' }}>Datenschutzerklärung von HubSpot</a>.
           </p>
 
+          <h3 style={{ fontSize: 16, fontWeight: 600, color: '#bbb', marginBottom: 6, marginTop: 18 }}>Brevo (E-Mail-Marketing)</h3>
+          <p style={{ margin: '0 0 14px' }}>
+            Für den Versand von E-Mails nutzen wir den Dienst Brevo (ehemals Sendinblue). Anbieter ist die Sendinblue GmbH, Köpenicker Str. 126, 10179 Berlin, Deutschland. Wenn Sie über unsere Website eine E-Mail-Adresse hinterlassen, werden Ihre Daten auf den Servern von Brevo in der EU gespeichert. Brevo wird für transaktionale E-Mails und Marketing-Automatisierung eingesetzt. Mehr Informationen finden Sie in der <a href="https://www.brevo.com/de/legal/privacypolicy/" target="_blank" rel="noreferrer" style={{ color: '#E8472A', textDecoration: 'none' }}>Datenschutzerklärung von Brevo</a>.
+          </p>
+
           <h3 style={{ fontSize: 16, fontWeight: 600, color: '#bbb', marginBottom: 6, marginTop: 18 }}>Cookies und Einwilligung</h3>
           <p style={{ margin: '0 0 14px' }}>
             Diese Website verwendet Cookies. Beim ersten Besuch werden Sie über einen Cookie-Banner um Ihre Einwilligung gebeten. Sie können zwischen notwendigen, Analyse- und Marketing-Cookies unterscheiden. Ihre Einstellungen können Sie jederzeit über den Link „Cookie-Einstellungen" im Footer der Website ändern.
