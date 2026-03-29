@@ -1,8 +1,8 @@
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'KI-Potenzialrechner | PraxisNova AI – Kostenlos Einsparpotenzial berechnen',
-  description: 'Berechnen Sie in 2 Minuten, wie viel Zeit und Geld KI-Automatisierung in Ihrem Bau-, Handwerks- oder Immobilienbetrieb spart. Kostenlos und ohne Anmeldung.',
+  title: 'KI-Potenzialrechner – Kostenlos Einsparpotenzial berechnen',
+  description: 'In 2 Minuten berechnen, wie viel Zeit und Geld KI in deinem Betrieb spart. Kostenlos, ohne Anmeldung.',
   alternates: { canonical: '/potenzialrechner' },
   openGraph: {
     title: 'KI-Potenzialrechner | PraxisNova AI',

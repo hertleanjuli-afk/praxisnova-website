@@ -6,8 +6,8 @@ import WebsiteTracker from '@/components/WebsiteTracker'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'PraxisNova AI | KI-Automatisierung für Bau, Handwerk & Immobilien',
-  description: 'KI-Schulung und Prozessautomatisierung für Bau, Handwerk und Immobilien. Workshops, individuelle Automatisierung und Beratung. DSGVO-konform auf EU-Servern.',
+  title: 'KI-Automatisierung für Bau, Handwerk & Immobilien',
+  description: 'KI-Prozessautomatisierung für Bau, Handwerk und Immobilien. Workshops, Automatisierung und Beratung. DSGVO-konform.',
   metadataBase: new URL('https://www.praxisnovaai.com'),
   alternates: {
     canonical: '/',
@@ -16,8 +16,8 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: 'PraxisNova AI | KI-Automatisierung für Bau, Handwerk & Immobilien',
-    description: '8,3 Stunden pro Woche verschwendet \u2013 wir ändern das. KI-Workshops und Prozessautomatisierung für Bau, Handwerk und Immobilien.',
+    title: 'KI-Automatisierung für Bau, Handwerk & Immobilien',
+    description: '8,3 Stunden pro Woche verschwendet – wir ändern das. KI-Workshops und Prozessautomatisierung.',
     url: 'https://www.praxisnovaai.com',
     siteName: 'PraxisNova AI',
     locale: 'de_DE',
@@ -25,8 +25,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'PraxisNova AI | KI-Automatisierung für Bau, Handwerk & Immobilien',
-    description: '8,3 Stunden pro Woche verschwendet \u2013 wir ändern das mit KI.',
+    title: 'KI-Automatisierung für Bau, Handwerk & Immobilien',
+    description: '8,3 Stunden pro Woche verschwendet – wir ändern das mit KI.',
   },
   robots: {
     index: true,
