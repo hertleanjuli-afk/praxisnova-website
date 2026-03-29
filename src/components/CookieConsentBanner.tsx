@@ -41,8 +41,35 @@ export default function CookieConsentBanner() {
     }
   }, []);
 
+  // Expose a global function to reopen the banner from Footer
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    (window as any).__openCookieSettings = () => {
+      // Load current consent into state so settings panel shows correct toggles
+      try {
+        const saved = localStorage.getItem(CONSENT_KEY);
+        if (saved) setConsent(JSON.parse(saved));
+      } catch { /* use defaults */ }
+      setShowSettings(true);
+      setShow(true);
+    };
+    return () => { delete (window as any).__openCookieSettings; };
+  }, []);
+
   const saveConsent = (settings: ConsentSettings) => {
     if (typeof window === 'undefined') return;
+
+    // If analytics consent was revoked, delete tracking data
+    const prevConsent = localStorage.getItem(CONSENT_KEY);
+    if (prevConsent) {
+      try {
+        const prev = JSON.parse(prevConsent);
+        if (prev.analytics === true && settings.analytics === false) {
+          localStorage.removeItem('pn_vid');
+          localStorage.removeItem('pn_utm');
+        }
+      } catch { /* ignore */ }
+    }
 
     localStorage.setItem(CONSENT_KEY, JSON.stringify(settings));
     localStorage.setItem(CONSENT_TIMESTAMP_KEY, new Date().toISOString());

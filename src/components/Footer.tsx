@@ -1,3 +1,5 @@
+'use client';
+
 import Link from 'next/link';
 import { SITE_CONFIG } from '@/config/site';
 
@@ -47,6 +49,13 @@ export default function Footer() {
           <Link href="/ueber-uns" className="footer-link">Über uns</Link>
           <Link href="/impressum" className="footer-link">Impressum</Link>
           <Link href="/datenschutz" className="footer-link">Datenschutz</Link>
+          <button
+            onClick={() => { if (typeof window !== 'undefined' && (window as any).__openCookieSettings) (window as any).__openCookieSettings(); }}
+            className="footer-link"
+            style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 0 }}
+          >
+            Cookie-Einstellungen
+          </button>
         </div>
         <div style={{ textAlign: 'right' }}>
           <a href={`mailto:${SITE_CONFIG.email}`} className="footer-link">
