@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 const CORAL = '#E8472A';
 const DISMISS_KEY = 'pn_popup_dismissed';
 const SUBMITTED_KEY = 'pn_popup_submitted';
+const CONSENT_KEY = 'pn_cookie_consent';
 const SEVEN_DAYS = 7 * 24 * 60 * 60 * 1000;
 
 function isValidEmail(email: string) {
@@ -26,6 +27,15 @@ export default function Popup() {
     if (dismissed) {
       const elapsed = Date.now() - parseInt(dismissed, 10);
       if (elapsed < SEVEN_DAYS) return;
+    }
+
+    // Respect marketing consent: if user explicitly rejected marketing, don't show popup
+    const consent = localStorage.getItem(CONSENT_KEY);
+    if (consent) {
+      try {
+        const parsed = JSON.parse(consent);
+        if (parsed.marketing === false) return;
+      } catch { /* show popup if consent is corrupted */ }
     }
 
     const timer = setTimeout(() => setShow(true), 10000);
