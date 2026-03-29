@@ -26,7 +26,7 @@ export default function DatenschutzPage() {
             Die Datenverarbeitung auf dieser Website erfolgt durch den Websitebetreiber. Dessen Kontaktdaten können Sie dem Impressum dieser Website entnehmen.
           </p>
           <p style={{ margin: '0 0 14px' }}>
-            Ihre Daten werden zum einen dadurch erhoben, dass Sie uns diese mitteilen. Hierbei kann es sich z.B. um Daten handeln, die Sie in ein Kontaktformular eingeben.
+            Ihre Daten werden zum einen dadurch erhoben, dass Sie uns diese mitteilen. Hierbei kann es sich z. B. um Daten handeln, die Sie in ein Kontaktformular eingeben.
           </p>
 
           <h2 style={{ fontSize: 18, fontWeight: 600, color: '#fff', marginBottom: 10, marginTop: 32 }}>2. Allgemeine Hinweise und Pflichtinformationen</h2>
@@ -57,6 +57,22 @@ export default function DatenschutzPage() {
           <h3 style={{ fontSize: 16, fontWeight: 600, color: '#bbb', marginBottom: 6, marginTop: 18 }}>HubSpot</h3>
           <p style={{ margin: '0 0 14px' }}>
             Diese Website nutzt HubSpot für das Customer-Relationship-Management. Anbieter ist die HubSpot, Inc., 25 First Street, 2nd Floor Cambridge, MA 02141 USA. Wenn Sie ein Formular auf dieser Website ausfüllen, werden Ihre Daten auf den Servern von HubSpot gespeichert. HubSpot ist unter dem EU-US Data Privacy Framework zertifiziert. Mehr Informationen finden Sie in der <a href="https://legal.hubspot.com/privacy-policy" target="_blank" rel="noreferrer" style={{ color: '#E8472A', textDecoration: 'none' }}>Datenschutzerklärung von HubSpot</a>.
+          </p>
+
+          <h3 style={{ fontSize: 16, fontWeight: 600, color: '#bbb', marginBottom: 6, marginTop: 18 }}>Cookies und Einwilligung</h3>
+          <p style={{ margin: '0 0 14px' }}>
+            Diese Website verwendet Cookies. Beim ersten Besuch werden Sie über einen Cookie-Banner um Ihre Einwilligung gebeten. Sie können zwischen notwendigen, Analyse- und Marketing-Cookies unterscheiden. Ihre Einstellungen können Sie jederzeit über den Link „Cookie-Einstellungen" im Footer der Website ändern.
+          </p>
+          <p style={{ margin: '0 0 14px' }}>
+            Notwendige Cookies sind für den Betrieb der Website erforderlich und können nicht deaktiviert werden. Analyse-Cookies helfen uns, die Nutzung der Website zu verstehen. Marketing-Cookies ermöglichen personalisierte Inhalte.
+          </p>
+
+          <h3 style={{ fontSize: 16, fontWeight: 600, color: '#bbb', marginBottom: 6, marginTop: 18 }}>Webanalyse und Klick-Tracking</h3>
+          <p style={{ margin: '0 0 14px' }}>
+            Mit Ihrer Einwilligung (Analyse-Cookies) erfassen wir anonymisierte Nutzungsdaten, um unsere Website zu verbessern. Dabei werden folgende Daten verarbeitet: besuchte Seiten, angeklickte Elemente, Scrolltiefe, Referrer-URL sowie UTM-Parameter aus Kampagnen-Links. Diese Daten werden unter einer zufällig generierten Besucher-ID (ohne Personenbezug) gespeichert und an unseren internen Analyse-Server übermittelt.
+          </p>
+          <p style={{ margin: '0 0 14px' }}>
+            Die Datenverarbeitung erfolgt auf Grundlage Ihrer Einwilligung (Art. 6 Abs. 1 lit. a DSGVO). Ohne Ihre Zustimmung über den Cookie-Banner werden keine Analyse-Daten erfasst.
           </p>
 
           <h2 style={{ fontSize: 18, fontWeight: 600, color: '#fff', marginBottom: 10, marginTop: 32 }}>4. Ihre Rechte</h2>
